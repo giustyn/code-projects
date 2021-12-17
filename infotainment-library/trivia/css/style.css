@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-primary: rgb(255, 255, 255);
+    --clr-secondary: rgb(255, 41, 11);
+    --clr-tertiary: rgb(0, 0, 0);
+    --clr-background: rgb(29, 31, 40);
+    --font-primary: 'Merriweather';
+    --font-secondary: 'Rift';
+    --font-color: #fff;
+    --font-size: calc(1.1vw + 1.1vh);
+    --clr-revealer-layer-1: var(--clr-background);
+    --clr-revealer-layer-2: var(--clr-secondary);
+    --clr-revealer-layer-3: var(--clr-background);
+    --countdown-timer: 13000ms;
+    --revealer-speed: 1500ms;
+    --revealer-opacity: 0.9;
+    --revealer-enabled: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background: var(--clr-background);
+    background-image: radial-gradient(circle at center top, rgb(45, 47, 55), var(--clr-background) 100%);
+    background-attachment: fixed;
+    font-family: var(--font-primary);
+    font-size: var(--font-size);
+    font-weight: normal;
+    color: var(--clr-primary);
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--clr-primary) 5%, transparent 5%);
+    background-size: 1em 1em;
+    opacity: 0.2;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse at right, #fff1, transparent);
+    min-height: 100vh;
+}
+
+header.top {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 15vh;
+    margin: auto 2em;
+    /* border: 1px solid lightskyblue; */
+}
+
+header .brand-logo {
+    position: absolute;
+    right: 2em;
+    content: url('../img/ADR_Logo_A_RGB.svg');
+    height: 1em;
+}
+
+header .title {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1.5em;
+    letter-spacing: .2vw;
+    color: var(--clr-secondary);
+    text-transform: uppercase;
+}
+
+header .clock {
+    font-family: 'Rift';
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: .2vw;
+    text-transform: uppercase;
+}
+
+header .clock #time {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--clr-secondary);
+    padding-left: 1rem;
+}
+
+main.container {
+    display: flex;
+    position: relative;
+    height: 100%;
+    margin: 2em;
+}
+
+section.trivia {
+    display: flex;
+    min-width: 100%;
+    /* outline: 2px solid limegreen; */
+}
+
+section.trivia .flex-col:first-child {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    /* justify-content: space-around; */
+    /* width: 100%; */
+    /* outline: 2px dashed purple; */
+}
+
+section.trivia .flex-col:last-child {
+    flex: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* outline: 2px dashed goldenrod; */
+}
+
+section.trivia .question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    font-family: inherit;
+    font-size: 1.65em;
+    font-weight: inherit;
+    line-height: 1.5;
+    /* outline: 1px solid orange; */
+}
+
+section.trivia .choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    /* outline: 1px solid orangered; */
+}
+
+section.trivia .choices>* {
+    font-family: inherit;
+    font-size: 1.8em;
+    font-weight: inherit;
+    line-height: 1.6;
+    text-transform: capitalize;
+    /* padding-left: 1em;
+    padding-bottom: 1rem; */
+}
+
+section.trivia .option::before {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--clr-secondary);
+    content: '';
+    padding-right: 1rem;
+}
+
+section.trivia .option.a::before {
+    content: 'A. ';
+}
+
+section.trivia .option.b::before {
+    content: 'B. ';
+}
+
+section.trivia .option.c::before {
+    content: 'C. ';
+}
+
+section.trivia .option.d::before {
+    content: 'D. ';
+}
+
+section.trivia .answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #f00;
+    font-family: var(--font-primary);
+}
+
+section.trivia .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 2em;
+    margin: .5em;
+    font-family: var(--font-secondary);
+    font-size: 6em;
+    font-weight: 600;
+    color: var(--clr-primary);
+}
+
+section.trivia .counter:before,
+section.trivia .counter:after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 1000%;
+    border-radius: 50%;
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
+    z-index: -1;
+    animation: animate 15s linear infinite;
+    /* animation-direction: alternate; */
+}
+
+section.trivia .counter:after {
+    filter: blur(20px);
+}
+
+section.trivia .counter span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: var(--clr-background);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+        transform: rotate(360deg);
+    }
+}
+
+progress {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .5rem;
+    /* background: transparent; */
+    /* appearance: none; */
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+progress::-webkit-progress-bar {
+    background: transparent;
+    /* background: var(--clr-background); */
+    border-radius: 50%;
+    padding: 2px;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+progress[value]::-webkit-progress-value {
+    background: transparent;
+
+    /* background-image:
+        -webkit-linear-gradient(-45deg,
+            transparent 33%, rgba(0, 0, 0, .1) 33%,
+            rgba(0, 0, 0, .1) 66%, transparent 66%),
+        -webkit-linear-gradient(top,
+            rgba(255, 255, 255, 0),
+            rgba(0, 0, 0, .25)),
+        -webkit-linear-gradient(left, #09c, #f44);
+
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 100%; */
+}
+
+#transition.revealer {
+    transform: translate3d(-100%, -100%, 0px);
+    opacity: var(--revealer-opacity);
+}
+
+#transition.revealer--right {
+    width: 100%;
+    height: 100%;
+    transform: translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, 90deg) translate3d(0px, 100%, 0px);
+}
+
+#transition.revealer--bottom {
+    width: 100vw;
+    height: 100vh;
+    transform: none;
+}
+
+#transition.revealer--top {
+    width: 100vw;
+    height: 100vh;
+    transform: rotate3d(0, 0, 1, 180deg);
+}
+
+#transition.revealer--left {
+    width: 100vh;
+    height: 100vw;
+    transform: translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, 90deg) translate3d(0px, 100%, 0px);
+}
+
+.revealer__layer.top {
+    background: var(--clr-revealer-layer-1);
+}
+
+.revealer__layer.middle {
+    background: var(--clr-revealer-layer-2);
+}
+
+.revealer__layer.bottom {
+    background: var(--clr-revealer-layer-3);
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+    /* visibility: hidden; */
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="fonts/Rift.css">
+    <link rel="stylesheet" href="fonts/WorkSans.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/revealer.css">
+</head>
+
+<body class="anim--effect-4">
+    <header class="top ">
+        <img class="brand-logo"></div>
+        <div class="title">Trivia</div>
+        <div class="clock"><span id="date"></span><span id="time"></span></div>
+    </header>
+    <main id="template" class="hidden">
+        <section class="trivia">
+            <div class="flex-col">
+                <div class="question"></div>
+                <div class="choices">
+                    <div class="option a"></div>
+                    <div class="option b"></div>
+                    <div class="option c"></div>
+                    <div class="option d"></div>
+                </div>
+            </div>
+            <div class="flex-col">
+                <div class="counter">
+                    <span class="timer"></span>
+                    <span class="answer"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main id="item" class="container"></main>
+    <div id="transition" class="revealer">
+        <div class="revealer__layer top"></div>
+        <div class="revealer__layer middle"></div>
+        <div class="revealer__layer bottom"></div>
+    </div>
+    <progress value="0" max="100">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/numeral.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

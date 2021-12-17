@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Did You Know</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <video id="videoBG" poster="" autoplay muted loop>
+      <source type="video/mp4">
+    </video>
+    <section class="wrapper">
+      <article class="content">
+        <h1>Lorem ipsum dolor?</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste quae adipisci reprehenderit quis ex laborum
+          maiores architecto aliquid dignissimos debitis.</p>
+      </article>
+    </section>
+    <section class="wrapper">
+      <article class="content">
+        <h1>DID YOU KNOW</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+      </article>
+    </section>
+    <section class="wrapper">
+      <article class="content">
+        <h1>DID YOU KNOW</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+      </article>
+    </section>
+  </main>
+  <script src="js/anime.min.js"></script>
+  <script>
+    function loadVideoBg() {
+      const url = 'https://retail.adrenalineamp.com/navori/assets/_dev/Bokeh_1920x1080.mp4';
+      const el = document.querySelector('video');
+      el.setAttribute('src', url);
+    }
+
+    function animateSlider() {
+      anime.timeline({
+          loop: true,
+          // direction: 'alternate',
+          // duration: 1500,
+          // easing: 'easeInOutElastic(.2,1)',
+        })
+        .add({
+          targets: 'section',
+          delay: anime.stagger(100),
+          opacity: [0, 1],
+          translateX: ['50%', '0%'],
+        }, '+=500')
+        .add({
+          targets: 'h1, p',
+          translateX: ['20%', '0%'],
+          opacity: [0, 1],
+          delay: anime.stagger(200),
+          endDelay: 5000,
+        }, '-=500')
+        .add({
+          targets: 'h1, p',
+          translateX: ['0%', '50%'],
+          opacity: [1, 0],
+          delay: anime.stagger(100),
+        }, '-=500')
+    }
+
+    loadVideoBg();
+    animateSlider();
+
+    // var i = 0;
+    // var intervalId = setInterval(function () {
+    //   animateSlider();
+    //   if (i === 10) {
+    //     clearInterval(intervalId);
+    //   }
+    //   console.log(i);
+    //   i++;
+    // }, 5000);
+  </script>
+</body>
+
+</html>
