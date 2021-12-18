@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    cursor: none;
+    user-select: none;
+    background-color: #474747;
+    width: 100vw;
+    height: 100vh;
+    font-size: calc(1vw + 1vh);
+}
+
+.stage {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    visibility: hidden;
+}
+
+.feed {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 101;
+}
+
+.component.bbox {
+    overflow: hidden;
+}
+
+.component.abs {
+    position: absolute;
+}
+
+.component.rel {
+    position: relative;
+}
+
+.component.blur {
+    -webkit-filter: blur(30px) brightness(0.8) contrast(120%);
+    -moz-filter: blur(30px) brightness(0.8) contrast(120%);
+    -o-filter: blur(30px) brightness(0.8) contrast(120%);
+    -ms-filter: blur(30px) brightness(0.8) contrast(120%);
+    filter: blur(30px) brightness(0.8) contrast(120%);
+}
+
+.component.blur-light {
+    -webkit-filter: blur(11px) brightness(0.8) contrast(120%);
+    -moz-filter: blur(11px) brightness(0.8) contrast(120%);
+    -o-filter: blur(11px) brightness(0.8) contrast(120%);
+    -ms-filter: blur(11px) brightness(0.8) contrast(120%);
+    filter: blur(11px) brightness(0.8) contrast(120%);
+}
+
+#media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56.25vw;
+    height: 100%;
+    border: 2px solid cyan;
+}
+
+#media .image.component {
+    background-image: url("http://source.unsplash.com/1080x1080/?random");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#media .component.focus {
+    transform: scale(0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+}
+
+#media .component.blur {
+    transform: scale(1.1);
+    width: 100%;
+    min-height: 100%;
+}
+
+#content {
+    text-rendering: optimizelegibility;
+    width: 43.75%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-image: url("../img/l-media-light.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 2px solid greenyellow;
+}
+
+#socialicon.component {
+    width: 6em;
+    height: 4em;
+    left: 96px;
+    top: 125px;
+    background-image: url("../img/twitter.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    border: 1px solid red;
+}
