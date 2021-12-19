@@ -1,12 +1,25 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300,300italic,regular,italic,700,700italic,900,900italic);
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Merriweather';
+}
+
+:root {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0, 0, 0);
+    --tertiary-color: rgb(77, 78, 83);
+    --revealer-speed: 1500ms;
+    --revealer-layer1-color: var(--primary-color);
+    --revealer-layer2-color: var(--primary-color);
+    --revealer-layer3-color: var(--tertiary-color);
 }
 
 body {
     overflow: hidden;
-    cursor: none;
+    /* cursor: none; */
     user-select: none;
     background-color: #474747;
     width: 100vw;
@@ -14,77 +27,37 @@ body {
     font-size: calc(1vw + 1vh);
 }
 
-.stage {
-    position: absolute;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-.preload {
-    visibility: hidden;
-}
-
-.feed {
-    display: flex;
+#feed {
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
     z-index: 101;
+    background-color: var(--primary-color);
 }
 
-.component.bbox {
-    overflow: hidden;
-}
-
-.component.abs {
-    position: absolute;
-}
-
-.component.rel {
-    position: relative;
-}
-
-.component.blur {
-    -webkit-filter: blur(30px) brightness(0.8) contrast(120%);
-    -moz-filter: blur(30px) brightness(0.8) contrast(120%);
-    -o-filter: blur(30px) brightness(0.8) contrast(120%);
-    -ms-filter: blur(30px) brightness(0.8) contrast(120%);
-    filter: blur(30px) brightness(0.8) contrast(120%);
-}
-
-.component.blur-light {
-    -webkit-filter: blur(11px) brightness(0.8) contrast(120%);
-    -moz-filter: blur(11px) brightness(0.8) contrast(120%);
-    -o-filter: blur(11px) brightness(0.8) contrast(120%);
-    -ms-filter: blur(11px) brightness(0.8) contrast(120%);
-    filter: blur(11px) brightness(0.8) contrast(120%);
-}
-
-#media {
+#media.abs.component {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56.25vw;
+    width: 56.25%;
     height: 100%;
-    border: 2px solid cyan;
+    /* border: 2px solid cyan; */
+    overflow: hidden;
 }
 
-#media .image.component {
-    background-image: url("http://source.unsplash.com/1080x1080/?random");
+#media .component.source {
+    /* background-image: url("http://source.unsplash.com/1080x1080/?social"); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #media .component.focus {
-    transform: scale(0.85);
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    margin: auto;
+    /* height: 56.25% !important; */
+    /* transform: scale(0.85); */
 }
 
 #media .component.blur {
@@ -93,27 +66,140 @@ body {
     min-height: 100%;
 }
 
-#content {
+#content.abs.component {
     text-rendering: optimizelegibility;
-    width: 43.75%;
+    width: 43.75% !important;
     height: 100%;
     top: 0;
     right: 0;
+    padding: 4em 3em;
     background-image: url("../img/l-media-light.png");
     background-position: right center;
     background-repeat: no-repeat;
     background-size: contain;
-    border: 2px solid greenyellow;
+    /* border: 2px solid greenyellow; */
 }
 
 #socialicon.component {
-    width: 6em;
-    height: 4em;
-    left: 96px;
-    top: 125px;
+    width: 4.5em;
+    height: 3.5em;
     background-image: url("../img/twitter.svg");
+    background-image: url("../img/Instagram_Glyph_Gradient_RGB.png");
     background-position: left center;
     background-repeat: no-repeat;
     background-size: auto 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
+
+#messagewrap.component {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 6em);
+    height: 50%;
+    top: 25%;
+    /* border: 1px solid red; */
+}
+
+#message.component {
+    overflow-wrap: break-word;
+    direction: ltr;
+    white-space: pre-wrap;
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+}
+
+#posted {
+    bottom: 25%;
+    font-size: 0.8em;
+    color: var(--tertiary-color);
+    text-align: left;
+}
+
+#profile.component {
+    width: calc(100% - 6em);
+    height: 15%;
+    bottom: 10%;
+    /* border: 1px solid blue; */
+}
+
+#profileimage.component {
+    border: 2px solid rgb(143, 144, 147);
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 3em;
+    height: 3em;
+    background-image: url("https://assets.seenspire.com/images/fullHd/assets/author/5139379/media_61bd3c44d03ce7.50537988");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#profilename.component {
+    right: 3em;
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+    line-height: 1.2;
+    text-align: right;
+}
+
+#profileaccount.component {
+    font-size: 0.8em;
+    color: rgb(143, 144, 147);
+    text-align: right;
+}
+
+#revealer.component {
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+}
+
+/** Revealer **/
+
+#revealer {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #f00;
+    display: none;
+  }
+  
+  #revealer.revealer--top {
+    width: 100vw;
+    height: 100vh;
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+  
+  #revealer.revealer--left {
+    width: 100vh;
+    height: 100vw;
+    transform: translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, 90deg) translate3d(0px, 100%, 0px);
+  }
+  
+  #revealer.revealer--bottom {
+    width: 100vw;
+    height: 100vh;
+    transform: none;
+  }
+  
+  #revealer.revealer--right {
+    width: 100vh;
+    height: 100vw;
+    transform: translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, -90deg) translate3d(0px, 100%, 0px);
+  }
+  
+  .revealer__layer.top {
+    background: rgba(var(--clr-revealer-layer-1), 0.9);
+  }
+  
+  .revealer__layer.middle {
+    background: rgba(var(--clr-revealer-layer-2), 0.9);
+  }
+  
+  .revealer__layer.bottom {
+    background: rgba(var(--clr-revealer-layer-3), 0.9);
+  }

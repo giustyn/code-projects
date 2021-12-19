@@ -6,33 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Stream</title>
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-
     <div class="stage">
         <div id="feed">
-            <div id="media" class="abs bbox component">
-                <div class="abs image blur component"></div>
-                <div class="abs image focus component"></div>
+            <div id="media" class="abs component">
+                <div class="abs source blur component"></div>
+                <div class="abs source focus component"></div>
+                <!-- <video class="abs source component"></video> -->
             </div>
             <div id="content" class="abs component">
                 <div id="socialicon" class="abs component"></div>
-                <div id="messagewrap">
-                    <div id="message" class="abs component"></div>
+                <div id="messagewrap" class="abs bbox component">
+                    <div id="messagetmp" class="abs inl component"></div>
+                    <div id="message" class="abs inl component"></div>
                 </div>
                 <div id="posted" class="abs component"></div>
-                <div id="profile">
-                    <div id="profileimage" class="abs component"></div>
-                    <div id="profilename" class="abs component"></div>
-                    <div id="profileaccount" class="abs component"></div>
+                <div id="profile" class="abs bbox component">
+                    <div id="profileimage" class=" component"></div>
+                    <div id="profilename" class=" component">Adrenaline Agency</div>
+                    <div id="profileaccount" class=" component"></div>
                 </div>
             </div>
         </div>
-        <div id="revealer"></div>
+        <div id="revealer" class="abs bbox component"></div>
     </div>
-    <div class="preload"></div>
+    <!-- <div class="preload"></div> -->
+    <script src="js/anime.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function spotlightHashtags() {
+            var str = $('#messagetmp').html();
+            var edt = str.replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+            $('#message').html(edt);
+            $('#messagetmp').remove();
+        }
+
+        function appendContent(data) {
+            let index = getRandomInt(data.Items.length);
+            
+            // todos: add video switching logic
+            $('.source').css('background-image', 'url(' + (data.Items[index].Images[0].Url) + ')');
+            $('#profileaccount').text("@" + data.Items[index].User.Username);
+            // $('#profileimage').css('background-image', 'url(' + (data.Items[index].ProviderIcon) + ')');
+            $('#posted').text(data.Items[index].DisplayTime);
+            $('#socialicon').css('background-image', 'url(' + (data.Items[index].ProviderIcon) + ')');
+            $('#messagetmp').text(data.Items[index].Content);
+            spotlightHashtags();
+            
+        }
+
+        function readJson() {
+            let url = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json";
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("HTTP error " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(json => {
+                    console.log(json);
+                    appendContent(json);
+                })
+                .catch(function () {
+                    console.error("fail")
+                })
+        }
+        readJson();
+    </script>
 
 </body>
 
