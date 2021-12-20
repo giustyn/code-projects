@@ -157,7 +157,8 @@
 }
 
 .component span.hashtag {
-  color: #1891ff;
+  /* color: #1891ff; */
+  color: var(--hashtag-color);
 }
 
 .component span.hashtag.hashtag-bold {
