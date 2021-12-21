@@ -127,6 +127,16 @@ body {
     /* word-wrap: break-word */
 }
 
+#messagetmp.component {
+    overflow-wrap: break-word;
+    direction: ltr;
+    white-space: pre-wrap;
+    font-size: 1.5em;
+    color: #0f0;
+    /* word-break: break-all; */
+    /* word-wrap: break-word */
+}
+
 #posted {
     font-size: 0.8em;
     color: var(--primary-color);
