@@ -1,4 +1,6 @@
 (function () {
+    let username = "Adrenaline Agency";
+
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
@@ -26,29 +28,76 @@
         });
     }
 
+
+
+
     function appendContent(data) {
         let index = getRandomInt(data.Items.length),
             imgUrl = data.Items[index].Images[0].Url,
             account = "@" + data.Items[index].User.Username,
             icon = data.Items[index].ProviderIcon,
             post = data.Items[index].Content,
-            lastPost = data.Items[index].DisplayTime;
+            last = data.Items[index].DisplayTime;
 
         function mediaVideoType() {
             if (imgUrl.includes(".mp4?") != true) return false
             $('#media video').attr('src', imgUrl).siblings().remove();
+            return true
         }
         if (mediaVideoType() != true) {
             $('#media .photo').css('background-image', 'url(' + (imgUrl) + ')');
             $('#media video').remove();
         };
         $('#socialicon').css('background-image', 'url(' + (icon) + ')');
+        $('#profilename').text(username);
         $('#profileaccount').text(account);
         $('#messagetmp').text(post);
-        $('#posted').text(lastPost);
+        $('#posted').text(last);
         spotlightHashtags();
 
-        console.log(post, post.length)
+        const isOverflown = ({ clientHeight, scrollHeight }) => scrollHeight > clientHeight
+
+        const resizeText = ({ element, elements, minSize = 10, maxSize = 512, step = 1, unit = 'px' }) => {
+          (elements || [element]).forEach(el => {
+            let i = minSize
+            let overflow = false
+        
+                const parent = el.parentNode
+        
+            while (!overflow && i < maxSize) {
+                el.style.fontSize = `${i}${unit}`
+                overflow = isOverflown(parent)
+        
+              if (!overflow) i += step
+            }
+        
+            // revert to last state where no overflow happened
+            el.style.fontSize = `${i - step}${unit}`
+          })
+        }
+
+        resizeText({
+            elements: document.querySelectorAll('#message'),
+            step: 0.5
+          })
+
+        // sandbox();
+        /*function sandbox() {
+            const output = document.querySelector('#message');
+            const outputContainer = document.querySelector('#messagewrap');
+
+            const resizeToFfit = () => {
+                let fontSize = window.getComputedStyle(output).fontSize;
+                alert(fontSize)
+                output.style.fontSize = (parseFloat(fontSize) - 1) + 'px';
+
+                if (output.clientHeight >= outputContainer.clientHeight) {
+                    resizeToFfit();
+                }
+            }
+        } */
+        
+        // console.log(data)
 
     }
 
@@ -70,4 +119,4 @@
             })
     }
     readJson();
-})();
+})(jQuery);
