@@ -8,10 +8,10 @@
     const resizeText = ({
         element,
         elements,
-        minSize = 1,
-        maxSize = 2.5,
-        step = .25,
-        unit = 'em'
+        minSize,
+        maxSize,
+        step,
+        unit
     }) => {
         (elements || [element]).forEach(el => {
             let i = minSize
@@ -31,36 +31,28 @@
     }
 
     function getRandomInt(min, max) {
-        // return Math.floor(Math.random() * max);
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    function spotlightHashtags(selector) {
+    function fitTextToParent(selector) {
+        var tmp = selector + 'tmp';
+        var clone = $(selector).clone().attr('id', selector.replace('#', '') + 'tmp');
+        $(selector).parent().append(clone);
 
-
-
-        // <span id="messagetmp" class="component"></span>
-        // var txt2 = $("<span></span>").text("Text.").attr('id', 'messagetmp').addClass('component');   // Create with jQuery
-
+        var str = $(tmp).html();
+        var edt = str.replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+        $(selector).html(edt);
+        $(tmp).remove();
+        resizeText({
+            elements: document.querySelectorAll(selector),
+            step: 0.25,
+            minSize: 1,
+            maxSize: 2.25,
+            unit: 'em'
+        })
     }
 
-    function cloneData() {
-        let $template = $('#template');
-        let $container = $('#main');
-        let $clone = $template.clone();
-        $template.remove();
-        $.each(data, function (i, el) {
-            setTimeout(() => {
-                console.log(el.heading, el.content);
-                $clone.find('.heading').html(el.heading);
-                $clone.find('.content').html(el.content);
-                $container.append($clone);
-                animateClone($clone);
-            }, i * duration);
-        });
-    }
-
-    function appendContent(data) {
+    function appendContent(data,i) {
 
         let index = getRandomInt(0, data.Items.length),
             imgUrl = data.Items[index].Images[0].Url,
@@ -84,28 +76,28 @@
         $('#message').text(post);
         $('#posted').text(last);
 
-        function clonePost(selector) {
-            var tmp = selector + 'tmp';
-            var clone = $(selector).clone().attr('id', selector.replace('#', '') + 'tmp');
-            $(selector).parent().append(clone);
-
-            var str = $(tmp).html();
-            var edt = str.replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
-            $(selector).html(edt);
-            $(tmp).remove();
-        }
-        clonePost('#message');
-
-        resizeText({
-            elements: document.querySelectorAll('#message'),
-            step: 0.25
-        })
+        fitTextToParent('#message');
 
         console.log(index, "characters:", post.length)
-
     }
 
-    function readJson() {
+    function cycleFeed() {
+        let $template = $('#feed');
+        let $container = $('#main');
+        let $clone = $template.clone();
+        $template.remove();
+        $.each(data, function (i, el) {
+            setTimeout(() => {
+                console.log(el.heading, el.content);
+                $clone.find('.heading').html(el.heading);
+                $clone.find('.content').html(el.content);
+                $container.append($clone);
+                animateClone($clone);
+            }, i * duration);
+        });
+    }
+
+    function init() {
         let url = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json";
         fetch(url)
             .then(response => {
@@ -122,10 +114,6 @@
                 console.error("fail")
             })
     }
-    readJson();
-
-    $(window).resize(function () {
-        $("#log").append("<div>Handler for .resize() called.</div>");
-    });
+    init();
 
 })(jQuery);
