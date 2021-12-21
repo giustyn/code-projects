@@ -28,9 +28,6 @@
         });
     }
 
-
-
-
     function appendContent(data) {
         let index = getRandomInt(data.Items.length),
             imgUrl = data.Items[index].Images[0].Url,
@@ -56,8 +53,7 @@
         spotlightHashtags();
 
         const isOverflown = ({ clientHeight, scrollHeight }) => scrollHeight > clientHeight
-
-        const resizeText = ({ element, elements, minSize = 10, maxSize = 512, step = 1, unit = 'px' }) => {
+        const resizeText = ({ element, elements, minSize = 10, maxSize = 62, step = 1, unit = 'px' }) => {
           (elements || [element]).forEach(el => {
             let i = minSize
             let overflow = false
@@ -81,23 +77,7 @@
             step: 0.5
           })
 
-        // sandbox();
-        /*function sandbox() {
-            const output = document.querySelector('#message');
-            const outputContainer = document.querySelector('#messagewrap');
-
-            const resizeToFfit = () => {
-                let fontSize = window.getComputedStyle(output).fontSize;
-                alert(fontSize)
-                output.style.fontSize = (parseFloat(fontSize) - 1) + 'px';
-
-                if (output.clientHeight >= outputContainer.clientHeight) {
-                    resizeToFfit();
-                }
-            }
-        } */
-        
-        // console.log(data)
+        console.log("characters:", post.length)
 
     }
 
