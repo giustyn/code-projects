@@ -11,8 +11,21 @@
 </head>
 
 <body>
-    <div class="stage">
-        <div id="feed">
+    <!-- 
+    <section id="main" class="container">
+        <article id="template">
+            <div class="heading">
+                <span></span>
+            </div>
+            <div class="content">
+                <span> </span>
+            </div>
+        </article>
+    </section>
+     -->
+    <section id="main" class="container">
+        <article id="template">
+            <!-- <div id="feed"> -->
             <div id="media" class="abs bbox component">
                 <video class="abs source component" autoplay muted loop></video>
                 <div class="abs photo blur component"></div>
@@ -24,23 +37,23 @@
                     <span id="message" class="component"></span>
                     <span id="posted" class="component"></span>
                 </div>
-                <div id="profile" class="abs component">
-                    <div id="accountwrap" class="abs component">  
+                <div id="profile" class=" component">
+                    <div id="accountwrap" class="rel component">
                         <span id="profilename" class="component"></span>
                         <span id="profileaccount" class="component"></span>
                     </div>
-                    <div id="profileimage" class="bbox component">
+                    <div id="profileimage" class="component">
                         <img src="img/adr-brandmark.jpg" alt="">
                     </div>
                 </div>
-            
-            </div>
-        </div>
-        <!-- <div id="revealer" class="abs bbox component"></div> -->
+        </article><!-- </div> -->
+    </section>
+    <!-- <div id="revealer" class="abs bbox component"></div> -->
     </div>
     <!-- <div class="preload"></div> -->
     <script src="js/anime.min.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/components.js"></script>
     <script src="js/app.js"></script>
 
 </body>
