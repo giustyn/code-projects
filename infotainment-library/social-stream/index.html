@@ -7,25 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Stream</title>
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/revealer.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!-- 
     <section id="main" class="container">
         <article id="template">
-            <div class="heading">
-                <span></span>
-            </div>
-            <div class="content">
-                <span> </span>
-            </div>
-        </article>
-    </section>
-     -->
-    <section id="main" class="container">
-        <article id="template">
-            <!-- <div id="feed"> -->
             <div id="media" class="abs bbox component">
                 <video class="abs source component" autoplay muted loop></video>
                 <div class="abs photo blur component"></div>
@@ -46,9 +34,14 @@
                         <img src="img/adr-brandmark.jpg" alt="">
                     </div>
                 </div>
-        </article><!-- </div> -->
+        </article>
     </section>
-    <!-- <div id="revealer" class="abs bbox component"></div> -->
+    <div id="transition" class="anim--effect-2">
+        <div class="revealer">
+            <div class="revealer__layer top"></div>
+            <!-- <div class="revealer__layer middle"></div> -->
+            <div class="revealer__layer bottom"></div>
+        </div>
     </div>
     <!-- <div class="preload"></div> -->
     <script src="js/anime.min.js"></script>

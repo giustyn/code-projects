@@ -1,119 +1,123 @@
 (function () {
     let username = "Adrenaline Agency";
 
-    const isOverflown = ({
-        clientHeight,
-        scrollHeight
-    }) => scrollHeight > clientHeight
-    const resizeText = ({
-        element,
-        elements,
-        minSize,
-        maxSize,
-        step,
-        unit
-    }) => {
-        (elements || [element]).forEach(el => {
-            let i = minSize
-            let overflow = false
-
-            const parent = el.parentNode
-
-            while (!overflow && i < maxSize) {
-                el.style.fontSize = `${i}${unit}`
-                overflow = isOverflown(parent)
-
-                if (!overflow) i += step
-            }
-            // revert to last state where no overflow happened
-            el.style.fontSize = `${i - step}${unit}`
-        })
-    }
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
+    let dataURI = [
+        local = "c:\\data\\social\\social.json",
+        server = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
+    ];
 
     function fitTextToParent(selector) {
         var tmp = selector + 'tmp';
         var clone = $(selector).clone().attr('id', selector.replace('#', '') + 'tmp');
         $(selector).parent().append(clone);
-
-        var str = $(tmp).html();
-        var edt = str.replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+        // (^|\s)(#[a-z\d-]+)
+        var edt = $(tmp).text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
         $(selector).html(edt);
         $(tmp).remove();
+
         resizeText({
             elements: document.querySelectorAll(selector),
-            step: 0.25,
+            step: 0.1,
             minSize: 1,
             maxSize: 2.25,
             unit: 'em'
         })
     }
 
-    function appendContent(data,i) {
-
-        let index = getRandomInt(0, data.Items.length),
-            imgUrl = data.Items[index].Images[0].Url,
-            account = "@" + data.Items[index].User.Username,
-            icon = data.Items[index].ProviderIcon,
-            post = data.Items[index].Content,
-            last = data.Items[index].DisplayTime;
-
-        function mediaVideoType() {
-            if (imgUrl.includes(".mp4?") != true) return false
-            $('#media video').attr('src', imgUrl).siblings().remove();
-            return true
+    function revealer(direction) {
+        let $transition = $('.revealer');
+        let $enabled = parseInt($(':root').css('--revealer'));
+        let $speed = parseInt($(':root').css('--revealer-speed'));
+        if ($enabled == 1) {
+          $transition.addClass(direction).show();
+          $transition.addClass('revealer--animate').delay($speed * 2).queue(function () {
+            $(this).removeClass('revealer--animate ' + direction).hide().dequeue();
+          });
         }
-        if (mediaVideoType() != true) {
-            $('#media .photo').css('background-image', 'url(' + (imgUrl) + ')');
-            $('#media video').remove();
-        };
-        $('#socialicon').css('background-image', 'url(' + (icon) + ')');
-        $('#profilename').text(username);
-        $('#profileaccount').text(account);
-        $('#message').text(post);
-        $('#posted').text(last);
+      }
 
-        fitTextToParent('#message');
+    function animateClone() {
+        // Begin animation in-out
+        let speed = 1500,
+            offset = (speed / 2),
+            animate = anime.timeline({
+                easing: 'easeInOutQuad',
+                loop: false,
+                autoplay: false,
+                duration: speed
+            })
+            .add({
+                targets: '#template *',
+                opacity: [0, 1],
+                delay: anime.stagger(100),
+                // translateX: ['20%', '0%'],
+            }, '-=' + offset + '')
+            .add({
+                targets: ''
+            })
 
-        console.log(index, "characters:", post.length)
+        animate.play();
     }
 
-    function cycleFeed() {
-        let $template = $('#feed');
-        let $container = $('#main');
-        let $clone = $template.clone();
+    function cycleFeed(data) {
+        let feed = data.Items,
+            $template = $('#template'),
+            $container = $('#main'),
+            $clone = $template.clone(),
+            interval = 10000,
+            index = 0;
         $template.remove();
-        $.each(data, function (i, el) {
+        $.each(feed, function (i, el) {
+            let imgUrl = el.Images[0].Url,
+                account = "@" + el.User.Username,
+                icon = el.ProviderIcon,
+                post = el.Content,
+                last = el.DisplayTime;
+
             setTimeout(() => {
-                console.log(el.heading, el.content);
-                $clone.find('.heading').html(el.heading);
-                $clone.find('.content').html(el.content);
+                console.log(i, el);
+                $clone.find('#socialicon').css('background-image', 'url(' + (icon) + ')');
+                $clone.find('#profilename').text(username);
+                $clone.find('#profileaccount').text(account);
+                $clone.find('#message').text(post);
+                $clone.find('#posted').text(last);
+                fitTextToParent('#message');
+                // alert(imgUrl)
+                function mediaVideoType() {
+                    if (imgUrl.includes(".mp4?") != true) return false
+                    $clone.find('#media video').attr('src', imgUrl).siblings().remove();
+                    return true
+                }
+                if (mediaVideoType() != true) {
+                    $clone.find('#media .photo').css('background-image', 'url(' + (imgUrl) + ')');
+                    $clone.find('#media video').remove();
+                };
+
+                // todos: fix fittexttoparent
+
                 $container.append($clone);
                 animateClone($clone);
-            }, i * duration);
+                revealer('revealer-left');
+            }, i * interval);
         });
     }
 
-    function init() {
-        let url = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json";
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error " + response.status);
-                }
-                return response.json();
+    function getData() {
+        $.get(dataURI[1])
+            .done(function (data) {
+                cycleFeed(data)
             })
-            .then(json => {
-                console.log(json);
-                appendContent(json);
-            })
-            .catch(function () {
-                console.error("fail")
-            })
+            .always(function () {
+                // $bumper[0].addEventListener("timeupdate", videoTimeUpdate);
+                console.log("dataURI: " + dataURI[1]);
+            });
     }
+
+    function init() {
+        // loadVideo();
+        getData();
+    }
+
     init();
 
 })(jQuery);

@@ -20,14 +20,13 @@
     --anime-speed: 1250ms;
     --revealer-speed: 1500ms;
     --revealer-opacity: 0.95;
-    --revealer-enabled: 0;
+    --revealer-enabled: 1;
     --story-background: 0, 0, 0;
     --intro-video: 1;
-    --header-enabled: 0;
-    --article-duration: 8000ms;
+    --article-duration: 5000ms;
     --article-limit: 10;
-    --feed-type: celeb;
-    --feed-style: modern;
+    --feed-type: news;
+    --feed-style: default;
     --screen-config: 1;
 }
 
@@ -47,17 +46,18 @@ body {
     /* border: 2px solid red;  */
 }
 
-#content {
-    height: 100%;
+#intro{
+    z-index: 1000;
 }
 
-main#template {
-    display: none;
+#content {
+    height: 100%;
 }
 
 section,
 main,
 article,
+header,
 .photo {
     position: absolute;
     width: 100%;
@@ -111,6 +111,7 @@ article,
     height: 100vh;
     margin: 0;
     padding: 0;
+    background: #000;
 }
 
 .revealer__layer.top {

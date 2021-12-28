@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     function cloneData() {
         let $template = $('#template');
-        var $container = $('#main');
+        let $container = $('#main');
         let $clone = $template.clone();
         $template.remove();
         $.each(data, function (i, el) {
