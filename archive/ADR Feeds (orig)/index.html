@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ADR Feeds</title>
+    <link rel="stylesheet" href="assets/css/Oxygen.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/clients.css">
+    <link rel="stylesheet" href="assets/css/markets.css">
+    <link rel="stylesheet" href="assets/css/revealer.css">
+    <link rel="stylesheet" href="assets/css/weather.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="anim--effect-4">
+    <div id="intro"><video id="bumper" autoplay="" muted="" playsinline=""></video></div>
+    <main id="content">
+        <section id="weather">
+            <div class="container-fluid" id="static">
+                <div data-aos="fade" class="photo-container">
+                    <div class="weather-photo placeholder"></div>
+                </div>
+            </div>
+            <div class="container-fluid" id="dynamic">
+                <div id="bg-video"><video id="current-bg-video" autoplay="" muted="" loop=""></video>
+                    <div class="overlay blur"></div>
+                </div>
+                <div class="row" data-aos="fade" id="location">
+                    <div class="col align-self-center">
+                        <h6 data-aos="fade-right" data-aos-delay="500" id="salutation" class="salutation">&nbsp;</h6>
+                        <h4 class="text-uppercase current-location" data-aos="fade-right" data-aos-delay="600"
+                            id="current-location">&nbsp;</h4>
+                    </div>
+                    <div class="col-auto text-right align-self-center" style="min-width: 20%;">
+                        <h6 data-aos="fade-left" data-aos-delay="800" id="date" class="current-date">&nbsp;</h6>
+                        <h4 data-aos="fade-left" data-aos-delay="900" id="time" class="current-time">&nbsp;</h4>
+                    </div>
+                </div>
+                <div class="row" data-aos="fade" id="today">
+                    <div class="col day">
+                        <div class="row daywrap">
+                            <div class="col-6 iconwrap" data-aos="fade-right" data-aos-delay="1000"><img
+                                    class="icon current-icon" src="assets/img/pixel.png"></div>
+                            <div class="col-6 tempwrap">
+                                <h1 data-aos="fade-left" data-aos-delay="1100" class="forecast-temp current-temp">&nbsp;
+                                </h1>
+                            </div>
+                            <div class="col-12 description">
+                                <h4 data-aos="fade-up" data-aos-delay="1200" class="current-condition">&nbsp;</h4>
+                            </div>
+                        </div>
+                        <div class="row no-gutters conditionswrap">
+                            <div class="col conditions">
+                                <h6 data-aos="fade-up" data-aos-delay="1500" class="current-high">&nbsp;</h6>
+                                <h6 data-aos="fade-up" data-aos-delay="1550" class="current-low">&nbsp;</h6>
+                                <h6 data-aos="fade-up" data-aos-delay="1600" class="current-pop">&nbsp;</h6>
+                                <h6 data-aos="fade-up" data-aos-delay="1650" class="current-wind">&nbsp;</h6>
+                                <h6 data-aos="fade-up" data-aos-delay="1700" class="current-humidity">&nbsp;</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-aos="fade-right" data-aos-delay="1500" id="forecast">
+                    <div class="col day divide" data-aos="fade-right" data-aos-delay="1200">
+                        <div class="row daywrap">
+                            <div class="col iconwrap"><img class="icon" src="assets/img/pixel.png"></div>
+                            <div class="col tempwrap">
+                                <h1 class="forecast-temp">&nbsp;</h1>
+                            </div>
+                            <div class="col description">
+                                <h5 class="forecast-day">&nbsp;</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col day divide" data-aos="fade-right" data-aos-delay="1400">
+                        <div class="row daywrap">
+                            <div class="col iconwrap"><img class="icon" src="assets/img/pixel.png"></div>
+                            <div class="col tempwrap">
+                                <h1 class="forecast-temp">&nbsp;</h1>
+                            </div>
+                            <div class="col description">
+                                <h5 class="forecast-day">&nbsp;</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col day divide" data-aos="fade-right" data-aos-delay="1700">
+                        <div class="row daywrap">
+                            <div class="col iconwrap"><img class="icon" src="assets/img/pixel.png"></div>
+                            <div class="col tempwrap">
+                                <h1 class="forecast-temp">&nbsp;</h1>
+                            </div>
+                            <div class="col description">
+                                <h5 class="forecast-day">&nbsp;</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col day" data-aos="fade-right" data-aos-delay="2000">
+                        <div class="row daywrap">
+                            <div class="col iconwrap"><img class="icon" src="assets/img/pixel.png"></div>
+                            <div class="col tempwrap">
+                                <h1 class="forecast-temp">&nbsp;</h1>
+                            </div>
+                            <div class="col description">
+                                <h5 class="forecast-day">&nbsp;</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="news-single" class="feed">
+            <div class="row header-overlay" data-aos="fade-down" data-aos-delay="1500">
+                <div class="col day" id="locale">
+                    <h3 class="salutation">&nbsp;</h3>
+                    <h3 class="current-location">&nbsp;</h3>
+                </div>
+                <div class="col-auto" id="logo"><img class="brand-logo" src="assets/img/adr_logomark.svg"></div>
+                <div class="col day" id="datetime">
+                    <h3 id="date" class="current-date">&nbsp;</h3>
+                    <h3 id="time" class="current-time">&nbsp;</h3>
+                    <h3 id="temp" class="current-temp">&nbsp;</h3>
+                </div>
+            </div>
+            <div class="row article-container news-single" data-aos="fade">
+                <div class="col article-wrapper">
+                    <article data-aos="fade" id="story-template" class="story-template">
+                        <div class="photo-container">
+                            <div class="photo-bg placeholder"></div>
+                            <div class="photo placeholder ken-burns"></div>
+                        </div>
+                        <div class="story-container">
+                            <div class="row overlay">
+                                <div class="col story-wrapper">
+                                    <h2 class="story-headline">&nbsp;</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="news-dual" class="feed">
+            <div class="row header-overlay overlay-primary" data-aos="fade-down" data-aos-delay="1500">
+                <div class="col day" id="locale">
+                    <h3 class="salutation">&nbsp;</h3>
+                    <h3 class="current-location">&nbsp;</h3>
+                </div>
+                <div class="col-auto" id="logo"><img class="brand-logo" src="assets/img/adr_logomark.svg"></div>
+                <div class="col day" id="datetime">
+                    <h3 id="date" class="current-date">&nbsp;</h3>
+                    <h3 id="time" class="current-time">&nbsp;</h3>
+                    <h3 id="temp" class="current-temp">&nbsp;</h3>
+                </div>
+            </div>
+            <div class="row article-container news-dual" data-aos="fade">
+                <div class="col article-wrapper">
+                    <article data-aos="fade" id="story-template" class="story-template">
+                        <div class="photo-container">
+                            <div class="photo-bg placeholder"></div>
+                            <div class="photo placeholder ken-burns"></div>
+                        </div>
+                        <div class="story-container">
+                            <div class="row overlay">
+                                <div class="col story-wrapper">
+                                    <h2 class="story-headline">&nbsp;</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="markets">
+            <div id="marketBgVideo"><video id="bg-video" autoplay="" muted="" loop="">
+                    <source type="video/webm">
+                </video>
+                <div class="bg-overlay"></div>
+            </div>
+            <div id="marketHeader">
+                <div class="row" data-aos="fade" data-aos-delay="500" id="container">
+                    <div class="col overflow-hidden">
+                        <h5 data-aos="fade-up" data-aos-delay="500" id="date" class="current-date">&nbsp;</h5>
+                    </div>
+                    <div class="col-auto overflow-hidden">
+                        <h5 data-aos="fade-up" data-aos-delay="750" id="time" class="current-time">&nbsp;</h5>
+                    </div>
+                    <div class="col-12 overflow-hidden mt-3">
+                        <div data-aos="slide-right" data-aos-delay="500" id="separator"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="marketData">
+                <div class="row" data-aos="fade-down" data-aos-delay="300" id="individualStock">
+                    <div class="col" id="stock">
+                        <h1 id="stockName">&nbsp;</h1>
+                        <h2 id="lastPrice">&nbsp;</h2>
+                    </div>
+                    <div class="col-1" id="change">
+                        <div id="changeValue"></div>
+                    </div>
+                    <div class="col" id="value">
+                        <h1 id="changeValueNum">&nbsp;</h1>
+                    </div>
+                    <div class="col" id="difference">
+                        <h1 id="percentchangeValue">&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="transition">
+        <div class="revealer revealer--left">
+            <div class="revealer__layer top"></div>
+            <div class="revealer__layer middle"></div>
+            <div class="revealer__layer bottom"></div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/polyfills.js"></script>
+    <script src="assets/js/utils_api.js"></script>
+    <script src="assets/js/utils_icon.js"></script>
+    <script src="assets/js/utils_misc.js"></script>
+    <script src="assets/js/utils_video.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

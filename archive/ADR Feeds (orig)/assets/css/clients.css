@@ -1,0 +1,56 @@
+/* JD Bank */
+
+:root.jd-bank {
+  --clr-primary: #121b47;
+  --clr-secondary: #aadb55;
+  --font-primary: 'Source Sans Pro';
+}
+
+.jd-bank .revealer__layer.blue-wood {
+  background-image: url('../../assets/img/blue-wood.jpg');
+}
+
+.jd-bank .revealer__layer.white-wood {
+  background-image: url('../../assets/img/white-wood.jpg');
+}
+
+.jd-bank .revealer__layer.green-wood {
+  background-image: url('../../assets/img/green-wood.jpg');
+}
+
+/* Rockland Trust */
+
+:root.rockland-trust {
+  --clr-primary: rgba(10, 40, 118, 0.9);
+  --clr-secondary: rgba(255, 195, 36, 0.9);
+  --clr-tertiary: rgba(27, 94, 158, 0.9);
+  --font-primary: 'Merriweather-Regular';
+}
+
+/* City and County CU */
+
+:root.city-county-cu {
+  --clr-primary: rgba(59, 59, 59, 0.9);
+  --clr-secondary: rgba(231, 10, 106, 0.9);
+  --clr-tertiary: rgba(255, 255, 255, 0.9);
+  --font-primary: 'Montserrat';
+}
+
+/* DupageCU */
+
+:root.dupage-cu {
+  --clr-primary: rgba(232,112,47,0.9);
+  --clr-secondary: rgba(0,176,185,0.9);
+  --clr-tertiary: rgba(75,79,84,0.9);
+  --clr-revealer-layer-1: rgba(255,255,255,0.8);
+  --clr-revealer-layer-2: var(--clr-primary);
+  --clr-revealer-layer-3: var(--clr-secondary);
+  --clr-story-background: rgba(255,255,255,0.8);
+  --clr-story-accent: var(--clr-primary);
+  --clr-story-headline: var(--font-color);
+  --font-primary: 'Roboto';
+  --font-size: 1.85em;
+  --font-weight: 500;
+  --feed-style: modern;
+}
+

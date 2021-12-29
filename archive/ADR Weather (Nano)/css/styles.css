@@ -1,0 +1,26 @@
+html{box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}*,:after,:before{box-sizing:inherit;padding:0;margin:0}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #FFF;
+  overflow: hidden;
+  font-family: 'Arial';
+  font-weight: bold;
+}
+
+#bumper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
