@@ -25,10 +25,10 @@
     }
 
     function revealer(direction) {
+        let transition = 1;
         let $transition = $('.revealer');
-        let $enabled = parseInt($(':root').css('--revealer'));
         let $speed = parseInt($(':root').css('--revealer-speed'));
-        if ($enabled == 1) {
+        if (transition == 1) {
           $transition.addClass(direction).show();
           $transition.addClass('revealer--animate').delay($speed * 2).queue(function () {
             $(this).removeClass('revealer--animate ' + direction).hide().dequeue();
@@ -38,23 +38,38 @@
 
     function animateClone() {
         // Begin animation in-out
-        let speed = 1500,
-            offset = (speed / 2),
+        let speed = 1200,
+            stagger = 200,
             animate = anime.timeline({
-                easing: 'easeInOutQuad',
+                easing: 'easeInOutQuart',
                 loop: false,
                 autoplay: false,
                 duration: speed
             })
+            
             .add({
-                targets: '#template *',
+                easing: 'easeOutQuart',
+                targets: '.photo.focus',
                 opacity: [0, 1],
-                delay: anime.stagger(100),
-                // translateX: ['20%', '0%'],
-            }, '-=' + offset + '')
-            .add({
-                targets: ''
+                // scale: [1.1,1],
             })
+            .add({
+                targets: '#socialicon',
+                opacity: [0, 1],
+                translateX: [20, 0],
+            }, '-=' + speed)
+            .add({
+                targets: '#profile *',
+                opacity: [0, 1],
+                translateX: [-20, 0],
+            }, '-=' + speed)
+            .add({
+                targets: '#messagewrap *',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                delay: anime.stagger(stagger),
+                // translateX: ['20%', '0%'],
+            }, '-=' + speed)
 
         animate.play();
     }
