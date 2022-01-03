@@ -3,7 +3,8 @@
 
     let dataURI = [
         local = "c:\\data\\social\\social.json",
-        server = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
+        server = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json",
+        dev = "https://giustyn.github.io/code-projects/dummy-data/social/data.json"
     ];
 
     function fitTextToParent(selector) {
@@ -118,13 +119,13 @@
     }
 
     function getData() {
-        $.get(dataURI[1])
+        $.get(dataURI[2])
             .done(function (data) {
                 cycleFeed(data)
             })
             .always(function () {
                 // $bumper[0].addEventListener("timeupdate", videoTimeUpdate);
-                console.log("dataURI: " + dataURI[1]);
+                console.log("dataURI: " + dataURI[2]);
             });
     }
 
