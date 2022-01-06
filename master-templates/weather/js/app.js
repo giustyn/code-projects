@@ -216,10 +216,10 @@
         console.log("screen-config: " + screenConfig)
         if (screenConfig == 1) {
             $('section').addClass('single-screen')
-            $bumper.attr("src", "./video/Z3-intro-weather-1s.webm")
+            $bumper.attr("src", "./video/PNC_Syn_Weather.mp4")
         } else if (screenConfig == 2) {
             $('section').addClass('dual-screen')
-            $bumper.attr("src", "./video/Z3-intro-weather-2s.webm")
+            $bumper.attr("src", "./video/PNC_Syn_Weather.mp4")
         };
     }
 
