@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="anim--effect-4">
+
     <section id="main" class="container">
-        <article id="template">
+        <article id="feed">
             <div id="media" class="abs bbox component">
                 <video class="abs source component" autoplay muted loop></video>
                 <div class="abs photo blur component"></div>
@@ -31,18 +32,18 @@
                         <span id="profileaccount" class="component"></span>
                     </div>
                     <div id="profileimage" class="component">
+                        <!-- <img src="img/default-icon.svg" alt=""> -->
                         <img src="img/adr-brandmark.jpg" alt="">
                     </div>
                 </div>
         </article>
     </section>
-    <div id="transition" class="anim--effect-4">
-        <div class="revealer">
-          <div class="revealer__layer top"></div>
-          <div class="revealer__layer middle"></div>
-          <div class="revealer__layer bottom"></div>
-        </div>
-      </div>
+
+    <div class="revealer">
+        <div class="revealer__layer top"></div>
+        <div class="revealer__layer middle"></div>
+        <div class="revealer__layer bottom"></div>
+    </div>
     <!-- <div class="preload"></div> -->
     <script src="js/anime.min.js"></script>
     <script src="js/jquery.min.js"></script>

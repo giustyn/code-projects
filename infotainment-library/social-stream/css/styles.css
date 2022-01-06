@@ -16,12 +16,10 @@
     --accent-color: rgb(255, 41, 11);
     --hashtag-color: rgb(24, 145, 255);
     --magic-pad: 3em;
-    --revealer: 1;
     --revealer-speed: 1500ms;
-    --revealer-opacity: 0.96;
-    --clr-revealer-layer-1: 77, 78, 83;
-    --clr-revealer-layer-2: 255, 255, 255`;
-    --clr-revealer-layer-3: 77, 78, 83;
+    --clr-revealer-layer-1: var(--primary-color);
+    --clr-revealer-layer-2: var(--secondary-color);
+    --clr-revealer-layer-3: var(--tertiary-color);
 }
 
 body {
@@ -33,15 +31,17 @@ body {
     height: 100vh;
     font-size: calc(1vw + 1vh);
     line-height: 1;
+    
 }
 
 #main,
-#template {
+article {
     width: 100%;
     height: 100%;
 }
 
 #media.component {
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,9 +163,8 @@ body {
 
 #posted {
     font-size: 0.8em;
-    padding-top: 1em;
     color: var(--primary-color);
-    transform: translateY(100%);
+    margin-top: 1em;
 }
 
 #profile.component {
@@ -240,14 +239,17 @@ body {
     transform-origin: 0 0;
 }
 
+.hidden {
+    display: none;
+}
+
 /** 
-    Revealer styling
+    Revealer/Transition Styles
 **/
 
-#transition {
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
+.revealer {
+    z-index: 10;
+    /* display: none !important; */
   }
   
   .revealer.revealer--top {
@@ -275,13 +277,13 @@ body {
   }
   
   .revealer__layer.top {
-    background: rgba(var(--clr-revealer-layer-1), var(--revealer-opacity));
+    background: var(--clr-revealer-layer-1);
   }
   
   .revealer__layer.middle {
-    background: rgba(var(--clr-revealer-layer-2), var(--revealer-opacity));
+    background: var(--clr-revealer-layer-2);
   }
   
   .revealer__layer.bottom {
-    background: rgba(var(--clr-revealer-layer-3), var(--revealer-opacity));
+    background: var(--clr-revealer-layer-3);
   }

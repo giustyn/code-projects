@@ -3,8 +3,7 @@
 
     let dataURI = [
         local = "c:\\data\\social\\social.json",
-        server = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json",
-        dev = "https://giustyn.github.io/code-projects/dummy-data/social/data.json"
+        server = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
     ];
 
     function fitTextToParent(selector) {
@@ -25,62 +24,67 @@
         })
     }
 
-    function revealer(direction) {
-        let transition = 1;
-        let $transition = $('.revealer');
-        let $speed = parseInt($(':root').css('--revealer-speed'));
-        if (transition == 1) {
-          $transition.addClass(direction).show();
-          $transition.addClass('revealer--animate').delay($speed * 2).queue(function () {
-            $(this).removeClass('revealer--animate ' + direction).hide().dequeue();
-          });
-        }
-      }
+    function revealer(mode) {
 
-    function animateClone() {
-        // Begin animation in-out
-        let speed = 1200,
-            stagger = 200,
-            animate = anime.timeline({
-                easing: 'easeInOutQuart',
+        let enabled = true,
+            flow = ['revealer--left', 'revealer--right', 'revealer--top', 'revealer--bottom'],
+            shuffle = flow[Math.floor(Math.random() * flow.length)];
+
+        console.log(shuffle)
+        if (mode == 'shuffle')
+
+            let $transition = $('.revealer');
+        let $speed = parseInt($(':root').css('--revealer-speed'));
+        if (enabled == true) {
+            $transition.show().addClass('revealer--animate ' + shuffle).delay($speed * 2).queue(function () {
+                $(this).removeClass('revealer--animate ' + shuffle).hide().dequeue();
+            });
+        }
+    }
+
+    function animateFeed(interval) {
+
+        let speed = 1000,
+            animateIn = anime.timeline({
+                easing: 'easeOutSine',
                 loop: false,
                 autoplay: false,
                 duration: speed
             })
-            
             .add({
                 easing: 'easeOutQuart',
-                targets: '.photo.focus',
+                targets: '#media',
                 opacity: [0, 1],
-                // scale: [1.1,1],
+            }, '+=' + speed)
+            .add({
+                targets: '#content',
+                opacity: [0, 1],
+                delay: anime.stagger(50),
+                // translateX: ['-20%', '0%'],
+            }, '-=' + speed),
+
+            animateOut = anime.timeline({
+                easing: 'easeInSine',
+                loop: false,
+                autoplay: false,
+                duration: speed
             })
             .add({
-                targets: '#socialicon',
-                opacity: [0, 1],
-                translateX: [20, 0],
-            }, '-=' + speed)
-            .add({
-                targets: '#profile *',
-                opacity: [0, 1],
-                translateX: [-20, 0],
-            }, '-=' + speed)
-            .add({
-                targets: '#messagewrap *',
-                opacity: [0, 1],
-                translateY: [20, 0],
-                delay: anime.stagger(stagger),
-                // translateX: ['20%', '0%'],
-            }, '-=' + speed)
-
-        animate.play();
+                targets: 'article',
+                opacity: [1, 0],
+                delay: anime.stagger(10),
+            })
+        animateIn.play();
+        revealer(shuffle);
     }
 
-    function cycleFeed(data) {
+    function cycleFeeds(data) {
         let feed = data.Items,
-            $template = $('#template'),
+            $template = $('#feed'),
             $container = $('#main'),
             $clone = $template.clone(),
-            interval = 10000,
+            interval = 7000,
+            limit = 10,
             index = 0;
         $template.remove();
         $.each(feed, function (i, el) {
@@ -92,13 +96,13 @@
 
             setTimeout(() => {
                 console.log(i, el);
+                $clone.attr('id', i);
                 $clone.find('#socialicon').css('background-image', 'url(' + (icon) + ')');
                 $clone.find('#profilename').text(username);
                 $clone.find('#profileaccount').text(account);
                 $clone.find('#message').text(post);
                 $clone.find('#posted').text(last);
-                fitTextToParent('#message');
-                // alert(imgUrl)
+
                 function mediaVideoType() {
                     if (imgUrl.includes(".mp4?") != true) return false
                     $clone.find('#media video').attr('src', imgUrl).siblings().remove();
@@ -110,22 +114,22 @@
                 };
 
                 // todos: fix fittexttoparent
+                fitTextToParent('#message');
 
                 $container.append($clone);
-                animateClone($clone);
-                revealer('revealer-left');
+                animateFeed(interval);
             }, i * interval);
         });
     }
 
     function getData() {
-        $.get(dataURI[2])
+        $.get(dataURI[1])
             .done(function (data) {
-                cycleFeed(data)
+                cycleFeeds(data);
             })
             .always(function () {
                 // $bumper[0].addEventListener("timeupdate", videoTimeUpdate);
-                console.log("dataURI: " + dataURI[2]);
+                console.log("dataURI: " + dataURI[1]);
             });
     }
 

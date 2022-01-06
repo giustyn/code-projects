@@ -9,10 +9,10 @@ const isOverflown = ({
 const resizeText = ({
     element,
     elements,
-    minSize,
-    maxSize,
-    step,
-    unit
+    minSize = 1,
+    maxSize = 2.25,
+    step = .1,
+    unit = 'em'
 }) => {
     (elements || [element]).forEach(el => {
         let i = minSize
