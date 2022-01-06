@@ -61,11 +61,11 @@
   --clr-revealer-layer-1: var(--clr-tertiary);
   --clr-revealer-layer-2: var(--clr-secondary);
   --clr-revealer-layer-3: var(--clr-story-background);
-  --anime-speed: 750ms;
+  --anime-speed: 1000ms;
   --anime-delay: 200ms;
   --anime-duration: 1000ms;
   --revealer-speed: var(--anime-speed);
-  --revealer: 0;
+  --revealer: 1;
 }
 
 html,

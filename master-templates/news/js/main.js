@@ -1,6 +1,8 @@
 (function () {
-  const screenConfig = 1,
-    folderName = ["news", "sports", "celeb", "fin"][2],
+  const 
+    url = new ExtendedURL(window.location.href),
+    screenConfig = 1,
+    folderName = ["news", "sports", "celeb", "fin"][url.getSearchParam("feed") || 1],
     dataURI = "https://retail.adrenalineamp.com/rss/Xnews/",
     // dataURI = "https://retail.adrenalineamp.com/rss/Hnews/",
     // dataURI = "c:\\data\\",
@@ -13,8 +15,7 @@
       "sports": "PNC_Syn_Sports.mp4",
       "celeb": "PNC_Syn_Entertainment.mp4",
       "fin": "PNC_Syn_Stocks.mp4"
-    }][0],
-
+    }][0],  
     $bumper = $("#bumper").attr("src", "./video/" + videoIntro[folderName]),
     $themeColor = $(':root').css('--clr-story-background', 'var(--' + folderName + ')');
 
@@ -28,6 +29,14 @@
     }
     return input;
   }
+
+  function ExtendedURL(href) {
+    this.url = new URL(href);
+    this.getSearchParam = function (param) {
+        return this.url.searchParams.get(param)
+    };
+    return this;
+}
 
   function loadXML(xmlPath) {
     const request = new XMLHttpRequest();
@@ -110,7 +119,7 @@
         translateX: ['-100%', '0%'],
         duration: ($animeSpeed * 2),
         delay: 1000,
-        endDelay: 3200
+        endDelay: 3000
       })
       /* intro content animation-out */
       .add({

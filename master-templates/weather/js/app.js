@@ -1,10 +1,10 @@
 (function () {
     const url = new ExtendedURL(window.location.href),
-        $bumper = $('#bumper'),
         $animeDelay = parseInt($(':root').css('--anime-delay')),
         $animeDuration = parseInt($(':root').css('--anime-duration')),
         $animeSpeed = parseInt($(':root').css('--anime-speed')),
         $animeStagger = parseInt($(':root').css('--anime-stagger')),
+        $bumper = $('#bumper'),
         
         data = "c:\\data\\weather\\weather.json", // production
         devData = "../../../_feeds/data/weather/weather.json", // development
@@ -140,7 +140,7 @@
                 targets: '.container',
                 opacity: [0, 1],
                 changeBegin: function (anim) {
-                    revealer('revealer--left');
+                    revealer('revealer--right');
                 }
             }, '-=' + ($animeDelay) + '')
             .add({
@@ -216,11 +216,12 @@
         console.log("screen-config: " + screenConfig)
         if (screenConfig == 1) {
             $('section').addClass('single-screen')
-            $bumper.attr("src", "./video/Z3-intro-weather-1s.webm")
+            // $bumper.attr("src", "./video/Z3-intro-weather-1s.webm")
         } else if (screenConfig == 2) {
             $('section').addClass('dual-screen')
-            $bumper.attr("src", "./video/Z3-intro-weather-2s.webm")
+            // $bumper.attr("src", "./video/Z3-intro-weather-2s.webm")
         };
+        $bumper.attr("src", "./video/PNC_Syn_Weather.mp4")
     }
 
     function errorHandler() {

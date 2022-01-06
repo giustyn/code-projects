@@ -41,6 +41,14 @@
 }
 
 :root {
+    --weather: 0, 100, 180;
+    --fin: 41, 104, 229;
+    --news: 41, 104, 229;
+    --celeb: 253, 145, 50;
+    --sports: 253, 145, 50;
+}
+
+:root {
     --font-primary: 'DroidSans-Regular';
     --font-size: calc(1vw + 1vh);
     --bg-primary: 242, 242, 242;
@@ -193,16 +201,15 @@ section.dual-screen .container .header span {
     top: 67%;
     left: 0;
     margin: 0;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: .2em 1em;
     width: auto;
     height: auto;
-    background: transparent;
-    color: rgba(var(--clr-quaternary), 1.0);
+    color: rgb(var(--clr-tertiary));
+    background-color: rgba(var(--weather), 0.85);
     font-size: 3em;
     font-weight: 600;
     opacity: 0;
-    /* backdrop-filter: blur(5px); */
+    backdrop-filter: blur(5px);
 }
 
 #intro video,
