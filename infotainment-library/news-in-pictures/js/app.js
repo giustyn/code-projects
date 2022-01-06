@@ -91,6 +91,7 @@
     }
 
     function cycleFeed(data) {
+        console.log(data)
         let feed = data.Items,
             $container = $('#main'),
             $template = $('#template'),
@@ -133,7 +134,7 @@
     function getData() {
         $.get(dataURI[1])
             .done(function (data) {
-                // cycleFeed(data)
+                cycleFeed(data);
             })
             .always(function (data) {
                 $bumper[0].addEventListener("timeupdate", videoTimeUpdate, data);
