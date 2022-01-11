@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QL API Template - RateBoard</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <section id="template">
+        <div class="container">
+            <div class="header">
+                <span class="title"></span>
+            </div>
+            <div class="feed">
+                <div class="grid a1 heading"></div>
+                <div class="grid a2"></div>
+                <div class="grid a3"></div>
+                <div class="grid a4"></div>
+                <div class="grid a5"></div>
+                <div class="grid a6"></div>
+                <div class="grid b1 heading"></div>
+                <div class="grid b2"></div>
+                <div class="grid b3"></div>
+                <div class="grid b4"></div>
+                <div class="grid b5"></div>
+                <div class="grid b6"></div>
+                <div class="grid c1 heading"></div>
+                <div class="grid c2"></div>
+                <div class="grid c3"></div>
+                <div class="grid c4"></div>
+                <div class="grid c5"></div>
+                <div class="grid c6"></div>
+                <div class="grid d1 heading"></div>
+                <div class="grid d2"></div>
+                <div class="grid d3"></div>
+                <div class="grid d4"></div>
+                <div class="grid d5"></div>
+                <div class="grid d6"></div>
+            </div>
+            <div class="footer">
+                <span class="legal">*Rates based on loan-to-value and credit worthiness. After the 6-month introductory
+                    rate term, the Annual Percentage Rate (APR) will vary based on the prime rate plus applicable margin
+                    (as quoted in The Wall Street Journal) on the first day of the month. As of Jan. 1, 2022, the prime
+                    rate was 3.25%. The amount of the margin will vary based on several factors, including your credit
+                    history and loan to value ratio and can range from prime plus 0% to prime plus 2.50%. Maximum
+                    lifetime rate on Home Equity Line of Credit is 15.00% APR. Ask us for the current index value,
+                    margin, and annual percentage rate. The closing costs will be waived with a minimum advance at
+                    closing of $10,000. (The $10,000 must be new money.) Depending on the credit limit, closing costs,
+                    and other fees are estimated to be between $300 and $700. If Home Equity Line of Credit falls below
+                    $9,000 in the first six (6) months, you will have to reimburse the amount of the closing cost paid
+                    on your behalf by the credit union. You must carry insurance on property that secures this
+                    plan.</span>
+            </div>
+
+        </div>
+    </section>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        (function () {
+            var data = {
+                title: "HELOC Plus & Equity Loans",
+                header: {
+                    a: "Description",
+                    b: "Term",
+                    c: "APR",
+                    d: "Payment per $1000 borrowed"
+                },
+                row1: {
+                    a: "New and Used Autos, Trucks, and Vans",
+                    b: "up to 36 Months",
+                    c: "as low as 1.99*",
+                    d: "$28.64"
+                },
+                row2: {
+                    a: "Other Collateral (New/Used)<br>Boat, Motorcycle, RV, Travel Trailer, ATV, and Jet Ski",
+                    b: "up to 120 Months",
+                    c: "as low as 2.99%*",
+                    d: "$22.13 (based on approx. 48 mo. term)"
+                },
+                row3: {
+                    a: "Other Personal Loans/Lines (Includes but not limited to: Savings Secured Loans, CD Secured Loans and Personal Line of Credit.)	",
+                    b: "up to 120 Months",
+                    c: "as low as 2.99%*",
+                    d: "$22.13 (based on approx. 48 mo. term)"
+                },
+                description: "HELOC Plus & Equity Loans",
+                title: "HELOC Plus & Equity Loans",
+            };
+            $('.title').html(data.title);
+            $('.a1').html(data.header.a);
+            $('.b1').html(data.header.b);
+            $('.c1').html(data.header.c);
+            $('.d1').html(data.header.d);
+
+            $('.a2').html(data.row1.a);
+            $('.b2').html(data.row1.b);
+            $('.c2').html(data.row1.c);
+            $('.d2').html(data.row1.d);
+
+            $('.a3').html(data.row2.a);
+            $('.b3').html(data.row2.b);
+            $('.c3').html(data.row2.c);
+            $('.d3').html(data.row2.d);
+
+            $('.a4').html(data.row3.a);
+            $('.b4').html(data.row3.b);
+            $('.c4').html(data.row3.c);
+            $('.d4').html(data.row3.d);
+
+            $('.a5').html(data.row5.a);
+            $('.b5').html(data.row5.b);
+            $('.c5').html(data.row5.c);
+            $('.d5').html(data.row5.d);
+
+            $('.a6').html(data.row6.a);
+            $('.b6').html(data.row6.b);
+            $('.c6').html(data.row6.c);
+            $('.d6').html(data.row6.d);
+            
+        })();
+    </script>
+</body>
+
+</html>
