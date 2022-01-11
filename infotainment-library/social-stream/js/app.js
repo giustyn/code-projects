@@ -3,7 +3,7 @@
 
     let dataURI = [
         local = "c:\\data\\social\\social.json",
-        server = "http://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
+        server = "https://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
     ];
 
     function fitTextToParent(selector) {
