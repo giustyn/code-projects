@@ -31,9 +31,7 @@
             shuffle = flow[Math.floor(Math.random() * flow.length)];
 
         console.log(shuffle)
-        if (mode == 'shuffle')
-
-            let $transition = $('.revealer');
+        let $transition = $('.revealer');
         let $speed = parseInt($(':root').css('--revealer-speed'));
         if (enabled == true) {
             $transition.show().addClass('revealer--animate ' + shuffle).delay($speed * 2).queue(function () {
@@ -75,7 +73,7 @@
                 delay: anime.stagger(10),
             })
         animateIn.play();
-        revealer(shuffle);
+        // revealer(shuffle);
     }
 
     function cycleFeeds(data) {
