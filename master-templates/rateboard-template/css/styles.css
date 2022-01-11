@@ -1,0 +1,216 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+*,
+:after,
+:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-primary: 'Roboto';
+    --font-size: calc(1vw + 1vh);
+    --bg-primary: 242, 242, 242;
+    --clr-primary: 68, 78, 86;
+    --clr-secondary: 153, 153, 158;
+    --clr-tertiary: 255, 255, 255;
+    --clr-quaternary: 20, 20, 20;
+    --drop-shadow: 4px 4px 0 rgba(var(--clr-primary), 0.05);
+}
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(var(--bg-primary));
+    font-family: var(--font-primary);
+    font-size: var(--font-size);
+    cursor: none;
+    user-select: none;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8em 5fr 5em;
+    gap: .1em;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+        "header"
+        "feed"
+        "footer";
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 5em;
+    background: rgba(var(--clr-primary));
+}
+
+.header .title {
+    font-family: 'Roboto Slab';
+    font-size: 2.4em;
+    color: rgba(var(--clr-tertiary));
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 2em;
+    /* background: rgba(var(--clr-primary), 0.1); */
+}
+
+.footer .legal {
+    font-family: 'Roboto';
+    font-size: .5em;
+    color: rgba(var(--clr-quaternary));
+}
+
+.feed {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "a1 b1 c1 d1"
+        "a2 b2 c2 d2"
+        "a3 b3 c3 d3"
+        "a4 b4 c4 d4"
+        "a5 b5 c5 d5"
+        "a6 b6 c6 d6";
+    grid-area: feed;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(var(--clr-tertiary), 1.0);
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    padding: 0 .5em;
+    border-bottom: 1px solid rgba(var(--clr-secondary));
+}
+
+.heading {
+    font-family: 'Roboto Slab';
+    font-size: 1.2em;
+    color: rgba(var(--clr-quaternary));
+}
+
+.a1 {
+    grid-area: a1;
+}
+
+.a2 {
+    grid-area: a2;
+}
+
+.a3 {
+    grid-area: a3;
+}
+
+.a4 {
+    grid-area: a4;
+}
+
+.a5 {
+    grid-area: a5;
+}
+
+.a6 {
+    grid-area: a6;
+}
+
+.b1 {
+    grid-area: b1;
+}
+
+.b2 {
+    grid-area: b2;
+}
+
+.b3 {
+    grid-area: b3;
+}
+
+.b4 {
+    grid-area: b4;
+}
+
+.b5 {
+    grid-area: b5;
+}
+
+.b6 {
+    grid-area: b6;
+}
+
+.c1 {
+    grid-area: c1;
+}
+
+.c2 {
+    grid-area: c2;
+}
+
+.c3 {
+    grid-area: c3;
+}
+
+.c4 {
+    grid-area: c4;
+}
+
+.c5 {
+    grid-area: c5;
+}
+
+.c6 {
+    grid-area: c6;
+}
+
+.d1 {
+    grid-area: d1;
+}
+
+.d2 {
+    grid-area: d2;
+}
+
+.d3 {
+    grid-area: d3;
+}
+
+.d4 {
+    grid-area: d4;
+}
+
+.d5 {
+    grid-area: d5;
+}
+
+.d6 {
+    grid-area: d6;
+}
