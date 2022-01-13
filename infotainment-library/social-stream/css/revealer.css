@@ -42,6 +42,7 @@
   top: 0;
   left: 0;
   background: transparent;
+  opacity: var(--revealer-opacity);
   /*backdrop-filter: blur(40px);*/
 }
 

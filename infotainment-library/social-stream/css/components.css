@@ -1,21 +1,5 @@
-.stage {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
 .preload {
   visibility: hidden;
-}
-
-.pixel {
-  width: 1px;
-  height: 1px;
-  opacity: 0.01;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .component.abs {
@@ -24,29 +8,15 @@
 
 .component.rel {
   position: relative;
-}
-
-.component.cell {
-  display: table-cell;
-}
-
-.component.row {
-  display: table-row;
 }
 
 .component.layer {
   transform: translate3d(0px, 0px, 0px);
   -webkit-transform: translate3d(0px, 0px, 0px);
 }
+
 .component.bbox {
   overflow: hidden;
-}
-.component.abs {
-  position: absolute;
-}
-
-.component.rel {
-  position: relative;
 }
 
 .component.pixel {
@@ -56,30 +26,10 @@
   top: 0;
   position: absolute;
 }
+
 .component.wrap {
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.component.bbox {
-  overflow: hidden;
-}
-.component.abs {
-  position: absolute;
-}
-
-.component.rel {
-  position: relative;
-}
-
-.component.pixel {
-  width: 1px;
-  height: 1px;
-  left: 0;
-  top: 0;
-  position: absolute;
 }
 
 .component.blur {
@@ -96,18 +46,6 @@
   -o-filter: blur(11px) brightness(0.8) contrast(120%);
   -ms-filter: blur(11px) brightness(0.8) contrast(120%);
   filter: blur(11px) brightness(0.8) contrast(120%);
-}
-
-.component span {
-  display: inline-block;
-}
-
-.component.inl span {
-  display: inline;
-}
-
-.component.inline {
-  display: inline-block;
 }
 
 .component.gradient-top {
