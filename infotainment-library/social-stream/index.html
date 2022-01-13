@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Stream</title>
-    <link rel="stylesheet" href="css/components.css">
+    <!-- <link rel="stylesheet" href="css/components.css"> -->
     <link rel="stylesheet" href="css/revealer.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -14,29 +14,28 @@
 <body class="anim--effect-4">
 
     <section id="main" class="container">
-        <article id="feed" class="abs component">
-            <div id="media" class="abs bbox component">
-                <video class="abs video source component" autoplay muted loop></video>
-                <div class="abs photo blur component"></div>
-                <div class="abs photo focus component"></div>
+        <article id="feed" class="hidden">
+            <div id="media" class="">
+                <video autoplay playsinline muted loop></video>
+                <div class="photo blur"></div>
+                <div class="photo focus"></div>
             </div>
-            <div id="content" class="abs component">
-                <div id="post" class="wrap component">
-                    <div id="socialicon" class="bbox component"></div>
-                    <div id="message" class="component"></div>
-                    <div id="posted" class="component"></div>
-                </div>
-                <div id="account" class="component">
-                    <div class="wrap component">
-                        <div id="username" class="component"></div>
-                        <div id="useraccount" class="component"></div>
+            <div id="content" class="">
+                <div id="post" class="wrap">
+                    <div id="socialicon" class=""></div>
+                    <div id="message" class=""></div>
+                    <div id="posted" class=""></div>
+                    <div id="account" class="">
+                        <div class="wrap component">
+                            <div id="username" class=""></div>
+                            <div id="useraccount" class=""></div>
+                        </div>
+                        <div id="usericon" class=""></div>
                     </div>
-                    <div id="usericon" class="component"></div>
                 </div>
-
             </div>
-        </article>
-    </section>
+        </article></section>
+
 
     <div class="revealer">
         <div class="revealer__layer top"></div>

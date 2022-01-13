@@ -1,12 +1,12 @@
 $(function () {
-    let username = "Adrenaline Agency",
+    const username = "Adrenaline Agency",
         dataURI = [
             local = "c:\\data\\social\\social.json",
             server = "https://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
         ],
-        transition = true,
-        timerDuration = 5000,
-        speed = 1500;
+        timerDuration = 8000,
+        speed = 1500,
+        feeds = [];
 
     function fitText(el) {
         resizeText({
@@ -36,11 +36,11 @@ $(function () {
                 loop: false
             })
             .add({
-                targets: '#content',
-                // opacity: [0, 1],
+                targets: '#main',
+                opacity: [0, 1],
                 delay: anime.stagger(50),
-                translateY: [100, 0],
-            })
+                translate3d: [100, 0, 0],
+            }, '+=1000')
         animateIn.play();
     }
 
@@ -60,54 +60,59 @@ $(function () {
         });
     }
 
-    function setData(data) {
-        let feed = data.Items,
-            $template = $('#feed'),
-            $container = $('#main');
-            
-            $.each(feed, function (i, el) {
+    function animateTemplate($container, $template, data, current) {
+        const $clone = $template.clone();
 
-                let $clone = $template.clone();
-                $clone.attr('id', i).css('z-index', feed.length - i);
-                $clone.find('#socialicon').css('background-image', 'url(' + (el.ProviderIcon) + ')');
-                $clone.find('#username').text(el.User.Name);
-                $clone.find('#useraccount').text(el.User.Username);
-                $clone.find('#usericon').css('background-image', 'url(' + (el.User.ProfileImageUrl) + ')');
-                $clone.find('#message').text(el.Content);
-                $clone.find('#posted').text(el.DisplayTime);
-                $clone.find('#media .video').attr('src', el.Images[0].Url);
-                $clone.find('#media .photo').css('background-image', 'url(' + (el.Images[0].Url) + ')');
-                $container.append($clone);
-                console.log(i, el);
-                
-                // in
-                setTimeout(() => {
-                    fitText('#message');
-                    isolateHashtag('#message');
-                    revealer();
-                    // animateFreed();
-                }, i * timerDuration);
+        $clone.attr("id", current).css('z-index', current).removeClass('hidden');
+        $clone.find('#socialicon').css('background-image', 'url(' + (data.ProviderIcon) + ')');
+        $clone.find('#username').text(data.User.Name);
+        $clone.find('#useraccount').text(data.User.Username);
+        $clone.find('#usericon').css('background-image', 'url(' + (data.User.ProfileImageUrl) + ')');
+        $clone.find('#message').text(data.Content);
+        $clone.find('#posted').text(data.DisplayTime);
+        $clone.find('#media .video').attr('src', data.Images[0].Url);
+        $clone.find('#media .photo').css('background-image', 'url(' + (data.Images[0].Url) + ')');
 
-                // out
-                setTimeout(() => {
-                    $clone.remove();
-                }, i * timerDuration + 1000);
-            });
-        $template.remove();
+        $container.append($clone);
+
+        fitText('#message');
+        isolateHashtag('#message');
+        animateFeed();
+        
+        revealer();
+
+        setTimeout(function () {
+            $clone.remove();
+        }, timerDuration + speed);
     }
 
-    function iterate() {
-        let currentIndex = 0;
-        setInterval(() => {
-
+    function iterateAnimations() {
+        // console.warn(feeds[])
+        let current = 0;
+        const $template = $("article");
+        const $container = $("#main");
+        
+        console.log(current, feeds[current])
+        animateTemplate($container, $template, feeds[current], current);
+        current += 1;
+        
+        setInterval(function () {
+            console.log(current, feeds[current])
+            animateTemplate($container, $template, feeds[current], current);
+            current += 1;
         }, timerDuration);
+
+        $template.remove();
     }
 
     function getData() {
         $.get(dataURI[1])
             .done(function (response) {
-                setData(response);
-                console.log("dataURI: " + dataURI[1]);
+                $.each(response.Items, function(i) {
+                    feeds.push(response.Items[i]);                    
+                })
+                iterateAnimations();
+                // setData(response);
             })
             .always(function () {
                 // $bumper[0].addEventListener("timeupdate", videoTimeUpdate);
