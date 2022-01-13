@@ -4,7 +4,7 @@ $(function () {
             local = "c:\\data\\social\\social.json",
             server = "https://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
         ],
-        timerDuration = 4000,
+        timerDuration = 10000,
         speed = 1500,
         feeds = [];
 
