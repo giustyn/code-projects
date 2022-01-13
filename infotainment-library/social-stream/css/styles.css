@@ -5,11 +5,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', 'Merriweather', sans-serif;
 }
 
 :root {
-    --background-color: rgb(247, 247, 247);
+    --background-color: rgb(255, 255, 255);
     --primary-color: rgb(77, 78, 83);
     --secondary-color: rgb(147, 147, 147);
     --tertiary-color: rgb(255, 255, 255);
@@ -31,7 +31,7 @@ body {
     width: 100vw;
     height: 100vh;
     font-size: calc(1vw + 1vh);
-    line-height: 1;
+    line-height: 1.1;
 }
 
 section#main {
@@ -177,22 +177,16 @@ article {
 }
 
 #usericon .icon {
-    --icon-size: 4em;
+    --icon-size: 3em;
     grid-area: B;
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 50%;
+    border: 1px solid var(--primary-color);
     /* background-image: url(../img/adr-brandmark.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto 100%; */
-    /* border: 1px solid var(--primary-color); */
-}
-
-#usericon .icon {
-    border-radius: 50%;
-    height: 100%;
-    border: 1px solid var(--primary-color);
 }
 
 .letter {

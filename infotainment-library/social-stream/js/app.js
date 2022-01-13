@@ -12,19 +12,22 @@ $(function () {
         resizeText({
             elements: document.querySelectorAll(el),
             step: 0.1,
-            minSize: .5,
-            maxSize: 2,
+            minSize: 1,
+            maxSize: 3,
             unit: 'em'
         })
     }
 
     function isolateHashtag(el) {
-        var tmp = el + 'tmp';
-        var clone = $(el).clone().attr('id', el.replace('#', '') + 'tmp');
-        $(el).parent().append(clone);
+        // var tmp = el + 'tmp';
+        // var clone = $(el).clone().attr('id', el.replace('#', '') + 'tmp');
+        // $(el).parent().append(clone);
         var edt = $(tmp).text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
         $(el).html(edt);
         $(tmp).remove();
+
+        // $("#message").html($("#message").html().replace(/#([^ ]+)/g, "<span class='hashtag'>$1</span>"));
+        // $('#message').html($("#message").text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>"))
     }
 
     function animateFeed() {
@@ -62,15 +65,16 @@ $(function () {
     function animateTemplate($container, $template, data, current) {
         const $clone = $template.clone();
         let ProfileImageUrl = data.User.ProfileImageUrl;
+        if (!data.User.ProfileImageUrl === true) {
+            ProfileImageUrl = "./img/adr-brandmark.jpg";
+            // ProfileImageUrl = "./img/default-icon.svg";
+        }
 
         // alert(!data.User.ProfileImageUrl)
-        $clone.attr("id", current).css('z-index', current).removeClass('hidden');
+        $clone.attr("id", current).css('z-index', data.length-current).removeClass('hidden');
         $clone.find('#socialicon .icon').attr('src', data.ProviderIcon);
         $clone.find('#username').text(data.User.Name);
         $clone.find('#useraccount').text(data.User.Username);
-        if (!data.User.ProfileImageUrl === true) {
-            ProfileImageUrl = "./img/adr-brandmark.jpg";
-        }
         $clone.find('#usericon .icon').attr('src', ProfileImageUrl);
         $clone.find('#message').text(data.Content);
         $clone.find('#posted').text(data.DisplayTime);
@@ -78,13 +82,10 @@ $(function () {
         $clone.find('#media .photo').css('background-image', 'url(' + (data.Images[0].Url) + ')');
 
         $container.append($clone);
-        
-        // isolateHashtag('#message'); // not working
-        // $("#message").html($("#message").html().replace(/#([^ ]+)/g, "<span class='hashtag'>$1</span>"));
-        // $('#message').html($("#message").text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>"))
-        
+                
         fitText('#message');
-        animateFeed();
+        // isolateHashtag('#message'); // not working
+        // animateFeed();
 
         revealer();
 
@@ -101,13 +102,14 @@ $(function () {
 
         console.log(current, feeds[current])
         animateTemplate($container, $template, feeds[current], current);
-        current += 1;
-
+        // current += 1;
+        current = (current + 1) % feeds.length;
+        
         setInterval(function () {
             console.log(current, feeds[current])
             animateTemplate($container, $template, feeds[current], current);
-            // current = curent++ % feeds.length;
-            current += 1;
+            // current += 1;
+            current = (current + 1) % feeds.length;
         }, timerDuration);
 
         $template.remove();
