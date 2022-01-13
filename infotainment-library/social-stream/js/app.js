@@ -4,7 +4,7 @@ $(function () {
             local = "c:\\data\\social\\social.json",
             server = "https://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
         ],
-        timerDuration = 8000,
+        timerDuration = 4000,
         speed = 1500,
         feeds = [];
 
@@ -52,10 +52,9 @@ $(function () {
                 'revealer--top',
                 'revealer--bottom'
             ],
-            shuffle = mode[(Math.random() * mode.length) | 0]
-        // console.log(shuffle);
+            shuffle = mode[(Math.random() * mode.length) | 0];
 
-        $transition.addClass('revealer--animate').addClass(shuffle).delay(speed).queue(function () {
+        $transition.addClass('revealer--animate').addClass(shuffle).delay(speed * 2).queue(function () {
             $(this).removeClass('revealer--animate').removeClass(shuffle).dequeue();
         });
     }
@@ -76,7 +75,10 @@ $(function () {
         $container.append($clone);
 
         fitText('#message');
-        isolateHashtag('#message');
+        // isolateHashtag('#message'); // not working
+        // $("#message").html($("#message").html().replace(/#([^ ]+)/g, "<span class='hashtag'>$1</span>"));
+        $('#message').html($("#message").text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>"))
+
         animateFeed();
         
         revealer();
@@ -99,6 +101,7 @@ $(function () {
         setInterval(function () {
             console.log(current, feeds[current])
             animateTemplate($container, $template, feeds[current], current);
+            // current = curent++ % feeds.length;
             current += 1;
         }, timerDuration);
 
