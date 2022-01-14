@@ -16,7 +16,7 @@
     --tertiary-color: rgb(255, 255, 255);
     --accent-color: rgb(255, 41, 11);
     --hashtag-color: rgb(24, 145, 255);
-    --revealer-speed: 2000ms;
+    --revealer-speed: 1500ms;
     --revealer-opacity: 0.9;
     --clr-revealer-layer-1: var(--primary-color);
     --clr-revealer-layer-2: var(--tertiary-color);

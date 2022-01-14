@@ -24,8 +24,8 @@ $(function () {
         // var tmp = el + 'tmp';
         // var clone = $(el).clone().attr('id', el.replace('#', '') + 'tmp');
         // $(el).parent().append(clone);
-        var edt = $(el).html().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
-        $(el).html(edt);
+        var edt = $(el).text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+        $(el).text(edt);
         // $(tmp).remove();
 
         // $("#message").html($("#message").html().replace(/#([^ ]+)/g, "<span class='hashtag'>$1</span>"));
@@ -41,14 +41,13 @@ $(function () {
                 'revealer--bottom'
             ],
             shuffle = mode[(Math.random() * mode.length) | 0];
-        $transition.addClass('revealer--animate').addClass(shuffle).delay(revealerSpeed).queue(function () {
-            $(this).removeClass('revealer--animate').removeClass(shuffle).dequeue();
+        $transition.addClass('revealer--animate').addClass(mode[1]).delay(revealerSpeed).queue(function () {
+            $(this).removeClass('revealer--animate').removeClass(mode[1]).dequeue();
         });
     }
     
     function animateFeed($template) {
         var item = $template[0];
-        console.warn(item)
         var animateIn = anime.timeline({
                 easing: 'easeOutQuart',
                 duration: animeDuration,
@@ -63,7 +62,7 @@ $(function () {
             .add({
                 targets: item,
                 opacity: [0, 1],
-                delay: anime.stagger(40),
+                delay: anime.stagger(100),
                 translateX: [100, 0],
             })
 
@@ -92,8 +91,8 @@ $(function () {
         $clone.find('#media .photo').css('background-image', 'url(' + (data.Images[0].Url) + ')');
         $container.append($clone);
 
+        isolateHashtag('#message'); // partilaly working, change occurs AFTER slide is finished
         fitText('#message');
-        isolateHashtag('#message'); // not working
         animateFeed($clone);
 
         setTimeout(function () {
