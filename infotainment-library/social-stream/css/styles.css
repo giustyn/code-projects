@@ -18,9 +18,9 @@
     --hashtag-color: rgb(24, 145, 255);
     --revealer-speed: 1500ms;
     --revealer-opacity: 0.9;
-    --clr-revealer-layer-1: var(--primary-color);
-    --clr-revealer-layer-2: var(--tertiary-color);
-    --clr-revealer-layer-3: var(--accent-color);
+    --clr-revealer-layer-1: var(--accent-color);
+    --clr-revealer-layer-2: var(--accent-color);
+    --clr-revealer-layer-3: var(--tertiary-color);
 }
 
 body {
@@ -42,6 +42,7 @@ section#main {
 }
 
 article {
+    z-index: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -135,6 +136,10 @@ article {
     white-space: pre-wrap;
     color: var(--primary-color);
     /* padding: 1em 0; */
+}
+
+#message .hashtag {
+    color: var(--hashtag-color);
 }
 
 #posted {
@@ -258,13 +263,13 @@ article {
 /*  Media queries  */
 
 @media screen and (orientation: portrait) {
-    #media.component {
+    #media {
         width: 100%;
         /* height: 56.25%; */
         height: 50%;
     }
 
-    #content.component {
+    #content {
         width: 100% !important;
         height: 50% !important;
         top: 50% !important;
@@ -272,31 +277,31 @@ article {
         top: 56.25% !important; */
     }
 
-    #content.component {
+    #content {
         background-repeat: repeat !important;
         background-size: contain !important;
     }
 }
 
 @media screen and (orientation: landscape) and (aspect-ratio: 32/9) {
-    #media.component {
+    #media {
         width: 50% !important;
     }
 
-    #media .component.focus {
+    #media .focus {
         width: 56.25% !important;
     }
 
-    #content.component {
+    #content {
         width: 50% !important;
     }
 
-    #content.component {
+    #content {
         background-repeat: repeat !important;
         background-size: contain !important;
     }
 
-    #usericon.component {
+    #usericon {
         width: 50% !important;
     }
 

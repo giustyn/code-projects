@@ -1,14 +1,16 @@
 $(function () {
     const userName = "Adrenaline Agency",
         userIcon = "./img/adr-brandmark.jpg",
-        timerDuration = 8000,
-        animeDuration = 1000,
-        revealerSpeed = parseInt($(':root').css('--revealer-speed')),
-        feeds = [],
+
         dataURI = [
             local = "c:\\data\\social\\social.json",
             server = "https://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
-        ];
+        ],
+        feeds = [],
+
+        revealerSpeed = parseInt($(':root').css('--revealer-speed')),
+        timerDuration = 7000,
+        animeDuration = 750;
 
     function fitText(el) {
         resizeText({
@@ -20,16 +22,9 @@ $(function () {
         })
     }
 
-    function isolateHashtag(el) {
-        // var tmp = el + 'tmp';
-        // var clone = $(el).clone().attr('id', el.replace('#', '') + 'tmp');
-        // $(el).parent().append(clone);
-        var edt = $(el).text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
-        $(el).text(edt);
-        // $(tmp).remove();
-
-        // $("#message").html($("#message").html().replace(/#([^ ]+)/g, "<span class='hashtag'>$1</span>"));
-        // $('#message').html($("#message").text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>"))
+    function isolateHashtag(element) {
+        var edt = $(element).text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+        $(element).html(edt);
     }
 
     function revealer() {
@@ -41,11 +36,11 @@ $(function () {
                 'revealer--bottom'
             ],
             shuffle = mode[(Math.random() * mode.length) | 0];
-        $transition.addClass('revealer--animate').addClass(mode[1]).delay(revealerSpeed).queue(function () {
+        $transition.addClass('revealer--animate').addClass(mode[1]).delay(revealerSpeed * 1.5).queue(function () {
             $(this).removeClass('revealer--animate').removeClass(mode[1]).dequeue();
         });
     }
-    
+
     function animateFeed($template) {
         var item = $template[0];
         var animateIn = anime.timeline({
@@ -55,12 +50,14 @@ $(function () {
                 loop: false
             })
             .add({
-                begin: function(){
+                begin: function () {
                     revealer();
+                    fitText('#message');
+                    isolateHashtag('#message'); // partilaly working, change occurs AFTER slide is finished
                 },
             })
             .add({
-                targets: item,
+                targets: [item],
                 opacity: [0, 1],
                 delay: anime.stagger(100),
                 translateX: [100, 0],
@@ -80,7 +77,7 @@ $(function () {
             ProfileUserName = userName;
         }
 
-        $clone.attr("id", current).css('z-index', feeds.length - current).removeClass('hidden');
+        $clone.attr("id", current).css('z-index', 1).removeClass('hidden');
         $clone.find('#socialicon .icon').attr('src', data.ProviderIcon);
         $clone.find('#username').text(ProfileUserName);
         $clone.find('#useraccount').text(data.User.Username);
@@ -91,13 +88,11 @@ $(function () {
         $clone.find('#media .photo').css('background-image', 'url(' + (data.Images[0].Url) + ')');
         $container.append($clone);
 
-        isolateHashtag('#message'); // partilaly working, change occurs AFTER slide is finished
-        fitText('#message');
         animateFeed($clone);
 
         setTimeout(function () {
             $clone.remove();
-        }, timerDuration + (revealerSpeed / 2));
+        }, timerDuration + (revealerSpeed * 2));
     }
 
     function iterateAnimations() {
