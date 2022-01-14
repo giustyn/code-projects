@@ -57,7 +57,7 @@ $(function () {
                 },
             })
             .add({
-                targets: [item],
+                targets: item,
                 opacity: [0, 1],
                 delay: anime.stagger(100),
                 translateX: [100, 0],
