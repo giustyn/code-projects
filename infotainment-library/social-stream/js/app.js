@@ -71,7 +71,7 @@ $(function () {
         }
 
         // alert(!data.User.ProfileImageUrl)
-        $clone.attr("id", current).css('z-index', data.length-current).removeClass('hidden');
+        $clone.attr("id", current).css('z-index', feeds.length-current).removeClass('hidden');
         $clone.find('#socialicon .icon').attr('src', data.ProviderIcon);
         $clone.find('#username').text(data.User.Name);
         $clone.find('#useraccount').text(data.User.Username);
@@ -91,7 +91,7 @@ $(function () {
 
         setTimeout(function () {
             $clone.remove();
-        }, timerDuration + speed);
+        }, timerDuration + 500);
     }
 
     function iterateAnimations() {
