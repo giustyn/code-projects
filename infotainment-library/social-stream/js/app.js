@@ -46,7 +46,9 @@ $(function () {
         });
     }
     
-    function animateFeed($container) {
+    function animateFeed($template) {
+        var item = $template[0];
+        console.warn(item)
         var animateIn = anime.timeline({
                 easing: 'easeOutQuart',
                 duration: animeDuration,
@@ -58,12 +60,12 @@ $(function () {
                     revealer();
                 },
             })
-            // .add({
-            //     targets: 'section > article > div',
-            //     opacity: [0, 1],
-            //     delay: anime.stagger(40),
-            //     translateX: [100, 0],
-            // })
+            .add({
+                targets: item,
+                opacity: [0, 1],
+                delay: anime.stagger(40),
+                translateX: [100, 0],
+            })
 
         animateIn.play();
     }
@@ -92,7 +94,7 @@ $(function () {
 
         fitText('#message');
         isolateHashtag('#message'); // not working
-        animateFeed($container);
+        animateFeed($clone);
 
         setTimeout(function () {
             $clone.remove();
