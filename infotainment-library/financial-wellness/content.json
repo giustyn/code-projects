@@ -1,0 +1,72 @@
+{
+  "Status": {
+    "Code": 200,
+    "Message": "",
+    "Type": ""
+  },
+  "AppSettings": {
+    "Name": "Financial Wellness Library",
+    "Version": "1.0.1",
+    "Created": "2022-01-17T20:00:00+00:00",
+    "Value": null
+  },
+  "Items": [{
+      "ContentId": 0,
+      "Duration": "25000",
+      "Topic": {
+        "Category": "Financial Wellness",
+        "Description": "Small Business"
+      },
+      "Content": {
+        "Scene": 1,
+        "Tips": [{
+          "id": 1,
+          "Content": "As of 2019, there are <span class='spotlight'>30.7 million</span> small businessess in the U.S. and <span class='spotlight'>99.7%</span> of businesses are considered small businessess",
+          "Source": "Fundera",
+          "Media": {
+            "ImageUrl": "https://picsum.photos/1000/1000",
+            "VideoUrl": null,
+            "Source": null
+          }
+        }]
+      }
+    },
+    {
+      "ContentId": 1,
+      "Duration": "33000",
+      "Topic": {
+        "Category": "Financial Wellness",
+        "Description": "Tips For Spotting Home Improvement Contractor Scams"
+      },
+      "Content": {
+        "Scene": 1,
+        "Tips": [{
+            "id": 1,
+            "Content": "<span class='spotlight'>Knocks on your door</span> for business or offers you discounts for <span class='spotlight'>finding other customers</span>",
+            "Source": null
+          },
+          {
+            "id": 2,
+            "Content": "Just happens to have <span class='spotlight'>materials left-over</span> from a previous job",
+            "Source": null
+          },
+          {
+            "id": 3,
+            "Content": "Pressures you for an <span class='spotlight'>immediate descision</span>",
+            "Source": null
+          },
+          {
+            "id": 4,
+            "Content": "Only <span class='spotlight'>accepts cash</span>, asks you to <span class='spotlight'>pay up-front</span>, or suggests you <span class='spotlight'>borrow money</span> from a lender the contractor knows",
+            "Source": null
+          }
+        ],
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    }
+  ]
+}

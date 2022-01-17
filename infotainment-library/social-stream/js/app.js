@@ -6,11 +6,13 @@ $(function () {
             local = "c:\\data\\social\\social.json",
             server = "https://kitchen.screenfeed.com/social/data/r4r9qm9zg5jb4hspckpqyqzwj.json"
         ],
-        feeds = [],
 
         revealerSpeed = parseInt($(':root').css('--revealer-speed')),
         timerDuration = 7000,
         animeDuration = 750;
+
+    let feeds = [],
+        current = 0;
 
     function fitText(el) {
         resizeText({
@@ -96,19 +98,16 @@ $(function () {
     }
 
     function iterateAnimations() {
-        let current = 0;
         const $template = $("article");
         const $container = $("#main");
 
         console.log(current, feeds[current])
-        animateTemplate($container, $template, feeds[current], current);
-        // current += 1;
-        current = (current + 1) % feeds.length;
+        animateTemplate($container, $template, feeds[current]);
+        current++;
 
         setInterval(function () {
             console.log(current, feeds[current])
-            animateTemplate($container, $template, feeds[current], current);
-            // current += 1;
+            animateTemplate($container, $template, feeds[current]);
             current = (current + 1) % feeds.length;
         }, timerDuration);
 

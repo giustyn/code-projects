@@ -1,12 +1,12 @@
-(function () {
+$(function () {
 
     const url = new ExtendedURL(window.location.href),
-        timerDuration = 10000,
+        timerDuration = 5000,
         screenConfig = 1;
 
     let folderName = url.getSearchParam("category") || ["news", "sports", "celeb"][0],
-        loadedStories = [],
-        currentStory = 0,
+        current = 0,
+        feeds = [],
         videoIntro = [{
             "news": "",
             "sports": "P",
@@ -28,42 +28,18 @@
         return this;
     }
 
-    function setDateTime() {
-        var renderTime = function () {
-            var clock = new Date();
-            // Set date via Vanilla.js
-            date.textContent = clock.toLocaleString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-            // Set time via Vanilla.js
-            time.textContent = clock.toLocaleString('en-US', {
-                hour: 'numeric',
-                minute: 'numeric',
-                // second: 'numeric',
-                hour12: true
-            });
-        };
-        renderTime();
-        setInterval(renderTime, 1000);
-    }
-
-    function revealer(direction) {
-        let $revealer = $('.revealer');
-        let speed = parseInt($(':root').css('--revealer-speed'));
-        let enabled = parseInt($(':root').css('--revealer-enabled'));
-        if (enabled != 0) {
-            $revealer.addClass(direction).show();
-            $revealer.addClass('revealer--animate').delay(speed * 2).queue(function (next) {
-                $(this).removeClass(direction);
-                $(this).removeClass('revealer--animate');
-                $(this).hide();
-                next();
-            });
-        } else {
-            $revealer.remove();
-        }
+    function revealer() {
+        const $transition = $('.revealer'),
+            mode = [
+                'revealer--left',
+                'revealer--right',
+                'revealer--top',
+                'revealer--bottom'
+            ],
+            shuffle = mode[(Math.random() * mode.length) | 0];
+        $transition.addClass('revealer--animate').addClass(mode[1]).delay(revealerSpeed * 1.5).queue(function () {
+            $(this).removeClass('revealer--animate').removeClass(mode[1]).dequeue();
+        });
     }
 
     function animateClone(element) {
@@ -90,34 +66,6 @@
         animate.play();
     }
 
-    function cycleFeed(data) {
-        console.log(data)
-        let feed = data.Items,
-            $container = $('#main'),
-            $template = $('#template'),
-            $clone = $template.clone(),
-            interval = 10000,
-            index = 0;
-
-        $template.remove();
-
-        $.each(feed, function (i, el) {
-            let imgUrl = el.Media[0].Url,
-                title = el.Title,
-                credit = el.Media[0].Credit;
-            setTimeout(() => {
-                console.log(i, el);
-                $clone.find('.photo, .background').css('background-image', 'url(' + (imgUrl) + ')');
-                $clone.find('.title').text(title);
-                $clone.find('.credit').text(credit);
-                $container.append($clone.attr('id', i));
-                animateClone($clone);
-                revealer('revealer-left');
-            }, i * timerDuration);
-        });
-    }
-
-
     function videoTimeUpdate(event, data) {
         const eventItem = event.target;
         const current = Math.round(eventItem.currentTime * 1000);
@@ -127,26 +75,64 @@
             $($bumper).fadeOut(500, function () {
                 $($bumper).parent().remove();
             });
-            cycleFeed(data)
+            iterateAnimations();
         }
     }
 
-    function getData() {
-        $.get(dataURI[1])
-            .done(function (data) {
-                cycleFeed(data);
+    function animateTemplate($container, $template, data) {
+        const $clone = $template.clone();
+        let imgUrl = data.Media[0].Url,
+            title = data.Title,
+            credit = data.Media[0].Credit;
+
+        $clone.attr("id", current).css('z-index', 1).removeClass('hidden');
+        $clone.find('.photo, .background').css('background-image', 'url(' + (imgUrl) + ')');
+        $clone.find('.title').text(title);
+        $clone.find('.credit').text(credit);
+        $container.append($clone);
+
+        // animateClone();
+
+        setTimeout(function () {
+            $clone.remove();
+        }, timerDuration + 1000);
+
+    }
+
+    function iterateAnimations() {
+        const $template = $("#template");
+        const $container = $("main");
+
+        animateTemplate($container, $template, feeds[current]);
+        current++;
+
+        setInterval(function () {
+            animateTemplate($container, $template, feeds[current]);
+            current = (current + 1) % feeds.length;
+            console.log(current)
+        }, timerDuration);
+        $template.remove();
+    }
+
+    function getData(dataURI) {
+        $.get(dataURI)
+            .done(function (response) {
+                $.each(response.Items, function (i) {
+                    feeds.push(response.Items[i]);
+                })
+                // iterateAnimations();
             })
-            .always(function (data) {
-                $bumper[0].addEventListener("timeupdate", videoTimeUpdate, data);
+            .always(function (response) {
+                // $bumper.remove();
+                $bumper[0].addEventListener("timeupdate", videoTimeUpdate, response);
                 console.log("dataURI: " + dataURI[1]);
             });
     }
 
     function init() {
-        // loadVideo();
-        getData();
+        getData(dataURI[1]);
     }
 
     init();
 
-})(jQuery);
+});
