@@ -93,6 +93,7 @@
         "Section": 1,
         "Title": "",
         "Trivia": [{
+          "Fact": null,
           "Question": "What would you guess is the <span class='spotlight'>average balance</span> of <span class='spotlight'>student loan debt</span>?",
           "1": "$53,171",
           "2": "$12,456",
@@ -118,6 +119,7 @@
         "Section": 1,
         "Title": "",
         "Trivia": [{
+          "Fact": null,
           "Question": "When in <span class='spotlight'>Europe</span>, what is the recommended <span class='spotlight'>percentage to tip</span>?",
           "1": "15% to 20%",
           "2": "5% to 10%",
@@ -215,7 +217,7 @@
     },
     {
       "Category": "Factoids",
-      "Description": null,
+      "Description": "Online Shopping",
       "Duration": "25000",
       "Content": {
         "Section": 1,
@@ -233,7 +235,7 @@
           "Source": null
         }
       }
-    },{
+    }, {
       "Category": "Factoids",
       "Description": "Pre-Qualified vs. Pre-Approved",
       "Duration": "45000",
@@ -245,15 +247,42 @@
           "Id": 1,
           "Content": "When shopping for a home, what's the difference between being <span class='spotlight'>pre-qualified</span> vs. <span class='spotlight'>pre-approved</span> for a home loan?",
           "Source": "Investopedia"
-        },{
+        }, {
           "Id": 2,
           "Content": "<span class='spotlight'>Prequalification</span> is based on <span class='spotlight'>data you submit</span> to a lender, which will provide a <span class='spotlight'>ballpark estimate</span> of how much you can borrow. <span class='spotlight'>Preapproval</span> is based on <span class='spotlight'>verified consumer data</span>.",
           "Source": "Investopedia"
-        },{
+        }, {
           "Id": 3,
           "Content": "<span class='spotlight'>Getting pre-approved</span> for a home loan enables you to <span class='spotlight'>move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class='spotlight'>your offer is serious</span>.",
           "Source": "Investopedia"
         }],
+        "Disclaimer": null,
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    }, {
+      "Category": "Trivia",
+      "Description": "President Abraham Lincoln",
+      "Duration": "34000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{
+            "Id": 1,
+            "Content": "In 1862, President Abraham Lincoln <span class='spotlight'>signed into law</span> the <span class='spotlight'>very first income</span> tax to help pay for the Civil War.",
+            "Question": "How much do you think the <span class='spotlight'>income tax rate</span> was for the  <span class='spotlight'>top earners</span>?",
+            "1": "7%",
+            "2": "5%",
+            "3": "15%",
+            "4": "21%",
+            "Answer": "2",
+            "Source": null
+          }
+        ],
+        "Tips": [{}],
         "Disclaimer": null,
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
