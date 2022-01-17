@@ -4,63 +4,257 @@
     "Message": "",
     "Type": ""
   },
-  "AppSettings": {
+  "AppConfig": {
     "Name": "Financial Wellness Library",
     "Version": "1.0.1",
+    "Master": true,
     "Created": "2022-01-17T20:00:00+00:00",
-    "Value": null
+    "Updated": null
+  },
+  "ItemDefault": {
+    "Category": null,
+    "Description": null,
+    "Duration": null,
+    "Content": {
+      "Section": null,
+      "Trivia": [{}],
+      "Tips": [{}],
+      "Disclaimer": null,
+      "Media": {
+        "ImageUrl": null,
+        "VideoUrl": null,
+        "Source": null
+      }
+    }
   },
   "Items": [{
-      "ContentId": 0,
+      "Category": "Factoids",
+      "Description": null,
       "Duration": "25000",
-      "Topic": {
-        "Category": "Financial Wellness",
-        "Description": "Small Business"
-      },
       "Content": {
-        "Scene": 1,
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{}],
         "Tips": [{
-          "id": 1,
+          "Id": 1,
           "Content": "As of 2019, there are <span class='spotlight'>30.7 million</span> small businessess in the U.S. and <span class='spotlight'>99.7%</span> of businesses are considered small businessess",
-          "Source": "Fundera",
-          "Media": {
-            "ImageUrl": "https://picsum.photos/1000/1000",
-            "VideoUrl": null,
-            "Source": null
-          }
-        }]
+          "Source": "Fundera"
+        }],
+        "Disclaimer": null,
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
       }
     },
     {
-      "ContentId": 1,
+      "Category": "Tips",
+      "Description": null,
       "Duration": "33000",
-      "Topic": {
-        "Category": "Financial Wellness",
-        "Description": "Tips For Spotting Home Improvement Contractor Scams"
-      },
       "Content": {
-        "Scene": 1,
+        "Section": 1,
+        "Title": "Tips For Spotting Home Improvement Contractor Scams",
+        "Trivia": [{}],
         "Tips": [{
-            "id": 1,
+            "Id": 1,
             "Content": "<span class='spotlight'>Knocks on your door</span> for business or offers you discounts for <span class='spotlight'>finding other customers</span>",
             "Source": null
           },
           {
-            "id": 2,
+            "Id": 2,
             "Content": "Just happens to have <span class='spotlight'>materials left-over</span> from a previous job",
             "Source": null
           },
           {
-            "id": 3,
+            "Id": 3,
             "Content": "Pressures you for an <span class='spotlight'>immediate descision</span>",
             "Source": null
           },
           {
-            "id": 4,
+            "Id": 4,
             "Content": "Only <span class='spotlight'>accepts cash</span>, asks you to <span class='spotlight'>pay up-front</span>, or suggests you <span class='spotlight'>borrow money</span> from a lender the contractor knows",
             "Source": null
           }
         ],
+        "Disclaimer": null,
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    },
+    {
+      "Category": "Trivia",
+      "Description": "Average Student Loan Debt",
+      "Duration": "29000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{
+          "Question": "What would you guess is the <span class='spotlight'>average balance</span> of <span class='spotlight'>student loan debt</span>?",
+          "1": "$53,171",
+          "2": "$12,456",
+          "3": "$34,144",
+          "4": "$22,899",
+          "Answer": "3",
+          "Source": "Experian"
+        }],
+        "Tips": [{}],
+        "Disclaimer": null,
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    },
+    {
+      "Category": "Trivia",
+      "Description": "European Tipping Practices",
+      "Duration": "29000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{
+          "Question": "When in <span class='spotlight'>Europe</span>, what is the recommended <span class='spotlight'>percentage to tip</span>?",
+          "1": "15% to 20%",
+          "2": "5% to 10%",
+          "3": "10% to 15%",
+          "4": "No tip",
+          "Answer": "3",
+          "Source": "Smarter Travel"
+        }],
+        "Tips": [{}],
+        "Disclaimer": null,
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    }, {
+      "Category": "Tips",
+      "Description": "Financial Retirement Graph",
+      "Duration": "39000",
+      "Content": {
+        "Section": 1,
+        "Title": "Financing Retirement",
+        "Trivia": [{}],
+        "Tips": [{
+            "Id": 1,
+            "Content": "In 1910, life expectancy was only 50 years. Retirement was only for the very old, and the average retirement age from the workforce was 74 years old.",
+            "Source": "SeniorLiving.org"
+          },
+          {
+            "Id": 2,
+            "Content": "In 1970, the average American needed to only have enough savings to cover five years of retirement.",
+            "Source": "SeniorLiving.org"
+          },
+          {
+            "Id": 3,
+            "Content": "Today, the average American needs 16 years of income after retirement age.",
+            "Source": "SeniorLiving.org"
+          }
+        ],
+        "Disclaimer": [{
+          "Id": 1,
+          "Text": "Life expectancy in the USA",
+          "Source": "Statista 2020"
+        }, {
+          "Id": 2,
+          "Name": "Average retirement age",
+          "Source": "US Census Bureau"
+        }],
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    }, {
+      "Category": "Tips",
+      "Description": "Financial Security",
+      "Duration": "27000",
+      "Content": {
+        "Section": 1,
+        "Title": "Did You Know",
+        "Trivia": [{}],
+        "Tips": [{
+            "Id": 1,
+            "Content": "You can <span class='spotlight'>protect</span> the <span class='spotlight'>financial security</span> of your <span class='spotlight'>surviving spouse</span>.",
+            "Source": "Consumer Financial Protection Bureau"
+          },
+          {
+            "Id": 2,
+            "Content": "Your decision about when to claim <span class='spotlight'>Social Security</span> could affect the <span class='spotlight'>benefits your spouse</span> will receive after you die.",
+            "Source": "Consumer Financial Protection Bureau"
+          },
+          {
+            "Id": 3,
+            "Content": "<span class='spotlight'>Surviving spouses</span> can choose to keep either <span class='spotlight'>their own benefit</span> or <span class='spotlight'>their spouse's benefit</span>, whichever is higher.",
+            "Source": "Consumer Financial Protection Bureau"
+          }
+        ],
+        "Disclaimer": [{
+          "Id": 1,
+          "Text": "Life expectancy in the USA",
+          "Source": "Statista 2020"
+        }, {
+          "Id": 2,
+          "Name": "Average retirement age",
+          "Source": "US Census Bureau"
+        }],
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    },
+    {
+      "Category": "Factoids",
+      "Description": null,
+      "Duration": "25000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{}],
+        "Tips": [{
+          "Id": 1,
+          "Content": "<span class='spotlight'>33%</span> of American shop online at least <span class='spotlight'>once per week</span>. <span class='spotlight'>69%</span>, shop online at least <span class='spotlight'>monthly</span>.",
+          "Source": "Mintel"
+        }],
+        "Disclaimer": null,
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": null,
+          "Source": null
+        }
+      }
+    },{
+      "Category": "Factoids",
+      "Description": "Pre-Qualified vs. Pre-Approved",
+      "Duration": "45000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{}],
+        "Tips": [{
+          "Id": 1,
+          "Content": "When shopping for a home, what's the difference between being <span class='spotlight'>pre-qualified</span> vs. <span class='spotlight'>pre-approved</span> for a home loan?",
+          "Source": "Investopedia"
+        },{
+          "Id": 2,
+          "Content": "<span class='spotlight'>Prequalification</span> is based on <span class='spotlight'>data you submit</span> to a lender, which will provide a <span class='spotlight'>ballpark estimate</span> of how much you can borrow. <span class='spotlight'>Preapproval</span> is based on <span class='spotlight'>verified consumer data</span>.",
+          "Source": "Investopedia"
+        },{
+          "Id": 3,
+          "Content": "<span class='spotlight'>Getting pre-approved</span> for a home loan enables you to <span class='spotlight'>move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class='spotlight'>your offer is serious</span>.",
+          "Source": "Investopedia"
+        }],
+        "Disclaimer": null,
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
           "VideoUrl": null,
