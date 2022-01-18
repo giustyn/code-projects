@@ -8,80 +8,80 @@
     "Name": "Financial Wellness Library",
     "Version": "1.0.1",
     "Master": true,
-    "Created": "2022-01-17T20:00:00+00:00",
-    "Updated": null
+    "Created": "2022-01-17T01:00:00-05:00",
+    "Updated": "2022-01-17T23:33:00-05:00"
   },
   "ItemDefault": {
-    "Category": null,
-    "Description": null,
-    "Duration": null,
+    "Category": "",
+    "Description": "",
+    "Duration": "",
     "Content": {
       "Section": null,
       "Trivia": [{}],
       "Tips": [{}],
-      "Disclaimer": null,
+      "Disclaimer": "",
       "Media": {
-        "ImageUrl": null,
-        "VideoUrl": null,
-        "Source": null
+        "ImageUrl": "",
+        "VideoUrl": "",
+        "Source": ""
       }
     }
   },
   "Items": [{
       "Category": "Factoids",
-      "Description": null,
+      "Description": "Small Business",
       "Duration": "25000",
       "Content": {
         "Section": 1,
         "Title": "",
         "Trivia": [{}],
         "Tips": [{
-          "Id": 1,
-          "Content": "As of 2019, there are <span class='spotlight'>30.7 million</span> small businessess in the U.S. and <span class='spotlight'>99.7%</span> of businesses are considered small businessess",
-          "Source": "Fundera"
+          "Id": 0,
+          "Content": "As of 2019, there are <span class=\"tag\">30.7 million</span> small businessess in the U.S. and <span class=\"tag\">99.7%</span> of businesses are considered small businessess",
+          "Source": "Source: Fundera"
         }],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     },
     {
       "Category": "Tips",
-      "Description": null,
+      "Description": "Spotting Home Contractor Scams",
       "Duration": "33000",
       "Content": {
         "Section": 1,
         "Title": "Tips For Spotting Home Improvement Contractor Scams",
         "Trivia": [{}],
         "Tips": [{
+            "Id": 0,
+            "Content": "<span class=\"tag\">Knocks on your door</span> for business or offers you discounts for <span class=\"tag\">finding other customers</span>",
+            "Source": ""
+          },
+          {
             "Id": 1,
-            "Content": "<span class='spotlight'>Knocks on your door</span> for business or offers you discounts for <span class='spotlight'>finding other customers</span>",
-            "Source": null
+            "Content": "Just happens to have <span class=\"tag\">materials left-over</span> from a previous job",
+            "Source": ""
           },
           {
             "Id": 2,
-            "Content": "Just happens to have <span class='spotlight'>materials left-over</span> from a previous job",
-            "Source": null
+            "Content": "Pressures you for an <span class=\"tag\">immediate descision</span>",
+            "Source": ""
           },
           {
             "Id": 3,
-            "Content": "Pressures you for an <span class='spotlight'>immediate descision</span>",
-            "Source": null
-          },
-          {
-            "Id": 4,
-            "Content": "Only <span class='spotlight'>accepts cash</span>, asks you to <span class='spotlight'>pay up-front</span>, or suggests you <span class='spotlight'>borrow money</span> from a lender the contractor knows",
-            "Source": null
+            "Content": "Only <span class=\"tag\">accepts cash</span>, asks you to <span class=\"tag\">pay up-front</span>, or suggests you <span class=\"tag\">borrow money</span> from a lender the contractor knows",
+            "Source": ""
           }
         ],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     },
@@ -93,21 +93,21 @@
         "Section": 1,
         "Title": "",
         "Trivia": [{
-          "Fact": null,
-          "Question": "What would you guess is the <span class='spotlight'>average balance</span> of <span class='spotlight'>student loan debt</span>?",
-          "1": "$53,171",
-          "2": "$12,456",
-          "3": "$34,144",
-          "4": "$22,899",
+          "Fact": "",
+          "Question": "What would you guess is the <span class=\"tag\">average balance</span> of <span class=\"tag\">student loan debt</span>?",
+          "1": "1) $53,171",
+          "2": "2) $12,456",
+          "3": "3) $34,144",
+          "4": "4) $22,899",
           "Answer": "3",
-          "Source": "Experian"
+          "Source": "Source: Experian"
         }],
         "Tips": [{}],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     },
@@ -119,21 +119,21 @@
         "Section": 1,
         "Title": "",
         "Trivia": [{
-          "Fact": null,
-          "Question": "When in <span class='spotlight'>Europe</span>, what is the recommended <span class='spotlight'>percentage to tip</span>?",
+          "Fact": "",
+          "Question": "When in <span class=\"tag\">Europe</span>, what is the recommended <span class=\"tag\">percentage to tip</span>?",
           "1": "15% to 20%",
           "2": "5% to 10%",
           "3": "10% to 15%",
           "4": "No tip",
           "Answer": "3",
-          "Source": "Smarter Travel"
+          "Source": "Source: Smarter Travel"
         }],
         "Tips": [{}],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     }, {
@@ -145,34 +145,34 @@
         "Title": "Financing Retirement",
         "Trivia": [{}],
         "Tips": [{
-            "Id": 1,
+            "Id": 0,
             "Content": "In 1910, life expectancy was only 50 years. Retirement was only for the very old, and the average retirement age from the workforce was 74 years old.",
-            "Source": "SeniorLiving.org"
+            "Source": "Source: SeniorLiving.org"
+          },
+          {
+            "Id": 1,
+            "Content": "In 1970, the average American needed to only have enough savings to cover five years of retirement.",
+            "Source": ""
           },
           {
             "Id": 2,
-            "Content": "In 1970, the average American needed to only have enough savings to cover five years of retirement.",
-            "Source": "SeniorLiving.org"
-          },
-          {
-            "Id": 3,
             "Content": "Today, the average American needs 16 years of income after retirement age.",
-            "Source": "SeniorLiving.org"
+            "Source": ""
           }
         ],
         "Disclaimer": [{
-          "Id": 1,
+          "Id": 0,
           "Text": "Life expectancy in the USA",
-          "Source": "Statista 2020"
+          "Source": "Source: Statista 2020"
         }, {
-          "Id": 2,
+          "Id": 1,
           "Name": "Average retirement age",
-          "Source": "US Census Bureau"
+          "Source": "Source: US Census Bureau"
         }],
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     }, {
@@ -184,34 +184,34 @@
         "Title": "Did You Know",
         "Trivia": [{}],
         "Tips": [{
+            "Id": 0,
+            "Content": "You can <span class=\"tag\">protect</span> the <span class=\"tag\">financial security</span> of your <span class=\"tag\">surviving spouse</span>.",
+            "Source": "Source: Consumer Financial Protection Bureau"
+          },
+          {
             "Id": 1,
-            "Content": "You can <span class='spotlight'>protect</span> the <span class='spotlight'>financial security</span> of your <span class='spotlight'>surviving spouse</span>.",
-            "Source": "Consumer Financial Protection Bureau"
+            "Content": "Your decision about when to claim <span class=\"tag\">Social Security</span> could affect the <span class=\"tag\">benefits your spouse</span> will receive after you die.",
+            "Source": ""
           },
           {
             "Id": 2,
-            "Content": "Your decision about when to claim <span class='spotlight'>Social Security</span> could affect the <span class='spotlight'>benefits your spouse</span> will receive after you die.",
-            "Source": "Consumer Financial Protection Bureau"
-          },
-          {
-            "Id": 3,
-            "Content": "<span class='spotlight'>Surviving spouses</span> can choose to keep either <span class='spotlight'>their own benefit</span> or <span class='spotlight'>their spouse's benefit</span>, whichever is higher.",
-            "Source": "Consumer Financial Protection Bureau"
+            "Content": "<span class=\"tag\">Surviving spouses</span> can choose to keep either <span class=\"tag\">their own benefit</span> or <span class=\"tag\">their spouse's benefit</span>, whichever is higher.",
+            "Source": ""
           }
         ],
         "Disclaimer": [{
-          "Id": 1,
-          "Text": "Life expectancy in the USA",
-          "Source": "Statista 2020"
+          "Id": 0,
+          "A": "Life expectancy in the USA",
+          "Source": "Source: Statista 2020"
         }, {
-          "Id": 2,
+          "Id": 1,
           "Name": "Average retirement age",
-          "Source": "US Census Bureau"
+          "Source": "Source: US Census Bureau"
         }],
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     },
@@ -224,15 +224,15 @@
         "Title": "",
         "Trivia": [{}],
         "Tips": [{
-          "Id": 1,
-          "Content": "<span class='spotlight'>33%</span> of American shop online at least <span class='spotlight'>once per week</span>. <span class='spotlight'>69%</span>, shop online at least <span class='spotlight'>monthly</span>.",
-          "Source": "Mintel"
+          "Id": 0,
+          "Content": "<span class=\"tag\">33%</span> of American shop online at least <span class=\"tag\">once per week</span>. <span class=\"tag\">69%</span>, shop online at least <span class=\"tag\">monthly</span>.",
+          "Source": "Source: Mintel"
         }],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     }, {
@@ -244,23 +244,23 @@
         "Title": "",
         "Trivia": [{}],
         "Tips": [{
+          "Id": 0,
+          "Content": "When shopping for a home, what's the difference between being <span class=\"tag\">pre-qualified</span> vs. <span class=\"tag\">pre-approved</span> for a home loan?",
+          "Source": "Source: Investopedia"
+        }, {
           "Id": 1,
-          "Content": "When shopping for a home, what's the difference between being <span class='spotlight'>pre-qualified</span> vs. <span class='spotlight'>pre-approved</span> for a home loan?",
-          "Source": "Investopedia"
+          "Content": "<span class=\"tag\">Prequalification</span> is based on <span class=\"tag\">data you submit</span> to a lender, which will provide a <span class=\"tag\">ballpark estimate</span> of how much you can borrow. <span class=\"tag\">Preapproval</span> is based on <span class=\"tag\">verified consumer data</span>.",
+          "Source": ""
         }, {
           "Id": 2,
-          "Content": "<span class='spotlight'>Prequalification</span> is based on <span class='spotlight'>data you submit</span> to a lender, which will provide a <span class='spotlight'>ballpark estimate</span> of how much you can borrow. <span class='spotlight'>Preapproval</span> is based on <span class='spotlight'>verified consumer data</span>.",
-          "Source": "Investopedia"
-        }, {
-          "Id": 3,
-          "Content": "<span class='spotlight'>Getting pre-approved</span> for a home loan enables you to <span class='spotlight'>move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class='spotlight'>your offer is serious</span>.",
-          "Source": "Investopedia"
+          "Content": "<span class=\"tag\">Getting pre-approved</span> for a home loan enables you to <span class=\"tag\">move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class=\"tag\">your offer is serious</span>.",
+          "Source": ""
         }],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     }, {
@@ -271,23 +271,168 @@
         "Section": 1,
         "Title": "",
         "Trivia": [{
-            "Id": 1,
-            "Content": "In 1862, President Abraham Lincoln <span class='spotlight'>signed into law</span> the <span class='spotlight'>very first income</span> tax to help pay for the Civil War.",
-            "Question": "How much do you think the <span class='spotlight'>income tax rate</span> was for the  <span class='spotlight'>top earners</span>?",
-            "1": "7%",
-            "2": "5%",
-            "3": "15%",
-            "4": "21%",
-            "Answer": "2",
-            "Source": null
-          }
-        ],
+          "Id": 0,
+          "Content": "In 1862, President Abraham Lincoln <span class=\"tag\">signed into law</span> the <span class=\"tag\">very first income</span> tax to help pay for the Civil War.",
+          "Question": "How much do you think the <span class=\"tag\">income tax rate</span> was for the  <span class=\"tag\">top earners</span>?",
+          "1": "1) 7%",
+          "2": "2) 5%",
+          "3": "3) 15%",
+          "4": "4) 21%",
+          "Answer": "2",
+          "Source": ""
+        }],
         "Tips": [{}],
-        "Disclaimer": null,
+        "Disclaimer": "",
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": null,
-          "Source": null
+          "VideoUrl": "",
+          "Source": ""
+        }
+      }
+    }, {
+      "Category": "Tips",
+      "Description": "Roth IRA",
+      "Duration": "39000",
+      "Content": {
+        "Section": 1,
+        "Title": "Did You Know",
+        "Trivia": [{}],
+        "Tips": [{
+            "Id": 0,
+            "Content": "What makes a <span class=\"tag\">ROTH IRA different</span> than a <span class=\"tag\">traditional IRA</span>?",
+            "Source": ""
+          },
+          {
+            "Id": 1,
+            "Content": "1) You <span class=\"tag\">cannot deduct contributions</span> to a <span class=\"tag\">Roth IRA</span>",
+            "Source": ""
+          },
+          {
+            "Id": 2,
+            "Content": "2) If you satisfy the requirements, <span class=\"tag\">qualified distributions</span> are <span class=\"tag\">tax-free</span>.",
+            "Source": ""
+          },
+          {
+            "Id": 3,
+            "Content": "3) You can make <span class=\"tag\">contributions</span> to your <span class=\"tag\">Roth IRA after</span> you reach <span class=\"tag\">age 70½</span>.",
+            "Source": ""
+          },
+          {
+            "Id": 4,
+            "Content": "4) You can <span class=\"tag\">leave amounts</span> in your Roth IRA <span class=\"tag\">as long as you live</span>.",
+            "Source": ""
+          }
+        ],
+        "Disclaimer": {
+          "Id": 0,
+          "A": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+          "Source": "IRS.gov"
+        },
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": "",
+          "Source": ""
+        }
+      }
+    }, {
+      "Category": "Trivia",
+      "Description": "IRS",
+      "Duration": "34000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{
+          "Id": 0,
+          "Content": "In 1862, President Abraham Lincoln <span class=\"tag\">signed into law</span> the <span class=\"tag\">very first income</span> tax to help pay for the Civil War.",
+          "Question": "Which of the following taxpayer <span class=\"tag\">outreach methods</span> is an indication of a <span class=\"tag\">legitimate inquiry</span> by the IRS?",
+          "1": "1) Phone",
+          "2": "2) Email",
+          "3": "3) Mail",
+          "Answer": "3",
+          "Source": "Source: Federal Trade"
+        }],
+        "Tips": [{}],
+        "Disclaimer": {
+          "Id": 0,
+          "A": "If you've been contacted by someone through a phone call or an e-mail and they represent themselves as the IRS, this is an attempt at fraud.",
+          "B": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+          "Source": ""
+        },
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": "",
+          "Source": ""
+        }
+      }
+    }, {
+      "Category": "Tips",
+      "Description": "Eliminating Debt",
+      "Duration": "28000",
+      "Content": {
+        "Section": 1,
+        "Title": "Tips for Eliminating Debt",
+        "Trivia": [{}],
+        "Tips": [{
+            "Id": 0,
+            "Content": "Account for all your expenses on a spreadsheet and <span class=\"tag\">track payments</span>, <span class=\"tag\">interest</span>, and <span class=\"tag\">balances</span>.",
+            "Source": ""
+          },
+          {
+            "Id": 1,
+            "Content": "Consider <span class=\"tag\">reducing</span> your <span class=\"tag\">credit cards</span> to one.",
+            "Source": ""
+          },
+          {
+            "Id": 2,
+            "Content": "Create a <span class=\"tag\">budget</span>.",
+            "Source": ""
+          },
+          {
+            "Id": 3,
+            "Content": "Commit to a <span class=\"tag\">smart app tool</span> to <span class=\"tag\">track your spending</span> and <span class=\"tag\">budget adherence</span>.",
+            "Source": ""
+          }
+        ],
+        "Disclaimer": {
+          "Id": 0,
+          "A": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+          "Source": ""
+        },
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": "",
+          "Source": ""
+        }
+      }
+    }, {
+      "Category": "Trivia",
+      "Description": "Volkswagen Beetle",
+      "Duration": "34000",
+      "Content": {
+        "Section": 1,
+        "Title": "",
+        "Trivia": [{
+          "Id": 0,
+          "Content": "",
+          "Question": "In today's dollars, how much do you think a <span class=\"tag\">1965 Volkswagen Beetle would cost at the dealership</span>?",
+          "1": "1) $5,988",
+          "2": "2) $1,997",
+          "3": "3) $13,187",
+          "4": "4) $17,079",
+          "Answer": "3",
+          "Source": "Source: Federal Trade"
+        }],
+        "Tips": [{}],
+        "Disclaimer": {
+          "Id": 0,
+          "A": "If you've been contacted by someone through a phone call or an e-mail and they represent themselves as the IRS, this is an attempt at fraud.",
+          "B": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+          "Source": ""
+        },
+        "Media": {
+          "ImageUrl": "https://picsum.photos/1000/1000",
+          "VideoUrl": "",
+          "Source": ""
         }
       }
     }
