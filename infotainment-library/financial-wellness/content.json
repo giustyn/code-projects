@@ -37,7 +37,7 @@
         "Trivia": [{}],
         "Tips": [{
           "Id": 0,
-          "Content": "As of 2019, there are <span class=\"tag\">30.7 million</span> small businessess in the U.S. and <span class=\"tag\">99.7%</span> of businesses are considered small businessess",
+          "Content": "As of 2019, there are <span class=\"highlight\">30.7 million</span> small businessess in the U.S. and <span class=\"highlight\">99.7%</span> of businesses are considered small businessess",
           "Source": "Source: Fundera"
         }],
         "Disclaimer": "",
@@ -58,22 +58,22 @@
         "Trivia": [{}],
         "Tips": [{
             "Id": 0,
-            "Content": "<span class=\"tag\">Knocks on your door</span> for business or offers you discounts for <span class=\"tag\">finding other customers</span>",
+            "Content": "<span class=\"highlight\">Knocks on your door</span> for business or offers you discounts for <span class=\"highlight\">finding other customers</span>",
             "Source": ""
           },
           {
             "Id": 1,
-            "Content": "Just happens to have <span class=\"tag\">materials left-over</span> from a previous job",
+            "Content": "Just happens to have <span class=\"highlight\">materials left-over</span> from a previous job",
             "Source": ""
           },
           {
             "Id": 2,
-            "Content": "Pressures you for an <span class=\"tag\">immediate descision</span>",
+            "Content": "Pressures you for an <span class=\"highlight\">immediate descision</span>",
             "Source": ""
           },
           {
             "Id": 3,
-            "Content": "Only <span class=\"tag\">accepts cash</span>, asks you to <span class=\"tag\">pay up-front</span>, or suggests you <span class=\"tag\">borrow money</span> from a lender the contractor knows",
+            "Content": "Only <span class=\"highlight\">accepts cash</span>, asks you to <span class=\"highlight\">pay up-front</span>, or suggests you <span class=\"highlight\">borrow money</span> from a lender the contractor knows",
             "Source": ""
           }
         ],
@@ -94,11 +94,11 @@
         "Title": "",
         "Trivia": [{
           "Fact": "",
-          "Question": "What would you guess is the <span class=\"tag\">average balance</span> of <span class=\"tag\">student loan debt</span>?",
-          "1": "1) $53,171",
-          "2": "2) $12,456",
-          "3": "3) $34,144",
-          "4": "4) $22,899",
+          "Question": "What would you guess is the <span class=\"highlight\">average balance</span> of <span class=\"highlight\">student loan debt</span>?",
+          "A": "1) $53,171",
+          "B": "2) $12,456",
+          "C": "3) $34,144",
+          "D": "4) $22,899",
           "Answer": "3",
           "Source": "Source: Experian"
         }],
@@ -120,11 +120,11 @@
         "Title": "",
         "Trivia": [{
           "Fact": "",
-          "Question": "When in <span class=\"tag\">Europe</span>, what is the recommended <span class=\"tag\">percentage to tip</span>?",
-          "1": "15% to 20%",
-          "2": "5% to 10%",
-          "3": "10% to 15%",
-          "4": "No tip",
+          "Question": "When in <span class=\"highlight\">Europe</span>, what is the recommended <span class=\"highlight\">percentage to tip</span>?",
+          "A": "15% to 20%",
+          "B": "5% to 10%",
+          "C": "10% to 15%",
+          "D": "No tip",
           "Answer": "3",
           "Source": "Source: Smarter Travel"
         }],
@@ -185,29 +185,30 @@
         "Trivia": [{}],
         "Tips": [{
             "Id": 0,
-            "Content": "You can <span class=\"tag\">protect</span> the <span class=\"tag\">financial security</span> of your <span class=\"tag\">surviving spouse</span>.",
+            "Content": "You can <span class=\"highlight\">protect</span> the <span class=\"highlight\">financial security</span> of your <span class=\"highlight\">surviving spouse</span>.",
             "Source": "Source: Consumer Financial Protection Bureau"
           },
           {
             "Id": 1,
-            "Content": "Your decision about when to claim <span class=\"tag\">Social Security</span> could affect the <span class=\"tag\">benefits your spouse</span> will receive after you die.",
+            "Content": "Your decision about when to claim <span class=\"highlight\">Social Security</span> could affect the <span class=\"highlight\">benefits your spouse</span> will receive after you die.",
             "Source": ""
           },
           {
             "Id": 2,
-            "Content": "<span class=\"tag\">Surviving spouses</span> can choose to keep either <span class=\"tag\">their own benefit</span> or <span class=\"tag\">their spouse's benefit</span>, whichever is higher.",
+            "Content": "<span class=\"highlight\">Surviving spouses</span> can choose to keep either <span class=\"highlight\">their own benefit</span> or <span class=\"highlight\">their spouse's benefit</span>, whichever is higher.",
             "Source": ""
           }
         ],
-        "Disclaimer": [{
-          "Id": 0,
-          "A": "Life expectancy in the USA",
-          "Source": "Source: Statista 2020"
-        }, {
-          "Id": 1,
-          "Name": "Average retirement age",
-          "Source": "Source: US Census Bureau"
-        }],
+        "Disclaimer": {
+          "A": {
+            "Text": "Life expectancy in the USA",
+            "Source": "Source: Statista 2020"
+          },
+          "B": {
+            "Text": "Average retirement age",
+            "Source": "Source: US Census Bureau"
+          }
+        },
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
           "VideoUrl": "",
@@ -225,7 +226,7 @@
         "Trivia": [{}],
         "Tips": [{
           "Id": 0,
-          "Content": "<span class=\"tag\">33%</span> of American shop online at least <span class=\"tag\">once per week</span>. <span class=\"tag\">69%</span>, shop online at least <span class=\"tag\">monthly</span>.",
+          "Content": "<span class=\"highlight\">33%</span> of American shop online at least <span class=\"highlight\">once per week</span>. <span class=\"highlight\">69%</span>, shop online at least <span class=\"highlight\">monthly</span>.",
           "Source": "Source: Mintel"
         }],
         "Disclaimer": "",
@@ -245,15 +246,15 @@
         "Trivia": [{}],
         "Tips": [{
           "Id": 0,
-          "Content": "When shopping for a home, what's the difference between being <span class=\"tag\">pre-qualified</span> vs. <span class=\"tag\">pre-approved</span> for a home loan?",
+          "Content": "When shopping for a home, what's the difference between being <span class=\"highlight\">pre-qualified</span> vs. <span class=\"highlight\">pre-approved</span> for a home loan?",
           "Source": "Source: Investopedia"
         }, {
           "Id": 1,
-          "Content": "<span class=\"tag\">Prequalification</span> is based on <span class=\"tag\">data you submit</span> to a lender, which will provide a <span class=\"tag\">ballpark estimate</span> of how much you can borrow. <span class=\"tag\">Preapproval</span> is based on <span class=\"tag\">verified consumer data</span>.",
+          "Content": "<span class=\"highlight\">Prequalification</span> is based on <span class=\"highlight\">data you submit</span> to a lender, which will provide a <span class=\"highlight\">ballpark estimate</span> of how much you can borrow. <span class=\"highlight\">Preapproval</span> is based on <span class=\"highlight\">verified consumer data</span>.",
           "Source": ""
         }, {
           "Id": 2,
-          "Content": "<span class=\"tag\">Getting pre-approved</span> for a home loan enables you to <span class=\"tag\">move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class=\"tag\">your offer is serious</span>.",
+          "Content": "<span class=\"highlight\">Getting pre-approved</span> for a home loan enables you to <span class=\"highlight\">move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class=\"highlight\">your offer is serious</span>.",
           "Source": ""
         }],
         "Disclaimer": "",
@@ -272,12 +273,12 @@
         "Title": "",
         "Trivia": [{
           "Id": 0,
-          "Content": "In 1862, President Abraham Lincoln <span class=\"tag\">signed into law</span> the <span class=\"tag\">very first income</span> tax to help pay for the Civil War.",
-          "Question": "How much do you think the <span class=\"tag\">income tax rate</span> was for the  <span class=\"tag\">top earners</span>?",
-          "1": "1) 7%",
-          "2": "2) 5%",
-          "3": "3) 15%",
-          "4": "4) 21%",
+          "Content": "In 1862, President Abraham Lincoln <span class=\"highlight\">signed into law</span> the <span class=\"highlight\">very first income</span> tax to help pay for the Civil War.",
+          "Question": "How much do you think the <span class=\"highlight\">income tax rate</span> was for the  <span class=\"highlight\">top earners</span>?",
+          "A": "1) 7%",
+          "B": "2) 5%",
+          "C": "3) 15%",
+          "D": "4) 21%",
           "Answer": "2",
           "Source": ""
         }],
@@ -299,34 +300,35 @@
         "Trivia": [{}],
         "Tips": [{
             "Id": 0,
-            "Content": "What makes a <span class=\"tag\">ROTH IRA different</span> than a <span class=\"tag\">traditional IRA</span>?",
+            "Content": "What makes a <span class=\"highlight\">ROTH IRA different</span> than a <span class=\"highlight\">traditional IRA</span>?",
             "Source": ""
           },
           {
             "Id": 1,
-            "Content": "1) You <span class=\"tag\">cannot deduct contributions</span> to a <span class=\"tag\">Roth IRA</span>",
+            "Content": "1) You <span class=\"highlight\">cannot deduct contributions</span> to a <span class=\"highlight\">Roth IRA</span>",
             "Source": ""
           },
           {
             "Id": 2,
-            "Content": "2) If you satisfy the requirements, <span class=\"tag\">qualified distributions</span> are <span class=\"tag\">tax-free</span>.",
+            "Content": "2) If you satisfy the requirements, <span class=\"highlight\">qualified distributions</span> are <span class=\"highlight\">tax-free</span>.",
             "Source": ""
           },
           {
             "Id": 3,
-            "Content": "3) You can make <span class=\"tag\">contributions</span> to your <span class=\"tag\">Roth IRA after</span> you reach <span class=\"tag\">age 70½</span>.",
+            "Content": "3) You can make <span class=\"highlight\">contributions</span> to your <span class=\"highlight\">Roth IRA after</span> you reach <span class=\"highlight\">age 70½</span>.",
             "Source": ""
           },
           {
             "Id": 4,
-            "Content": "4) You can <span class=\"tag\">leave amounts</span> in your Roth IRA <span class=\"tag\">as long as you live</span>.",
+            "Content": "4) You can <span class=\"highlight\">leave amounts</span> in your Roth IRA <span class=\"highlight\">as long as you live</span>.",
             "Source": ""
           }
         ],
         "Disclaimer": {
-          "Id": 0,
-          "A": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
-          "Source": "IRS.gov"
+          "A": {
+            "Text": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+            "Source": "IRS.gov"
+          }
         },
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
@@ -336,32 +338,31 @@
       }
     }, {
       "Category": "Trivia",
-      "Description": "IRS",
-      "Duration": "34000",
+      "Description": "Spotting Attempted Fraud",
+      "Duration": "21000",
       "Content": {
         "Section": 1,
         "Title": "",
         "Trivia": [{
           "Id": 0,
-          "Content": "In 1862, President Abraham Lincoln <span class=\"tag\">signed into law</span> the <span class=\"tag\">very first income</span> tax to help pay for the Civil War.",
-          "Question": "Which of the following taxpayer <span class=\"tag\">outreach methods</span> is an indication of a <span class=\"tag\">legitimate inquiry</span> by the IRS?",
-          "1": "1) Phone",
-          "2": "2) Email",
-          "3": "3) Mail",
+          "Content": "",
+          "Question": "Which of the following taxpayer <span class=\"highlight\">outreach methods</span> is an indication of a <span class=\"highlight\">legitimate inquiry</span> by the IRS?",
+          "A": "1) Phone",
+          "B": "2) Email",
+          "C": "3) Mail",
           "Answer": "3",
           "Source": "Source: Federal Trade"
         }],
         "Tips": [{}],
         "Disclaimer": {
-          "Id": 0,
-          "A": "If you've been contacted by someone through a phone call or an e-mail and they represent themselves as the IRS, this is an attempt at fraud.",
-          "B": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
-          "Source": ""
-        },
-        "Media": {
-          "ImageUrl": "https://picsum.photos/1000/1000",
-          "VideoUrl": "",
-          "Source": ""
+          "A": {
+            "Text": "If you've been contacted by someone through a phone call or an e-mail and they represent themselves as the IRS, this is an attempt at fraud.",
+            "Source": ""
+          },
+          "B": {
+            "Text": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+            "Source": ""
+          }
         }
       }
     }, {
@@ -374,29 +375,30 @@
         "Trivia": [{}],
         "Tips": [{
             "Id": 0,
-            "Content": "Account for all your expenses on a spreadsheet and <span class=\"tag\">track payments</span>, <span class=\"tag\">interest</span>, and <span class=\"tag\">balances</span>.",
+            "Content": "Account for all your expenses on a spreadsheet and <span class=\"highlight\">track payments</span>, <span class=\"highlight\">interest</span>, and <span class=\"highlight\">balances</span>.",
             "Source": ""
           },
           {
             "Id": 1,
-            "Content": "Consider <span class=\"tag\">reducing</span> your <span class=\"tag\">credit cards</span> to one.",
+            "Content": "Consider <span class=\"highlight\">reducing</span> your <span class=\"highlight\">credit cards</span> to one.",
             "Source": ""
           },
           {
             "Id": 2,
-            "Content": "Create a <span class=\"tag\">budget</span>.",
+            "Content": "Create a <span class=\"highlight\">budget</span>.",
             "Source": ""
           },
           {
             "Id": 3,
-            "Content": "Commit to a <span class=\"tag\">smart app tool</span> to <span class=\"tag\">track your spending</span> and <span class=\"tag\">budget adherence</span>.",
+            "Content": "Commit to a <span class=\"highlight\">smart app tool</span> to <span class=\"highlight\">track your spending</span> and <span class=\"highlight\">budget adherence</span>.",
             "Source": ""
           }
         ],
         "Disclaimer": {
-          "Id": 0,
-          "A": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
-          "Source": ""
+          "A": {
+            "Text": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
+            "Source": ""
+          }
         },
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
@@ -414,20 +416,24 @@
         "Trivia": [{
           "Id": 0,
           "Content": "",
-          "Question": "In today's dollars, how much do you think a <span class=\"tag\">1965 Volkswagen Beetle would cost at the dealership</span>?",
-          "1": "1) $5,988",
-          "2": "2) $1,997",
-          "3": "3) $13,187",
-          "4": "4) $17,079",
+          "Question": "In today's dollars, how much do you think a <span class=\"highlight\">1965 Volkswagen Beetle would cost at the dealership</span>?",
+          "A": "1) $5,988",
+          "B": "2) $1,997",
+          "C": "3) $13,187",
+          "D": "4) $17,079",
           "Answer": "3",
           "Source": "Source: Federal Trade"
         }],
         "Tips": [{}],
         "Disclaimer": {
-          "Id": 0,
-          "A": "If you've been contacted by someone through a phone call or an e-mail and they represent themselves as the IRS, this is an attempt at fraud.",
-          "B": "The content provided is for informational purposes only. Opinions expressed are those of the author(s) and do not necessarily represent the opinions of this financial institution or any of its affiliates.",
-          "Source": ""
+          "A": {
+            "Text": "",
+            "Source": ""
+          },
+          "B": {
+            "Text": "",
+            "Source": ""
+          }
         },
         "Media": {
           "ImageUrl": "https://picsum.photos/1000/1000",
