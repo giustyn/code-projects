@@ -10,24 +10,34 @@ const resizeText = ({
     element,
     elements,
     minSize = 1,
-    maxSize = 2.25,
-    step = .1,
+    maxSize = 2.5,
+    step = .01,
     unit = 'em'
 }) => {
     (elements || [element]).forEach(el => {
-        let i = minSize
-        let overflow = false
+        let i = minSize;
+        let overflow = false;
 
-        const parent = el.parentNode
+        const parent = el.parentNode;
 
         while (!overflow && i < maxSize) {
-            el.style.fontSize = `${i}${unit}`
-            overflow = isOverflown(parent)
+            el.style.fontSize = `${i}${unit}`;
+            overflow = isOverflown(parent);
 
-            if (!overflow) i += step
+            if (!overflow) i += step;
         }
         // revert to last state where no overflow happened
-        el.style.fontSize = `${i - step}${unit}`
+        el.style.fontSize = `${i - step}${unit}`;
+    })
+}
+
+const isolateTag = ({
+    element,
+    elements,
+}) => {
+    (elements || [element]).forEach(el => {
+        let hashTag = $(el).last().html().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+        $(el).last().html(hashTag);
     })
 }
 

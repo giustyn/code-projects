@@ -14,21 +14,6 @@ $(function () {
     let feeds = [],
         current = 0;
 
-    function fitText(el) {
-        resizeText({
-            elements: document.querySelectorAll(el),
-            step: 0.1,
-            minSize: 1,
-            maxSize: 3,
-            unit: 'em'
-        })
-    }
-
-    function isolateHashtag(element) {
-        var edt = $(element).text().replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
-        $(element).html(edt);
-    }
-
     function revealer() {
         const $transition = $('.revealer'),
             mode = [
@@ -43,54 +28,76 @@ $(function () {
         });
     }
 
-    function animateFeed($template) {
+    function animateItem($template) {
         var item = $template[0];
         var animateIn = anime.timeline({
-                easing: 'easeOutQuart',
+                // easing: 'easeInOutQuad',
+                easing: 'easeInOutExpo',
+                easing: 'cubicBezier(0.645, 0.045, 0.355, 1.000)',
                 duration: animeDuration,
-                autoplay: false,
+                autoplay: true,
                 loop: false
             })
             .add({
                 begin: function () {
                     revealer();
-                    fitText('#message');
-                    isolateHashtag('#message'); // partilaly working, change occurs AFTER slide is finished
+
+                    resizeText({
+                        elements: document.querySelectorAll('.message')
+                    })
+
+                    isolateTag({
+                        element: document.querySelectorAll('.message')
+                    });
                 },
             })
             .add({
                 targets: item,
                 opacity: [0, 1],
-                delay: anime.stagger(100),
                 translateX: [100, 0],
+                endDelay: (timerDuration - (animeDuration * 2)),
             })
-
-        animateIn.play();
+            .add({
+                targets: item,
+                opacity: [1, 0],
+                translateX: [0. - 100],
+            })
     }
 
     function animateTemplate($container, $template, data, current) {
         const $clone = $template.clone();
-        let ProfileImageUrl = data.User.ProfileImageUrl,
-            ProfileUserName = data.User.Name;
 
-        if (!data.User.ProfileImageUrl === true) {
+        let ProfileImageUrl = data.User.ProfileImageUrl,
+            ProfileUserName = data.User.Name,
+            MediaUrl = {
+                "Url": "./img/default-icon.svg"
+            };
+
+        if (data.Images === undefined || data.Images.length == 0) {
+            // image array empty or does not exist
+            data.Images.push(MediaUrl);
+            $clone.find('.media video, .media img').attr('src', MediaUrl);
+        } else {
+            MediaUrl = data.Images[0].Url;
+            $clone.find('.media video, .media img').attr('src', MediaUrl);
+        }
+
+        if (data.User.ProfileImageUrl === undefined || !data.User.ProfileImageUrl === true) {
             // use default instagram image & username
             ProfileImageUrl = userIcon;
             ProfileUserName = userName;
         }
 
-        $clone.attr("id", current).css('z-index', 1).removeClass('hidden');
-        $clone.find('#socialicon .icon').attr('src', data.ProviderIcon);
-        $clone.find('#username').text(ProfileUserName);
-        $clone.find('#useraccount').text(data.User.Username);
-        $clone.find('#usericon .icon').attr('src', ProfileImageUrl);
-        $clone.find('#message').text(data.Content);
-        $clone.find('#posted').text(data.DisplayTime);
-        $clone.find('#media .video').attr('src', data.Images[0].Url);
-        $clone.find('#media .photo').css('background-image', 'url(' + (data.Images[0].Url) + ')');
+        $clone.attr("id", current).css('z-index', current).removeClass('hidden');
+        $clone.find('.socialicon img').attr('src', data.ProviderIcon);
+        $clone.find('.username').text(ProfileUserName);
+        $clone.find('.useraccount').text(data.User.Username);
+        $clone.find('.usericon img').attr('src', ProfileImageUrl);
+        $clone.find('.message').text(data.Content);
+        $clone.find('.published').text(data.DisplayTime);
         $container.append($clone);
 
-        animateFeed($clone);
+        animateItem($clone);
 
         setTimeout(function () {
             $clone.remove();
@@ -99,15 +106,15 @@ $(function () {
 
     function iterateAnimations() {
         const $template = $("article");
-        const $container = $("#main");
+        const $container = $("main");
 
         console.log(current, feeds[current])
-        animateTemplate($container, $template, feeds[current]);
+        animateTemplate($container, $template, feeds[current], current);
         current++;
 
         setInterval(function () {
             console.log(current, feeds[current])
-            animateTemplate($container, $template, feeds[current]);
+            animateTemplate($container, $template, feeds[current], current);
             current = (current + 1) % feeds.length;
         }, timerDuration);
 
@@ -121,17 +128,23 @@ $(function () {
                     feeds.push(response.Items[i]);
                 })
                 iterateAnimations();
-                // setData(response);
             })
             .always(function () {
                 // $bumper[0].addEventListener("timeupdate", videoTimeUpdate);
             });
     }
 
+    function preLoad() {
+        // $(window).load(function() {
+        //     $(".preload").delay(2000).fadeOut("slow");
+        // })
+    }
+
     function init() {
         getData();
     }
 
+    preLoad();
     init();
 
 });
