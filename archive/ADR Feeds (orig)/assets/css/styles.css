@@ -25,7 +25,7 @@
   --header-enabled: 0;
   --article-duration: 6000ms;
   --article-limit: 10;
-  --feed-type: markets;
+  --feed-type: news;
   --feed-style: modern;
   --screen-config: 1;
 }

@@ -119,6 +119,7 @@ $(function () {
             .done(function (response) {
                 $.each(response.Items, function (i) {
                     feeds.push(response.Items[i]);
+                    console.log(feeds)
                 })
                 // iterateAnimations();
             })

@@ -1,36 +1,3 @@
-function ExtendedURL(href) {
-  this.url = new URL(href);
-  this.getSearchParam = function (param) {
-    return this.url.searchParams.get(param)
-  };
-  return this;
-}
-
-function Article(xml, index, basePath) {
-  this.story = xml ? $(xml).find("story").text() : null;
-  this.image = new Image();
-  this.image.src = basePath + index + ".jpg";
-  return this;
-}
-
-function getIndexes(length) {
-  var index = Math.floor(Math.random() * 10);
-  var indexes = [];
-
-  for (var i = 0; i < length; i++) {
-    if (index + i >= 10) index = -1;
-    indexes.push(index + i);
-  }
-  return indexes;
-}
-
-function getRandomIndexes(max) {
-  var indexes = [];
-  for (var i = 0; i < max; i++) {
-    indexes.splice(Math.floor(Math.random() * indexes.length), 0, i);
-  }
-  return indexes;
-}
 
 // function DailyForecast(day, temp, img, description) {
 //   this.day = day;
