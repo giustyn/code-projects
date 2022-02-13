@@ -7,18 +7,20 @@
 
 :root {
   --font-size: calc(1vw + 1vh);
-  --background-color: rgb(0, 0, 0);
-  --primary-color: rgb(77, 78, 83);
+  --background-color: rgb(10, 10, 10);
+  --primary-color: rgb(10, 10, 10);
+  /* --primary-color: rgb(240, 41, 11); */
   --secondary-color: rgb(147, 147, 147);
   --tertiary-color: rgb(255, 255, 255);
-  --white: rgb(255, 255, 255);
-  --accent-color: rgb(10, 10, 10);
+  --accent-color: var(--primary-color);
   --hashtag-color: rgb(24, 145, 255);
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
   --revealer-speed: 2000ms;
   --revealer-opacity: 0.9;
-  --clr-revealer-layer-1: var(--accent-color);
+  --clr-revealer-layer-1: var(--background-color);
   --clr-revealer-layer-2: var(--accent-color);
-  --clr-revealer-layer-3: var(--tertiary-color);
+  --clr-revealer-layer-3: var(--background-color);
 }
 
 body {
@@ -29,7 +31,7 @@ body {
   font-size: var(--font-size);
   line-height: 1.1;
   overflow: hidden;
-  cursor: none;
+  /* cursor: none; */
   user-select: none;
 }
 
@@ -73,13 +75,14 @@ article {
   left: 0;
   width: 100%;
   height: 100%;
+  will-change: transform, opacity, filter;
 }
 
 .media img.feature {
   object-fit: contain;
   filter: none;
   transform: none;
-  filter: drop-shadow(0 0 10em var(--accent-color));
+  filter: drop-shadow(0 0 10em var(--background-color));
   z-index: 1;
 }
 
@@ -140,14 +143,16 @@ article {
   height: 70%;
 }
 
-.post .message {
+.post .text {
   font-size: 1em;
   overflow-wrap: break-word;
   white-space: pre-wrap;
   padding-top: 0.25em;
+  word-break: keep-all;
+  line-break: strict;
 }
 
-.post .message .hashtag {
+.post .text .hashtag {
   color: var(--hashtag-color);
 }
 
@@ -169,16 +174,11 @@ article {
 }
 
 .letter {
-  display: inline-block;
+  /* display: inline-block; */
   line-height: 1em;
   transform-origin: 0 0;
-}
 
-.word {
-  display: inline;
-  word-break: keep-all;
-  line-height: 1em;
-  transform-origin: 0 0;
+  transition: opacity 1s;
 }
 
 /*  Revealer layer colors  */

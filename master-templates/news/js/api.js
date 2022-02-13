@@ -51,6 +51,18 @@ function resizeText({
   });
 }
 
+function splitText({ element }) {
+  const fxClass = 'letter';
+
+  [element].forEach((el) => {
+    el[0].innerHTML = el[0].textContent.replace(
+      /\S/g,
+      "<span class=" + fxClass + ">$&</span>"
+    );
+    // });
+  });
+}
+
 function isolateTag({ element, elements }) {
   (elements || [element]).forEach((el) => {
     let hashTag = $(el)
@@ -112,9 +124,6 @@ function xmlRequest(path) {
           "text/xml"
         )
       );
-    } else {
-      // We reached our target server, but it returned an error
-      console.error('oops')
     }
   };
 
@@ -172,3 +181,4 @@ function getArticles(basePath, articleNums) {
   });
   return dfd.promise();
 }
+

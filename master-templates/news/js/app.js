@@ -1,9 +1,9 @@
 $(function () {
   const $revealerSpeed = parseInt($(":root").css("--revealer-speed")),
-    animeDuration = 1000,
-    timerDuration = 5000,
+    animeDuration = 1500,
+    timerDuration = 10000,
     indexes = getRandomIndexes(10),
-    category = ["news", "celeb", "sports"][0],
+    category = ["news", "celeb", "sports"][2],
     dataURI = {
       local: "c:\\data\\" + category + "\\",
       server:
@@ -13,7 +13,7 @@ $(function () {
     };
 
   let feeds = [],
-    item = 0;
+    counter = 0;
 
   var regularImg = $(".media").css({ width: "56.25%" });
   // var fullScreenImg = $(".media").css({ width: "100%" });
@@ -36,98 +36,63 @@ $(function () {
       });
   }
 
-  function animateItem(index) {
+  function animateComponents($clone, index) {
     let article = document.getElementById(index),
-      content = article.querySelector(".message");
-
-    content.innerHTML = content.textContent.replace(
-      /\S/g,
-      "<span class='word'>$&</span>"
-    );
-
+      content = article.querySelector(".text");
     var animateIn = anime
       .timeline({
-        // easing: 'easeInOutQuad',
-        // easing: "easeInOutExpo",
-        easing: "cubicBezier(0.645, 0.045, 0.355, 1.000)",
         duration: animeDuration,
+        easing: "cubicBezier(0.645, 0.045, 0.355, 1.000)",
         autoplay: true,
         loop: false,
       })
       .add({
-        begin: function () {
-          revealer();
-        },
-      })
-      .add(
-        {
-          targets: article.querySelectorAll(".media .feature"),
-          delay: anime.stagger(100, { direction: "reverse" }),
-          opacity: [0, 1],
-          // scale: [0.5, 1],
-          // rotateX: [90, 0],
-          translateX: ["200%", "0%"],
-        },
-        0
-      )
-      .add(
-        {
-          targets: article.querySelectorAll(".word"),
-          delay: anime.stagger(20),
-          opacity: [0, 1],
-          translateX: ["200%", "0%"],
-          // endDelay: timerDuration - animeDuration * 2,
-        },
-        300
-      )
-      .add({
-        targets: article,
-        // begin: ()=> alert('test')
+        targets: article.querySelectorAll(".text *"),
+        delay: anime.stagger(30),
+        opacity: [0, 1],
       });
   }
 
-  function animateTemplate($container, $template, data) {
-    item++;
+  function cloneTemplate($container, $template, data) {
     const $clone = $template
-      .clone()
-      .attr("id", item)
-      .css("z-index", item)
-      .removeClass("hidden");
-
+    .clone()
+    .attr("id", counter)
+    .css("z-index", counter)
+    .removeClass("hidden");
+    
     $clone.find(".media img").attr("src", data.image.src);
-    $clone.find(".message").text(data.story);
+    $clone.find(".text").text(data.story);
     $container.append($clone);
-
-    let article = document.getElementById(item),
-      message = article.querySelectorAll(".message");
-    resizeText({ elements: message });
-    isolateTag({ element: message });
-
-    animateItem(item);
+    
+    let article = document.getElementById(counter),
+    articleText = article.querySelectorAll(".text");
+    
+    resizeText({ elements: articleText });
+    isolateTag({ element: articleText });
+    splitText({ element: articleText });
+    revealer()
+    // animateComponents($clone, counter);
 
     setTimeout(function () {
       $clone.remove();
-    }, timerDuration + $revealerSpeed);
+    }, timerDuration + animeDuration);
   }
 
   function iterateAnimations() {
     const $template = $("article").remove();
     const $container = $("main");
 
-    /*     $.each(indexes, function (i) {
-      // feeds.push(result.Items[i]);
-      console.log(indexes[i]);
-      animateTemplate($container, $template, feeds[indexes[i]]);
-    }); */
-    // console.log(current, feeds[current])
-    animateTemplate($container, $template, feeds[item]);
-    item++;
+    cloneTemplate($container, $template, feeds[counter]);
+    console.log(counter);
+    counter++;
 
-    setInterval(function () {
-      // console.log(item, feeds[item])
-      animateTemplate($container, $template, feeds[item]);
-      item = (item + 1) % feeds.length;
-    }, timerDuration);
+    let cycle = setInterval(addSlide, timerDuration);
+    function addSlide() {
+      cloneTemplate($container, $template, feeds[counter]);
+      console.log(counter);
+      counter = (counter + 1) % feeds.length;
+    }
+    // clearInterval(cycle);
   }
 
   function onTemplateError(result) {
@@ -138,6 +103,7 @@ $(function () {
     $.each(result.Items, function (i) {
       feeds.push(result.Items[i]);
     });
+    console.log(feeds);
     iterateAnimations();
   }
 
