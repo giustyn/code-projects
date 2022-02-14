@@ -29,8 +29,8 @@ function isOverflown({ clientHeight, scrollHeight }) {
 function resizeText({
   element,
   elements,
-  minSize = 1,
-  maxSize = 2.5,
+  minSize = 0.5,
+  maxSize = 3,
   step = 0.01,
   unit = "em",
 }) {

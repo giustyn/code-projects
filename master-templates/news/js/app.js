@@ -15,7 +15,7 @@ $(function () {
   let feeds = [],
     counter = 0;
 
-  var regularImg = $(".media").css({ width: "56.25%" });
+  // var regularImg = $(".media").css({ width: "56.25%" });
   // var fullScreenImg = $(".media").css({ width: "100%" });
 
   function revealer() {
@@ -36,46 +36,57 @@ $(function () {
       });
   }
 
-  function animateComponents($clone, index) {
-    let article = document.getElementById(index),
-      content = article.querySelector(".text");
-    var animateIn = anime
+  function animateTemplate($clone) {
+    console.log($clone[0]);
+
+    let article = $clone[0].querySelectorAll("article"),
+      media = $clone[0].querySelectorAll("img"),
+      content = $clone[0].querySelectorAll(".text *");
+
+    const animateIn = anime
       .timeline({
-        duration: animeDuration,
         easing: "cubicBezier(0.645, 0.045, 0.355, 1.000)",
+        duration: timerDuration,
         autoplay: true,
         loop: false,
       })
       .add({
-        targets: article.querySelectorAll(".text *"),
-        delay: anime.stagger(30),
+        targets: media,
+        duration: animeDuration,
+        delay: anime.stagger(500, { start: animeDuration / 2 }),
         opacity: [0, 1],
-      });
+        translateX: ["100%", "0%"],
+      }, '-=' + animeDuration/2)
+      .add({
+        targets: content,
+        duration: animeDuration,
+        delay: anime.stagger(20),
+        opacity: [0, 1],
+      }, '-=' + animeDuration)
+/* d */;
   }
 
   function cloneTemplate($container, $template, data) {
     const $clone = $template
-    .clone()
-    .attr("id", counter)
-    .css("z-index", counter)
-    .removeClass("hidden");
-    
-    $clone.find(".media img").attr("src", data.image.src);
-    $clone.find(".text").text(data.story);
-    $container.append($clone);
-    
-    let article = document.getElementById(counter),
-    articleText = article.querySelectorAll(".text");
-    
-    resizeText({ elements: articleText });
-    isolateTag({ element: articleText });
-    splitText({ element: articleText });
-    revealer()
-    // animateComponents($clone, counter);
+        .clone()
+        .attr("id", counter)
+        .css("z-index", counter)
+        .removeClass("hidden"),
+      clo = $clone[0].querySelectorAll(".text");
 
-    setTimeout(function () {
+    $clone.find(".media img").attr("src", data.image.src);
+    $clone.find(".story .text").text(data.story);
+    $container.prepend($clone);
+
+    resizeText({ elements: clo });
+    isolateTag({ element: clo });
+    splitText({ element: clo });
+
+    animateTemplate($clone);
+
+    /*     setTimeout(function () {
       $clone.remove();
-    }, timerDuration + animeDuration);
+    }, timerDuration + animeDuration); */
   }
 
   function iterateAnimations() {
@@ -103,12 +114,12 @@ $(function () {
     $.each(result.Items, function (i) {
       feeds.push(result.Items[i]);
     });
-    console.log(feeds);
     iterateAnimations();
   }
 
   function init() {
     getArticles(dataURI.server, indexes).done((response) => {
+      console.log(response);
       onTemplateSuccess(response);
     });
     // .fail((response) => {
