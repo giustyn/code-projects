@@ -174,17 +174,16 @@ article .highlight {
 }
 
 article .text {
-  counter-reset: item;
-
+  /* counter-reset: item; */
   font-size: 2.5em;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
 }
 
-article::before {
+/* article::before {
   content: counter(item, ) ") ";
   counter-increment: item;
-}
+} */
 
 footer {
   grid-area: footer;

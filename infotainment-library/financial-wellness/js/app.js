@@ -1,14 +1,13 @@
 $(function () {
   const userName = "Adrenaline Agency",
     userIcon = "./img/ADR_Logo_A_RGB.svg",
-    animeDuration = 750,
-    timerDuration = 10000,
-    revealerSpeed = parseInt($(":root").css("--revealer-speed"));
-
-  const dataURI = {
-    local: "c:\\data\\wellness\\content.json",
-    server: "./content.json",
-  };
+    animeDuration = 2000,
+    timerDuration = 5000,
+    revealerSpeed = parseInt($(":root").css("--revealer-speed")),
+    dataURI = {
+      local: "c:\\data\\wellness\\content.json",
+      server: "./content.json",
+    };
 
   let feeds = [],
     current = 0;
@@ -31,71 +30,96 @@ $(function () {
       });
   }
 
-  function animateContent(feed) {
-    let elements = document.querySelectorAll("feed"); // create a nodelist of elements
-    // let elements = document.querySelectorAll("article"); // create a nodelist of elements
-    console.log(elements);
+  function animateFeed($content) {
+    let article = document.querySelectorAll("article");
+    console.log($content[0]);
 
-    var animation = $(feed).each(function (i, el) {
-      // console.log(feed);
-      let start = anime
-        .timeline({
-          loop: true,
-          autoplay: true,
-          duration: 1000,
-          opacity: 0,
-          easing: "easeInOutQuad",
-          begin: () => {
-            console.warn("meep meep", i);
-          },
-        })
-        .add({
-          targets: elements,
-          delay: anime.stagger(2000),
-          endDelay: 5000,
-          opacity: [0, 1],
-        });
+    // $.each($content, (i, el) => {
+    // console.log(i, el, "neat");
+    let animation = anime.timeline();
+    animation.add({
+      targets: article,
+      easing: 'easeInOutExpo',
+      opacity: {
+        value: [0, 1],
+        duration: animeDuration,
+        /* delay: (el, i) => {
+          $(el).removeClass("hidden");
+          return timerDuration * (i + 1);
+        }, */
+      },
     });
+
+    /*     let start = anime
+      .timeline({
+        targets: article,
+        autoplay: true,
+        loop: false,
+        duration: animeDuration,
+        easing: "cubicBezier(0.645, 0.045, 0.355, 1.000)",
+        // begin: () => console.warn(el, i)
+      })
+      .add({
+        translateX: ["50%", "0%"],
+        // endDelay: timerDuration,
+        opacity: [0, 1],
+      }); */
+    // start.finished.then(alert('dang'))
+    // });
   }
 
-  function buildFeedContent() {
-    const feed = feeds[9];
-
-    var $article = $("article");
-    var $title = $(".title").html(feed.Title);
-    var $source = $("footer .source").html(feed.Disclaimer.A?.Source);
-    var $disclaimer = $("footer .disclaimer").html(feed.Disclaimer.A?.Text);
-
-    var $container = $(".container").attr({
-      duration: feed.Duration,
-      category: feed.Category,
+  function createFeed($container, $template, data) {
+    $container.attr({
+      category: data.Category,
+      duration: data.Duration,
     });
+    $container.find("header .title").html(data.Title);
+    $container.find("footer .source").html(data.Disclaimer.A?.Source);
+    $container.find("footer .disclaimer").html(data.Disclaimer.A?.Text);
 
-    var $video = $("<video />", {
-      id: "video",
-      class: "background",
-      poster: feed.Media.ImageUrl,
-    }).prop({
-      muted: true,
-      autoplay: false,
-      loop: true,
-    });
-    var $videoSrc = $("<source />", {
-      type: "video/mp4",
-      src: feed.Media.VideoUrl,
-    }).appendTo($video);
-    $video.prependTo($(".container"));
+    $container
+      .find("background")
+      .add("video")
+      .attr({
+        type: "video/mp4",
+        poster: data.Media.ImageUrl,
+        src: data.Media.VideoUrl,
+      })
+      .prop({
+        autoplay: true,
+        muted: true,
+        loop: true,
+      });
 
-    var $content = $(feed.Content).each(function (i, el) {
-      let $clone = $article.clone();
+    $(data.Content).each((i, el) => {
+      let $clone = $template.clone();
       $clone.attr({ id: i });
       $clone.find(".text").html(el.Text);
       $clone.find(".source").html(el.Source);
-      $article.parent().append($clone);
-      animateContent($clone[0]);
+      $template.parent().append($clone);
+      animateFeed($container[0].querySelectorAll('article'));
     });
+    $template.remove();
 
-    $article.remove();
+  }
+
+  function iterateAnimations() {
+    const $template = $("article");
+    const $container = $("main");
+    const $data = feeds[9];
+
+    createFeed($container, $template, $data);
+    current++;
+
+    const $timer = $container.attr("duration");
+
+    return;
+    setInterval(() => {
+      createFeed($container, $template, $data);
+      current = (current + 1) % feeds.length;
+    }, $timer);
+
+    $template.remove();
   }
 
   function onTemplateError(result) {
@@ -103,31 +127,29 @@ $(function () {
   }
 
   function onTemplateSuccess(result) {
-    $.each(result.Items, function (i) {
+    $.each(result.Items, (i) => {
       feeds.push(result.Items[i]);
     });
-    buildFeedContent();
+    iterateAnimations();
   }
 
-  function getJsonData(onSuccess, onError, data) {
+  function getJson(onSuccess, onError, data) {
     return $.ajax({
       method: "GET",
       url: data,
       dataType: "json",
-      success: function (result) {
-        // console.log(result)
+      success: (result) => {
         onSuccess(result);
       },
-      error: function (result) {
-        // console.error(result);
+      error: (result) => {
         onError(result);
       },
     });
   }
 
   function init() {
-    // getJsonData(onTemplateSuccess, onTemplateError, dataURI.local); // get local data, located at c:\data
-    getJsonData(onTemplateSuccess, onTemplateError, dataURI.server); // get server data, via screenfeed.com
+    // getJson(onTemplateSuccess, onTemplateError, dataURI.local);
+    getJson(onTemplateSuccess, onTemplateError, dataURI.server);
   }
   init();
 });
