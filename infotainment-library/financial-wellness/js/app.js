@@ -31,8 +31,8 @@ $(function () {
   }
 
   function animateFeed($content) {
-    let article = document.querySelectorAll("article");
-    console.log($content[0]);
+    let article = $($content).find('article');
+    console.log(article[0])
 
     // $.each($content, (i, el) => {
     // console.log(i, el, "neat");
@@ -97,10 +97,9 @@ $(function () {
       $clone.find(".text").html(el.Text);
       $clone.find(".source").html(el.Source);
       $template.parent().append($clone);
-      animateFeed($container[0].querySelectorAll('article'));
     });
     $template.remove();
-
+    animateFeed($container);
   }
 
   function iterateAnimations() {

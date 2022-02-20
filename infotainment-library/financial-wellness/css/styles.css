@@ -141,24 +141,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* --item-duration: 5s; */
 }
-
-/* section > * { 
-  animation: var(--item-duration) autoplay infinite linear;
-}
-
-section > *:nth-child(1) {animation-delay: calc(var(--item-duration) * 0)}
-section > *:nth-child(2) {animation-delay: calc(var(--item-duration) * 1)}
-section > *:nth-child(3) {animation-delay: calc(var(--item-duration) * 2)}
-section > *:nth-child(4) {animation-delay: calc(var(--item-duration) * 3)}
-section > *:nth-child(5) {animation-delay: calc(var(--item-duration) * 4)}
-
-@keyframes autoplay {
-  0% {opacity: 0.0}
-  50% {opacity: 1.0}
-  100% {opacity: 0.0}
-} */
 
 article {
   counter-reset: item;
