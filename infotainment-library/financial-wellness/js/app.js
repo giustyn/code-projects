@@ -1,9 +1,8 @@
 $(function () {
   const userName = "Adrenaline Agency",
     userIcon = "./img/ADR_Logo_A_RGB.svg",
-    animeDuration = 2000,
+    animeDuration = parseInt($(":root").css("--anime-speed")) || 500,
     timerDuration = 5000,
-    revealerSpeed = parseInt($(":root").css("--revealer-speed")),
     dataURI = {
       local: "c:\\data\\wellness\\content.json",
       server: "./content.json",
@@ -12,63 +11,7 @@ $(function () {
   let feeds = [],
     current = 0;
 
-  function revealer() {
-    const $transition = $(".revealer"),
-      mode = [
-        "revealer--left",
-        "revealer--right",
-        "revealer--top",
-        "revealer--bottom",
-      ],
-      shuffle = mode[(Math.random() * mode.length) | 0];
-    $transition
-      .addClass("revealer--animate")
-      .addClass(shuffle)
-      .delay(revealerSpeed * 1.5)
-      .queue(function () {
-        $(this).removeClass("revealer--animate").removeClass(shuffle).dequeue();
-      });
-  }
-
-  function animateFeed($content) {
-    let article = $($content).find('article');
-    console.log(article[0])
-
-    // $.each($content, (i, el) => {
-    // console.log(i, el, "neat");
-    let animation = anime.timeline();
-    animation.add({
-      targets: article,
-      easing: 'easeInOutExpo',
-      opacity: {
-        value: [0, 1],
-        duration: animeDuration,
-        /* delay: (el, i) => {
-          $(el).removeClass("hidden");
-          return timerDuration * (i + 1);
-        }, */
-      },
-    });
-
-    /*     let start = anime
-      .timeline({
-        targets: article,
-        autoplay: true,
-        loop: false,
-        duration: animeDuration,
-        easing: "cubicBezier(0.645, 0.045, 0.355, 1.000)",
-        // begin: () => console.warn(el, i)
-      })
-      .add({
-        translateX: ["50%", "0%"],
-        // endDelay: timerDuration,
-        opacity: [0, 1],
-      }); */
-    // start.finished.then(alert('dang'))
-    // });
-  }
-
-  function createFeed($container, $template, data) {
+  function setStage($container, $template, data) {
     $container.attr({
       category: data.Category,
       duration: data.Duration,
@@ -76,7 +19,6 @@ $(function () {
     $container.find("header .title").html(data.Title);
     $container.find("footer .source").html(data.Disclaimer.A?.Source);
     $container.find("footer .disclaimer").html(data.Disclaimer.A?.Text);
-
     $container
       .find("background")
       .add("video")
@@ -86,20 +28,34 @@ $(function () {
         src: data.Media.VideoUrl,
       })
       .prop({
-        autoplay: true,
+        autoplay: false,
         muted: true,
         loop: true,
       });
+  }
 
+  function setContent($template, data) {
+    const delayLoop = (fn, delay) => {
+      return (x, i) => {
+        setTimeout(() => {
+          fn(x);
+        }, i * delay);
+      };
+    };
+
+    let interval = timerDuration + animeDuration,
+      articles = [];
+      
     $(data.Content).each((i, el) => {
       let $clone = $template.clone();
       $clone.attr({ id: i });
       $clone.find(".text").html(el.Text);
       $clone.find(".source").html(el.Source);
       $template.parent().append($clone);
+      articles.push($clone);
     });
+    articles.forEach(delayLoop(animateContent, interval));
     $template.remove();
-    animateFeed($container);
   }
 
   function iterateAnimations() {
@@ -107,18 +63,49 @@ $(function () {
     const $container = $("main");
     const $data = feeds[9];
 
-    createFeed($container, $template, $data);
-    current++;
+    setStage($container, $template, $data);
+    setContent($template, $data);
 
-    const $timer = $container.attr("duration");
+    current++;
 
     return;
     setInterval(() => {
-      createFeed($container, $template, $data);
+      setStage($container, $template, $data);
       current = (current + 1) % feeds.length;
     }, $timer);
 
     $template.remove();
+  }
+
+  function animateContent($content) {
+    let article = $content[0],
+      animation = anime
+        .timeline({
+          targets: article,
+          autoplay: true,
+          loop: false,
+          duration: animeDuration,
+          easing: "cubicBezier(0.645, 0.045, 0.355, 1.000)",
+        })
+        .add(
+          {
+            targets: article.querySelectorAll(".text"),
+            translateX: ["10%", "0"],
+            endDelay: timerDuration - animeDuration,
+            begin: () => $($content).addClass("active"),
+          },
+          "+=3000"
+        )
+        .add(
+          {
+            targets: article.querySelectorAll(".text"),
+            translateY: ["0%", "10"],
+            opacity: [1, 0],
+            complete: () => $($content).removeClass("active"),
+          },
+          "+=500"
+        );
+    console.log(article);
   }
 
   function onTemplateError(result) {

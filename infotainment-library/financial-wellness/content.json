@@ -24,7 +24,7 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "As of 2019, there are <span class=\"highlight\">30.7 million</span> small businessess in the U.S. and <span class=\"highlight\">99.7%</span> of businesses are considered small businessess",
+          "Text": "As of 2019, there are <span class=\"keyword\">30.7 million</span> small businessess in the U.S. and <span class=\"keyword\">99.7%</span> of businesses are considered small businessess",
           "Source": "Source: Fundera"
         }
       ],
@@ -42,22 +42,22 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "<span class=\"highlight\">Knocks on your door</span> for business or offers you discounts for <span class=\"highlight\">finding other customers</span>",
+          "Text": "<span class=\"keyword\">Knocks on your door</span> for business or offers you discounts for <span class=\"keyword\">finding other customers</span>",
           "Source": ""
         },
         {
           "Id": 1,
-          "Text": "Just happens to have <span class=\"highlight\">materials left-over</span> from a previous job",
+          "Text": "Just happens to have <span class=\"keyword\">materials left-over</span> from a previous job",
           "Source": ""
         },
         {
           "Id": 2,
-          "Text": "Pressures you for an <span class=\"highlight\">immediate descision</span>",
+          "Text": "Pressures you for an <span class=\"keyword\">immediate descision</span>",
           "Source": ""
         },
         {
           "Id": 3,
-          "Text": "Only <span class=\"highlight\">accepts cash</span>, asks you to <span class=\"highlight\">pay up-front</span>, or suggests you <span class=\"highlight\">borrow money</span> from a lender the contractor knows",
+          "Text": "Only <span class=\"keyword\">accepts cash</span>, asks you to <span class=\"keyword\">pay up-front</span>, or suggests you <span class=\"keyword\">borrow money</span> from a lender the contractor knows",
           "Source": ""
         }
       ],
@@ -75,7 +75,7 @@
       "Content": [
         {
           "Fact": "",
-          "Question": "What would you guess is the <span class=\"highlight\">average balance</span> of <span class=\"highlight\">student loan debt</span>?",
+          "Question": "What would you guess is the <span class=\"keyword\">average balance</span> of <span class=\"keyword\">student loan debt</span>?",
           "A": "1) $53,171",
           "B": "2) $12,456",
           "C": "3) $34,144",
@@ -98,7 +98,7 @@
       "Content": [
         {
           "Fact": "",
-          "Question": "When in <span class=\"highlight\">Europe</span>, what is the recommended <span class=\"highlight\">percentage to tip</span>?",
+          "Question": "When in <span class=\"keyword\">Europe</span>, what is the recommended <span class=\"keyword\">percentage to tip</span>?",
           "A": "15% to 20%",
           "B": "5% to 10%",
           "C": "10% to 15%",
@@ -158,17 +158,17 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "You can <span class=\"highlight\">protect</span> the <span class=\"highlight\">financial security</span> of your <span class=\"highlight\">surviving spouse</span>.",
+          "Text": "You can <span class=\"keyword\">protect</span> the <span class=\"keyword\">financial security</span> of your <span class=\"keyword\">surviving spouse</span>.",
           "Source": "Source: Consumer Financial Protection Bureau"
         },
         {
           "Id": 1,
-          "Text": "Your decision about when to claim <span class=\"highlight\">Social Security</span> could affect the <span class=\"highlight\">benefits your spouse</span> will receive after you die.",
+          "Text": "Your decision about when to claim <span class=\"keyword\">Social Security</span> could affect the <span class=\"keyword\">benefits your spouse</span> will receive after you die.",
           "Source": ""
         },
         {
           "Id": 2,
-          "Text": "<span class=\"highlight\">Surviving spouses</span> can choose to keep either <span class=\"highlight\">their own benefit</span> or <span class=\"highlight\">their spouse's benefit</span>, whichever is higher.",
+          "Text": "<span class=\"keyword\">Surviving spouses</span> can choose to keep either <span class=\"keyword\">their own benefit</span> or <span class=\"keyword\">their spouse's benefit</span>, whichever is higher.",
           "Source": ""
         }
       ],
@@ -195,7 +195,7 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "<span class=\"highlight\">33%</span> of American shop online at least <span class=\"highlight\">once per week</span>. <span class=\"highlight\">69%</span>, shop online at least <span class=\"highlight\">monthly</span>.",
+          "Text": "<span class=\"keyword\">33%</span> of American shop online at least <span class=\"keyword\">once per week</span>. <span class=\"keyword\">69%</span>, shop online at least <span class=\"keyword\">monthly</span>.",
           "Source": "Source: Mintel"
         }
       ],
@@ -213,17 +213,17 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "When shopping for a home, what's the difference between being <span class=\"highlight\">pre-qualified</span> vs. <span class=\"highlight\">pre-approved</span> for a home loan?",
+          "Text": "When shopping for a home, what's the difference between being <span class=\"keyword\">pre-qualified</span> vs. <span class=\"keyword\">pre-approved</span> for a home loan?",
           "Source": "Source: Investopedia"
         },
         {
           "Id": 1,
-          "Text": "<span class=\"highlight\">Prequalification</span> is based on <span class=\"highlight\">data you submit</span> to a lender, which will provide a <span class=\"highlight\">ballpark estimate</span> of how much you can borrow. <span class=\"highlight\">Preapproval</span> is based on <span class=\"highlight\">verified consumer data</span>.",
+          "Text": "<span class=\"keyword\">Prequalification</span> is based on <span class=\"keyword\">data you submit</span> to a lender, which will provide a <span class=\"keyword\">ballpark estimate</span> of how much you can borrow. <span class=\"keyword\">Preapproval</span> is based on <span class=\"keyword\">verified consumer data</span>.",
           "Source": ""
         },
         {
           "Id": 2,
-          "Text": "<span class=\"highlight\">Getting pre-approved</span> for a home loan enables you to <span class=\"highlight\">move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class=\"highlight\">your offer is serious</span>.",
+          "Text": "<span class=\"keyword\">Getting pre-approved</span> for a home loan enables you to <span class=\"keyword\">move quickly</span> in a competitive market when you find the perfect place, and it lets the seller know that <span class=\"keyword\">your offer is serious</span>.",
           "Source": ""
         }
       ],
@@ -241,8 +241,8 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "In 1862, President Abraham Lincoln <span class=\"highlight\">signed into law</span> the <span class=\"highlight\">very first income</span> tax to help pay for the Civil War.",
-          "Question": "How much do you think the <span class=\"highlight\">income tax rate</span> was for the  <span class=\"highlight\">top earners</span>?",
+          "Text": "In 1862, President Abraham Lincoln <span class=\"keyword\">signed into law</span> the <span class=\"keyword\">very first income</span> tax to help pay for the Civil War.",
+          "Question": "How much do you think the <span class=\"keyword\">income tax rate</span> was for the  <span class=\"keyword\">top earners</span>?",
           "A": "1) 7%",
           "B": "2) 5%",
           "C": "3) 15%",
@@ -265,27 +265,27 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "What makes a <span class=\"highlight\">ROTH IRA different</span> than a <span class=\"highlight\">traditional IRA</span>?",
+          "Text": "What makes a <span class=\"keyword\">ROTH IRA different</span> than a <span class=\"keyword\">traditional IRA</span>?",
           "Source": ""
         },
         {
           "Id": 1,
-          "Text": "1) You <span class=\"highlight\">cannot deduct contributions</span> to a <span class=\"highlight\">Roth IRA</span>",
+          "Text": "1) You <span class=\"keyword\">cannot deduct contributions</span> to a <span class=\"keyword\">Roth IRA</span>",
           "Source": ""
         },
         {
           "Id": 2,
-          "Text": "2) If you satisfy the requirements, <span class=\"highlight\">qualified distributions</span> are <span class=\"highlight\">tax-free</span>.",
+          "Text": "2) If you satisfy the requirements, <span class=\"keyword\">qualified distributions</span> are <span class=\"keyword\">tax-free</span>.",
           "Source": ""
         },
         {
           "Id": 3,
-          "Text": "3) You can make <span class=\"highlight\">contributions</span> to your <span class=\"highlight\">Roth IRA after</span> you reach <span class=\"highlight\">age 70½</span>.",
+          "Text": "3) You can make <span class=\"keyword\">contributions</span> to your <span class=\"keyword\">Roth IRA after</span> you reach <span class=\"keyword\">age 70½</span>.",
           "Source": ""
         },
         {
           "Id": 4,
-          "Text": "4) You can <span class=\"highlight\">leave amounts</span> in your Roth IRA <span class=\"highlight\">as long as you live</span>.",
+          "Text": "4) You can <span class=\"keyword\">leave amounts</span> in your Roth IRA <span class=\"keyword\">as long as you live</span>.",
           "Source": ""
         }
       ],
@@ -309,7 +309,7 @@
         {
           "Id": 0,
           "Text": "",
-          "Question": "Which of the following taxpayer <span class=\"highlight\">outreach methods</span> is an indication of a <span class=\"highlight\">legitimate inquiry</span> by the IRS?",
+          "Question": "Which of the following taxpayer <span class=\"keyword\">outreach methods</span> is an indication of a <span class=\"keyword\">legitimate inquiry</span> by the IRS?",
           "A": "1) Phone",
           "B": "2) Email",
           "C": "3) Mail",
@@ -340,22 +340,22 @@
       "Content": [
         {
           "Id": 0,
-          "Text": "Account for all your expenses on a spreadsheet and <span class=\"highlight\">track payments</span>, <span class=\"highlight\">interest</span>, and <span class=\"highlight\">balances</span>.",
+          "Text": "Account for all your expenses on a spreadsheet and <span class=\"keyword\">track payments</span>, <span class=\"keyword\">interest</span>, and <span class=\"keyword\">balances</span>.",
           "Source": ""
         },
         {
           "Id": 1,
-          "Text": "Consider <span class=\"highlight\">reducing</span> your <span class=\"highlight\">credit cards</span> to one.",
+          "Text": "Consider <span class=\"keyword\">reducing</span> your <span class=\"keyword\">credit cards</span> to one.",
           "Source": ""
         },
         {
           "Id": 2,
-          "Text": "Create a <span class=\"highlight\">budget</span>.",
+          "Text": "Create a <span class=\"keyword\">budget</span>.",
           "Source": ""
         },
         {
           "Id": 3,
-          "Text": "Commit to a <span class=\"highlight\">smart app tool</span> to <span class=\"highlight\">track your spending</span> and <span class=\"highlight\">budget adherence</span>.",
+          "Text": "Commit to a <span class=\"keyword\">smart app tool</span> to <span class=\"keyword\">track your spending</span> and <span class=\"keyword\">budget adherence</span>.",
           "Source": ""
         }
       ],
@@ -379,7 +379,7 @@
         {
           "Id": 0,
           "Text": "",
-          "Question": "In today's dollars, how much do you think a <span class=\"highlight\">1965 Volkswagen Beetle would cost at the dealership</span>?",
+          "Question": "In today's dollars, how much do you think a <span class=\"keyword\">1965 Volkswagen Beetle would cost at the dealership</span>?",
           "A": "1) $5,988",
           "B": "2) $1,997",
           "C": "3) $13,187",
