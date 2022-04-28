@@ -1,7 +1,7 @@
 (function () {
   const $bumper = $("#bumper"),
     // dataURI = "c:\\data\\",
-    dataURI = "../_Feeds/data/",
+    dataURI = "https://retail.adrenalineamp.com/rss/Hnews/",
     folderName = ["news"][0],
     timerDuration = 10000;
 
@@ -78,7 +78,7 @@
     const eventItem = event.target;
     const current = Math.round(eventItem.currentTime * 1000);
     const total = Math.round(eventItem.duration * 1000);
-    if ((total - current) < 500) {
+    if ((total - current) < 750) {
       eventItem.removeEventListener("timeupdate", videoTimeUpdate);
       loadedStories[0].classList.add('visible');
       setInterval(showNextStory, timerDuration);
