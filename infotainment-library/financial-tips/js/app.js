@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
 
     let duration = 15000,
         data = [{
