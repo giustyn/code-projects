@@ -1,0 +1,231 @@
+﻿:root {
+  --adr-medium-red: #ff290b;
+  --adr-dark-red: #8a000b;
+  --adr-cyan: #7ae2ec;
+  --adr-dark-cyan: #00b9c8;
+  --adr-black: #000000;
+  --adr-grey: #a9a8a9;
+  --adr-dark-grey: #4a4a4a;
+  --adr-white: #ffffff;
+}
+
+/*
+*:not(input) {
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+    cursor: default;
+}
+*/
+
+html {
+  /* background-color: var(--adr-black); */
+  /* background-image: url(../img/adr_logomark.png), linear-gradient(#4ce4ec, #f9280f); */
+  /* background-image: url(../img/adr_logomark.svg), linear-gradient(#4ce4ec, #f9280f); */
+  /* background-image-image: url(../img/ADR-Arrrow_Line_Pattern_K.png); */
+  /* background-image: url(../img/Services_Hero_0001_Technology_qp.2e16d0ba.fill-3840x2100_G7wo7s3.jpg); */
+  /* background-image: url(../img/ADR_Pattern_Fractal.png); */
+  background-image: url(../img/adr-bg-bokeh.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background: none !important;
+  font-family: "akzidenz-grotesk", Helvetica, Arial, sans-serif !important;
+  /* font-family: "Work Sans", "Rift", sans-serif !important; */
+}
+
+main {
+  background: transparent !important;
+  /* min-height: calc(100vh - 37px); */
+}
+
+/* Login page */
+
+.form-signin {
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  margin: 20vh auto;
+  padding: 3em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  backdrop-filter: contrast(80%) brightness(110%) saturate(120%) blur(5px);
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fade 1.5s ease forwards;
+  transform: translateY(5%);
+  animation-delay: 200ms;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.form-signin button[type="submit"].btn {
+  background-color: var(--adr-medium-red);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* font-family: "psfournier-std"; */
+  font-size: 1.85em;
+  font-weight: 400;
+  letter-spacing: .008125rem;
+  color: #fff;
+  min-width: 50%;
+}
+
+.form-signin button[type="submit"]:hover {
+  background-color: var(--adr-black) !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.form-signin button[type="submit"]:active {
+  background-color: var(--adr-dark-red) !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.form-signin .form-control {
+  color: var(--adr-black);
+  background-color: var(--adr-white);
+  border: 1px solid var(--adr-grey);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* .dropdown,
+.dropdown-toggle {
+  min-width: 100px !important;
+  max-width: 200px !important;
+} */
+
+/* .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 0.81rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+} */
+
+.modal-header {
+  font-weight: 200;
+}
+
+.modal-header-form input {
+  font-weight: 200;
+}
+
+/* .dropdown-scroll {
+  max-height: 216px;
+  overflow-x: hidden;
+  transform: none !important;
+  top: 36px !important;
+} */
+
+.font-weight-bold {
+  font-weight: 600 !important;
+}
+
+.invalid-feedback {
+  padding-top: 2px;
+  color: var(--adr-dark-red);
+  font-weight: 600;
+}
+
+.adr {
+  content: url("../img/Adrenaline_Logo.svg");
+  /* content: url("../img/Logo_text_K.png"); */
+  /* content: url("../img/Logo_text_Red_RGB.png"); */
+  /* content: url("../img/adr_logomark.svg"); */
+  /* content: url("../img/ADR_Logo_Vertical_RGB.svg"); */
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  height: 2em;
+  transform: translateX(-50%);
+}
+
+.vm {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  /* font-size: 0.85em; */
+}
+
+/* Schedule */
+
+.schedule-div > div {
+  /* display: flex; */
+  /* background: #fbfcfe; */
+  height: 200px;
+  /* border: 1px solid #b1c2c8; */
+  /* border-right: none; */
+  /* margin: 0 0 10px 0; */
+  /* position: relative; */
+}
+
+.schedule,
+.advertising,
+.ticker {
+  height: 18px;
+}
+
+.schedule-div .day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+}
+
+#scheduling-win {
+  min-width: 500px !important;
+}
+
+.dropdown-menu.dropdown-scroll.show {
+  min-width: 200px;
+  max-width: auto !important;
+}

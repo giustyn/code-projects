@@ -19,9 +19,9 @@
     --clr-revealer-layer-2: var(--clr-secondary);
     --clr-revealer-layer-3: var(--clr-background);
     --countdown-timer: 13000ms;
-    --revealer-speed: 1500ms;
+    --revealer-speed: 1200ms;
     --revealer-opacity: 0.9;
-    --revealer-enabled: 1;
+    --revealer-enabled: 0;
 }
 
 body {
