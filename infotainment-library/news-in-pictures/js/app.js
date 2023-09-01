@@ -16,7 +16,7 @@ $(function () {
         $bumper = $("#bumper").attr("src", "./video/News_Intro.mp4" + videoIntro[folderName]),
         dataURI = [
             local = "c:\\data\\",
-            server = "http://kitchen.screenfeed.com/feed/m9z8nmyas3pd4qkrnj7te7ye0.json"
+            server = "http://kitchen.screenfeed.com/feed/aTUXjUPcmUehRVEnTVvX6Q.json"
         ];
 
 
@@ -44,7 +44,7 @@ $(function () {
 
     function animateClone(element) {
         // Begin animation in-out
-        let speed = 1500,
+        let speed = 500,
             offset = (speed / 2),
             animate = anime.timeline({
                 easing: 'easeInOutSine',
@@ -53,14 +53,14 @@ $(function () {
             })
             .add({
                 targets: '.photo',
-                scale: [1.025, 1],
-                duration: speed * 4
+                opacity: [0, 1],
+                duration: speed * 2
             })
             .add({
                 targets: '.story, .title, .credit',
                 opacity: [0, 1],
                 translateY: ['100', '0'],
-                delay: anime.stagger(300),
+                // delay: anime.stagger(300),
             }, '-=' + (speed * 4))
 
         animate.play();
@@ -91,11 +91,11 @@ $(function () {
         $clone.find('.credit').text(credit);
         $container.append($clone);
 
-        // animateClone();
+        animateClone();
 
         setTimeout(function () {
-            $clone.remove();
-        }, timerDuration + 1000);
+            // $clone.remove();
+        }, timerDuration);
 
     }
 
@@ -111,7 +111,7 @@ $(function () {
             current = (current + 1) % feeds.length;
             console.log(current)
         }, timerDuration);
-        $template.remove();
+        // $template.remove();
     }
 
     function getData(dataURI) {
@@ -119,14 +119,14 @@ $(function () {
             .done(function (response) {
                 $.each(response.Items, function (i) {
                     feeds.push(response.Items[i]);
-                    console.log(feeds)
+                    // console.log(feeds)
                 })
                 // iterateAnimations();
             })
             .always(function (response) {
                 // $bumper.remove();
                 $bumper[0].addEventListener("timeupdate", videoTimeUpdate, response);
-                console.log("dataURI: " + dataURI[1]);
+                console.log("dataURI: " + dataURI);
             });
     }
 

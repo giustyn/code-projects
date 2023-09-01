@@ -1,6 +1,6 @@
 $(function () {
   const $revealerSpeed = parseInt($(":root").css("--revealer-speed")),
-    animeDuration = 1500,
+    animeDuration = 1000,
     timerDuration = 10000,
     indexes = getRandomIndexes(10),
     category = ["news", "celeb", "sports"][2],
@@ -53,16 +53,16 @@ $(function () {
       .add({
         targets: media,
         duration: animeDuration,
-        delay: anime.stagger(500, { start: animeDuration / 2 }),
-        opacity: [0, 1],
-        translateX: ["100%", "0%"],
-      }, '-=' + animeDuration/2)
+        delay: anime.stagger(100, { start: animeDuration / 2 }),
+        // opacity: [0, 1],
+        // translateX: ["100%", "0%"],
+      })
       .add({
         targets: content,
         duration: animeDuration,
-        delay: anime.stagger(20),
+        delay: anime.stagger(10),
         opacity: [0, 1],
-      }, '-=' + animeDuration)
+      })
 /* d */;
   }
 
