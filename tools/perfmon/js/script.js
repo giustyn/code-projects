@@ -12,7 +12,9 @@ function timer() {
 }
 
 function digitalClock() {
-  var timeHTML = document.getElementById("timer");
+  var timeHTML = document.getElementById("clock");
+  var localeHTML = document.getElementById("locale");
+  var clockHTML = document.getElementById("timezone");
 
   var d = new Date();
   var year = d.getFullYear();
@@ -26,7 +28,9 @@ function digitalClock() {
   var seconds = d.getSeconds();
   seconds = addZero(seconds);
 
-  timeHTML.innerHTML = hours + ":" + minutes + ":" + seconds;
+  // timeHTML.innerHTML = hours + ":" + minutes + ":" + seconds;
+  clockHTML.innerHTML = d;
+  localeHTML.innerHTML = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   function addZero(i) {
     if (i < 10) {
@@ -91,9 +95,10 @@ function diag() {
   document.getElementById("agent").innerHTML = "User-agent:<br>" + agent;
   const memory = navigator.deviceMemory;
   // let ram = `This device has at least ${memory}GB of RAM`;
-  document.getElementById("ram").innerHTML = getRAM();;
+  // document.getElementById("ram").innerHTML = getRAM();;
   // document.getElementById("ram").innerHTML = perfRAM();
 
+  timer();
   // console.log(toggleMute("video"))
   // alert(JSON.stringify(localStorage))
   // localStorage.clear();

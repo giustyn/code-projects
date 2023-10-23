@@ -1,0 +1,61 @@
+{
+  "Status": {
+    "Code": 200,
+    "Message": "defaultMedia",
+    "Type": "defaultTemplate"
+  },
+  "Scenes": [
+    {
+      "SlideId": "0",
+      "Name": "Scene 1",
+      "Content": {
+        "Text1": "Hello",
+        "Text2": "",
+        "Text3": ""
+      },
+      "Media": {
+        "ImgSrc": "../img/pexels-max-rahubovskiy-7031607.jpg",
+        "VideoSrc": "../video/pexels_videos_2286300 (1080p).mp4"
+      }
+    },
+    {
+      "SlideId": "1",
+      "Name": "Scene 2",
+      "Content": {
+        "Text1": "Hello",
+        "Text2": "Extended! Low HELOC Intro Rate of 4.99% APR",
+        "Text3": ""
+      },
+      "Media": {
+        "ImgSrc": "../img/pexels-max-rahubovskiy-7031607.jpg",
+        "VideoSrc": ""
+      }
+    },
+    {
+      "SlideId": "2",
+      "Name": "Scene 3",
+      "Content": {
+        "Text1": "You can get a low (HELOC) intro rate for six months.* After the introductory period, your rates will range from 8.74% to 11.59% APR based on your credit and property type. Offer expires 10/31/2023.",
+        "Text2": "",
+        "Text3": ""
+      },
+      "Media": {
+        "ImgSrc": "../img/pexels-cottonbro-studio-4554395.jpg",
+        "VideoSrc": ""
+      }
+    },
+    {
+      "SlideId": "3",
+      "Name": "Scene 4",
+      "Content": {
+        "Text1": "Talk to staff here at the",
+        "Text2": "branch to learn more",
+        "Text3": "*Financing is subject to BECU membership, credit approval, and other underwriting criteria, not every applicant will qualify. BECU must be able to perfect a first or second mortgage lien on your one-to-four family residence. Loan programs, terms and conditions are subject to change without notice. Boeing Employees' Credit Union NMLS ID 490518. | Federally insured by NCUA."
+      },
+      "Media": {
+        "ImgSrc": "../img/pexels-david-mcbee-388830.jpg",
+        "VideoSrc": ""
+      }
+    }
+  ]
+}

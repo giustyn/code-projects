@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;500;600&display=swap");
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --safe-zone: 3% 5%;
+}
+html,
+body {
+  min-height: 100%;
+  overflow: hidden;
+  /* user-select: none; */
+  /* cursor: none; */
+}
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  font-family: "Urbanist";
+  font-size: calc(1vw * 1vh);
+}
+.hidden {
+  display: none;
+}
+.slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+  opacity: 0;
+  transition: opacity calc(var(--animation-duration));
+  transition-delay: var(--animation-duration);
+  z-index: 0;
+}
+.slide.current {
+  opacity: 1;
+  transition: opacity calc(var(--animation-duration));
+  z-index: 1;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 0%, rgba(20, 20, 20, 0.98));
+}
+video.background {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(60%);
+}
+img.background {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  filter: brightness(80%);
+}
+
+/* #scene-1.slide.current .welcome {
+  transition: all calc(var(--animation-duration));
+  transform: translateX(0%);
+}
+#scene-1.slide .welcome {
+  transform: translateX(100%);
+} */
+
+.slide .welcome {
+  --size: 6vw;
+  position: absolute;
+  top: 52.25%;
+  right: var(--size);
+  min-height: 15%;
+  font-size: var(--size);
+  line-height: 1;
+  overflow: hidden;
+  text-align: right;
+}
+.slide .welcome .greeting {
+  font-weight: 600;
+}
+.slide .welcome .location {
+  font-weight: 300;
+  color: #efdf97;
+}
+
+.slide .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: var(--safe-zone);
+}
+.slide .content .offer {
+  font-size: 8vw;
+  font-weight: 400;
+  line-height: 0.9;
+  text-align: justify;
+  /* text-align-last: justify; */
+}
+.slide .content .details {
+  font-size: 3vw;
+  font-weight: 200;
+  text-align: justify;
+  /* text-align-last: justify; */
+  margin-top: 2vw;
+}
+
+.slide .cta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.slide .cta span {
+  font-size: 4vw;
+  font-weight: 200;
+}
+.slide .cta .location {
+  font-size: 7vw;
+  font-weight: 300;
+  margin-top: -1vw;
+}
+.slide .disclaimer {
+  display: grid;
+  align-items: flex-end;
+  grid-template-areas: "logo disclaimer";
+  grid-template-columns: 0.2fr 1.8fr;
+  grid-template-rows: 1fr;
+  gap: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--safe-zone);
+}
+.slide .disclaimer img.logo {
+  grid-area: logo;
+  width: 100%;
+  height: auto;
+  padding: 0.5vw;
+}
+.slide .disclaimer span {
+  grid-area: disclaimer;
+  font-size: 1.8vw;
+  font-weight: 200;
+  text-align: justify;
+  /* text-align-last: justify; */
+}
+
+#scene-1 img.background {
+  content: url(../img/pexels-max-rahubovskiy-7031607.jpg);
+}
+#scene-2 img.background {
+  content: url(../img/pexels-cottonbro-studio-4569330.jpg);
+}
+#scene-3 img.background {
+  content: url(../img/pexels-cottonbro-studio-4554395.jpg);
+}
+#scene-4 img.background {
+  content: url(../img/pexels-max-rahubovskiy-7031607.jpg);
+}
+
+#error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.5);
+  color: #fff;
+  z-index: 1000;
+  font-size: 2em;
+  padding: 2em;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
